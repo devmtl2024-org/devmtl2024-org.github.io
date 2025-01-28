@@ -13,6 +13,7 @@ function About() {
 
   return (
     <section className="max-w-4xl mx-auto px-4 py-12">
+      <h3 className="text-3xl font-semibold text-black mb-10 ">About</h3>
       {/* Numbers Section */}
       <div className="grid grid-cols-2 gap-8 mb-12">
         {/* 100 Attendees */}
