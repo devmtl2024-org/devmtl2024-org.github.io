@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+import { navLinks } from "@/constants/navlinks";
+
 import Logo from "../../assets/logo.svg?react";
 
 function Navbar() {
@@ -24,21 +26,11 @@ function Navbar() {
     };
   }, []);
 
-  // Liste des liens
-  const navLinks = [
-    { name: "HOME", href: "/" },
-    { name: "SPEAKERS", href: "/speakers" },
-    { name: "SCHEDULE", href: "/schedule" },
-    { name: "TEAM", href: "/team" },
-    { name: "SPONSORS", href: "/sponsors" },
-    { name: "BUY TICKET", href: "/buy-ticket" },
-  ];
-
   return (
     <div className="app">
       <nav
         className={`fixed w-full z-50 transition-colors duration-100 ${
-          isScrolled ? "bg-primary text-white shadow-md" : "bg-transparent"
+          isScrolled ? "bg-white text-primary shadow-md" : "bg-transparent text-white"
         }`}
       >
         <div className="max-w-7xl mx-auto">
@@ -52,8 +44,8 @@ function Navbar() {
                 }}
               >
                 <Logo
-                  fill={isScrolled ? "white" : "#01055E"}
-                  stroke={isScrolled ? "white" : "#01055E"}
+                  fill={!isScrolled ? "white" : "#01055E"}
+                  stroke={!isScrolled ? "white" : "#01055E"}
                   className="h-full w-full object-contain"
                 />
               </div>
