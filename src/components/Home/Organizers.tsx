@@ -1,0 +1,78 @@
+import { Organizer } from "@/type/organizers";
+import { loadOrganizers } from "@/utils/loadOrganizers";
+import { useEffect, useState } from "react";
+
+function Organizers() {
+  const [organizers, setOrganizers] = useState<Organizer[]>([]);
+
+  useEffect(() => {
+    loadOrganizers().then((organizers) => {
+      setOrganizers(organizers);
+    });
+  }, []);
+
+
+  console.log(organizers);
+  return (
+    <section className="max-w-4xl mx-auto px-4 py-12">
+      <h3 className="text-3xl font-semibold text-black mb-10 ">Organizers</h3>
+      
+
+      <div className="flex flex-wrap gap-8 justify-center">
+        {organizers.map((organizer, index) => (
+          <div
+          key={index}
+          className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 lg:w-1/5"
+        >
+            <img
+              src={organizer.image}
+              alt={organizer.name}
+              className="w-32 h-32 rounded-full object-cover mb-4 mx-auto"
+            />
+          <p className="text-lg font-medium text-black text-center">
+            {organizer.name}
+          </p>
+
+          {/* Social Links */}
+          <div className="flex gap-4 mt-4">
+            {organizer.github && (
+              <a
+                href={`https://github.com/${organizer.github}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:text-gray-300"
+              >
+                <i className="fab fa-github text-2xl"></i>
+              </a>
+            )}
+
+            {organizer.linkedin && (
+              <a
+                href={organizer.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:text-gray-300"
+              >
+                <i className="fab fa-linkedin text-2xl"></i>
+              </a>
+            )}
+
+            {organizer.website && (
+              <a
+                href={organizer.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:text-gray-300"
+              >
+                <i className="fas fa-globe text-2xl"></i>
+              </a>
+            )}
+          </div>
+        </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default Organizers;
