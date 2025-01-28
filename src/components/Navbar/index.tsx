@@ -24,6 +24,16 @@ function Navbar() {
     };
   }, []);
 
+  // Liste des liens
+  const navLinks = [
+    { name: "HOME", href: "/" },
+    { name: "SPEAKERS", href: "/speakers" },
+    { name: "SCHEDULE", href: "/schedule" },
+    { name: "TEAM", href: "/team" },
+    { name: "SPONSORS", href: "/sponsors" },
+    { name: "BUY TICKET", href: "/buy-ticket" },
+  ];
+
   return (
     <div className="app">
       <nav
@@ -37,26 +47,32 @@ function Navbar() {
             <div className="flex items-center gap-16 my-6 w-full justify-between">
               {/* Logo */}
               <div
-                style={
-                  {
-                    width: "200px"
-                  } 
-                }
-              ><Logo
-              fill={isScrolled ? "white" : "#01055E"}
-              stroke={isScrolled ? "white" : "#01055E"}
-              className="h-full w-full object-contain"
-            />
+                style={{
+                  width: "200px",
+                }}
+              >
+                <Logo
+                  fill={isScrolled ? "white" : "#01055E"}
+                  stroke={isScrolled ? "white" : "#01055E"}
+                  className="h-full w-full object-contain"
+                />
               </div>
 
               {/* Primary */}
-              <div className="hidden lg:flex gap-8">
-                <a
-                  href="#"
-                  className="text-lg font-medium hover:text-gray-300"
-                >
-                  Home
-                </a>
+              <div className="hidden lg:flex gap-8 h-(100%)">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`text-lg font-medium relative my-auto`}
+                  >
+                    {link.name}
+                    {/* Ajouter une bordure sous chaque lien */}
+                    <span
+                      className={`absolute bottom-0 left-0 w-full h-[2px] bg-transparent transition-all duration-200`}
+                    ></span>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -88,12 +104,19 @@ function Navbar() {
         >
           <div className="px-8 py-4">
             <div className="flex flex-col gap-8 font-bold tracking-wider">
-              <a
-                href="#"
-                className="text-lg font-medium text-gray-700 hover:text-gray-900"
-              >
-                Home
-              </a>
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-lg font-medium text-gray-700 hover:text-gray-900 hover:underline ${
+                    isScrolled
+                      ? "hover:underline-white"
+                      : "hover:underline-primary"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
           </div>
         </div>
