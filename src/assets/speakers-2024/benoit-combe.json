@@ -1,4 +1,7 @@
 {
     "name": "Benoit Combe",
-    "image": "/speakers-2024/benoit-combe.png"
+    "image": "/speakers-2024/benoit-combe.png",
+    "time": "2024-11-27T10:00:00",
+    "track": 1,
+    "title": "Les Virtual Threads sont un idiome réactif (presque) comme les autres"
   }

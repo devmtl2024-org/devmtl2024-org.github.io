@@ -1,19 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { navLinks } from "@/constants/navlinks";
 
-import Logo from "../../assets/logo.svg?react";
+import Logo from "../../../assets/logo.svg?react";
 
-function Navbar() {
+function NavbarTransparent() {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user has scrolled down
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="app">
       <nav
-        className={
-          "fixed w-full z-50 transition-colors duration-100 bg-white text-primary shadow-md"
-        }
+        className={`fixed w-full z-50 transition-colors duration-100 ${
+          isScrolled ? "bg-white text-primary shadow-md" : "bg-transparent text-white"
+        }`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex mx-auto justify-between w-[90%] lg:w-5/6">
@@ -26,8 +44,8 @@ function Navbar() {
                 }}
               >
                 <Logo
-                  fill="#01055E"
-                  stroke="#01055E"
+                  fill={!isScrolled ? "white" : "#01055E"}
+                  stroke={!isScrolled ? "white" : "#01055E"}
                   className="h-full w-full object-contain"
                 />
               </div>
@@ -82,7 +100,11 @@ function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-medium text-gray-700 hover:text-gray-900 hover:underline hover:underline-primary"
+                  className={`text-lg font-medium text-gray-700 hover:text-gray-900 hover:underline ${
+                    isScrolled
+                      ? "hover:underline-white"
+                      : "hover:underline-primary"
+                  }`}
                 >
                   {link.name}
                 </a>
@@ -95,4 +117,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarTransparent;
