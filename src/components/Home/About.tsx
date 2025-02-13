@@ -1,12 +1,12 @@
 import { Speaker } from "@/type/speakers";
-import { loadSpeakers } from "@/utils/loadSpeakers";
+import { loadData } from "@/utils/loadData";
 import { useEffect, useState } from "react";
 
 function About() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadSpeakers(4).then((speakers) => {
+    loadData<Speaker>("speakers", 4).then((speakers) => {
       setSpeakers(speakers);
     });
   }, []);

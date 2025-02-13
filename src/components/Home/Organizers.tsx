@@ -1,12 +1,12 @@
 import { Organizer } from "@/type/organizers";
-import { loadOrganizers } from "@/utils/loadOrganizers";
+import { loadData } from "@/utils/loadData";
 import { useEffect, useState } from "react";
 
 function Organizers() {
   const [organizers, setOrganizers] = useState<Organizer[]>([]);
 
   useEffect(() => {
-    loadOrganizers().then((organizers) => {
+    loadData<Organizer>("organizers").then((organizers) => {
       setOrganizers(organizers);
     });
   }, []);

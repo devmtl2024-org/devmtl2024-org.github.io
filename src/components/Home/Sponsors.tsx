@@ -1,12 +1,12 @@
 import { Sponsor } from "@/type/sponsors";
-import { loadSponsors } from "@/utils/loadSponsors";
+import { loadData } from "@/utils/loadData";
 import { useEffect, useState } from "react";
 
 function Sponsors() {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
 
   useEffect(() => {
-    loadSponsors().then((sponsors) => {
+    loadData<Sponsor>("sponsors").then((sponsors) => {
       setSponsors(sponsors);
     });
   }, []);
