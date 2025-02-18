@@ -10,7 +10,7 @@ export function TalkCard({ track }: TalkCardProps) {
 
   return (
     <Link
-      to={`/speakers/${track.name.toLowerCase().replace(/ /g, "-")}`}
+      to={`/speakers/2024/${track.name.toLowerCase().replace(/ /g, "-")}`}
       className="block border rounded-lg p-4 shadow hover:shadow-lg transition h-full"
     >
       <h3 className="text-lg font-semibold">{track.title}</h3>

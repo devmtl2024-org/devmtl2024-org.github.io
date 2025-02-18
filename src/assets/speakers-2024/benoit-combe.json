@@ -1,7 +1,12 @@
 {
     "name": "Benoit Combe",
+    "bio": "Distribueur de JVMs dans des containers.",
     "image": "/speakers-2024/benoit-combe.png",
     "time": "2024-11-27T10:00:00",
     "track": 1,
-    "title": "Les Virtual Threads sont un idiome réactif (presque) comme les autres"
+    "title": "Les Virtual Threads sont un idiome réactif (presque) comme les autres",
+    "description": "Les Virtual Threads sont un idiome réactifs (presque) comme les autres.\nRéactif, concurrent, bloquant, impératif, threads, réactive streams, Virtual Threads… allons remettre tout ces concepts en ordre et nous poser les bonnes questions pour utiliser efficacement les Virtual Threads.",
+    "github": null,
+    "linkedin": "https://www.linkedin.com/in/benoit-combe/",
+    "website": null
   }
