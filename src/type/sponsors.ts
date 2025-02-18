@@ -3,4 +3,5 @@ export interface Sponsor {
     logo: string;
     url: string;
     isDisabled: boolean;
+    description: string;
   }
