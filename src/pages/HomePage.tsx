@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer/Foorter";
 import About from "@/components/Home/About";
 import Organizers from "@/components/Home/Organizers";
 import Overview from "@/components/Home/Overview";
@@ -14,6 +15,7 @@ export default function HomePage() {
         <Sponsors />
         <Organizers />
       </div>
+      <Footer />
     </div>
   );
 }

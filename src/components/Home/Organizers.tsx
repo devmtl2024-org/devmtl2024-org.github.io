@@ -12,7 +12,6 @@ function Organizers() {
     });
   }, []);
 
-  console.log(organizers);
   return (
     <section className="max-w-4xl mx-auto px-4 py-12">
       <h3 className="text-3xl font-semibold text-black mb-10 ">Organizers</h3>

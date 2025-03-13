@@ -24,7 +24,7 @@ export default function SponsorsPage() {
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className={`flex items-center space-x-4 mt-8 p-6 border rounded-lg shadow-md gap-6 ${index % 2 === 0 ? "" : "flex-row-reverse"}`}
+            className={`flex items-center space-x-4 mt-8 p-6 pb-8 border rounded-lg shadow-md gap-6 ${index % 2 === 0 ? "" : "flex-row-reverse"}`}
           >
             {/* Sponsor Logo */}
             <div className="w-32 h-32">
