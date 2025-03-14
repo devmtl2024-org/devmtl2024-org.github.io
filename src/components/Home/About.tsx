@@ -8,7 +8,7 @@ import {
 
 function About() {
   return (
-    <section className="bg-gray-100 py-16 px-6 overflow-hidden">
+    <section className="bg-gray-100 py-24 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-12">
         {/* First Section */}
         <motion.div
@@ -28,7 +28,7 @@ function About() {
             Enjoy a day of learning, networking, and sharing with the local tech
             communities!
           </p>
-          <button className="px-6 py-2 bg-secondary text-white font-medium rounded-md shadow-md">
+          <button className="px-6 py-2 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark">
             Buy Ticket
           </button>
         </motion.div>
