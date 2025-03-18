@@ -10,7 +10,7 @@ function Speakers() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadData<Speaker>("speakers", 4).then((speakers) => {
+    loadData<Speaker>("speakers", 4, true).then((speakers) => {
       setSpeakers(speakers);
     });
   }, []);
@@ -67,10 +67,10 @@ function Speakers() {
         </div>
 
         {/* View All Speakers Button */}
-        <div className="mt-8">
+        <div className="mt-20">
           <a
             href="/speakers"
-            className="px-6 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition duration-200"
+            className="px-12 py-5 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition duration-200 uppercase"
           >
             View all speakers
           </a>
