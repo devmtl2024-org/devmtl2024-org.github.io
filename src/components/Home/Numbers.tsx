@@ -40,7 +40,7 @@ function Counter({
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1 }}
-      className="text-7xl font-bold text-white"
+      className="text-5xl md:text-7xl  font-bold text-white"
     >
       {plus && "+"}
       {count}

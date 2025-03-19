@@ -1,4 +1,5 @@
 import overviewImage from "../../assets/overview.jpg";
+import BuyTicketButton from "../BuyTicket/BuyTicketButton";
 
 function Overview() {
   return (
@@ -14,7 +15,9 @@ function Overview() {
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-4 text-white">
         {/* Title */}
-        <h1 className="text-xl lg:text-xl mb-4">November 27th, 2024 - ETS Formation, Montréal, QC</h1>
+        <h1 className="text-xl lg:text-xl mb-4">
+          November 27th, 2024 - ETS Formation, Montréal, QC
+        </h1>
         <h1 className="text-4xl lg:text-6xl font-bold mb-4">/dev/mtl 2024</h1>
         <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
 
@@ -23,13 +26,7 @@ function Overview() {
           Share the passion. Discover the innovation.
         </p>
 
-        {/* Ticket Button */}
-        <a
-          href="/buy-ticket"
-          className="px-6 py-3 bg-white text-primary font-semibold rounded-lg shadow-md hover:bg-white/90 transition duration-200"
-        >
-          Get your ticket
-        </a>
+        <BuyTicketButton />
       </div>
     </section>
   );

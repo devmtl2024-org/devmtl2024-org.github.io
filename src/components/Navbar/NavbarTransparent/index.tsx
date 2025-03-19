@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { navLinks } from "@/constants/navlinks";
 
 import Logo from "../../../assets/logo.svg?react";
+import BuyTicketButton from "@/components/BuyTicket/BuyTicketButton";
 
 function NavbarTransparent() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -30,7 +31,9 @@ function NavbarTransparent() {
     <div className="app">
       <nav
         className={`fixed w-full z-50 transition-colors duration-100 ${
-          isScrolled ? "bg-white text-primary shadow-md" : "bg-transparent text-white"
+          isScrolled
+            ? "bg-white text-primary shadow-md"
+            : "bg-transparent text-white"
         }`}
       >
         <div className="max-w-7xl mx-auto">
@@ -56,7 +59,7 @@ function NavbarTransparent() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`text-lg font-medium relative my-auto`}
+                    className={`text-lg font-medium relative my-auto uppercase`}
                   >
                     {link.name}
                     {/* Ajouter une bordure sous chaque lien */}
@@ -65,6 +68,7 @@ function NavbarTransparent() {
                     ></span>
                   </a>
                 ))}
+                <BuyTicketButton />
               </div>
             </div>
 
@@ -109,6 +113,7 @@ function NavbarTransparent() {
                   {link.name}
                 </a>
               ))}
+              <BuyTicketButton />
             </div>
           </div>
         </div>

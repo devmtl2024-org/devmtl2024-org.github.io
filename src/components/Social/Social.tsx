@@ -12,7 +12,7 @@ export default function Social({ github, linkedin, website }: SocialProps) {
           href={`https://github.com/${github}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black hover:text-gray-300"
+          className="text-black hover:text-primary"
         >
           <i className="fab fa-github text-2xl"></i>
         </a>
@@ -23,7 +23,7 @@ export default function Social({ github, linkedin, website }: SocialProps) {
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black hover:text-gray-300"
+          className="text-black hover:text-primary"
         >
           <i className="fab fa-linkedin text-2xl"></i>
         </a>
@@ -34,7 +34,7 @@ export default function Social({ github, linkedin, website }: SocialProps) {
           href={website}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black hover:text-gray-300"
+          className="text-black hover:text-primary"
         >
           <i className="fas fa-globe text-2xl"></i>
         </a>

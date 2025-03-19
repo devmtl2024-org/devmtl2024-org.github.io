@@ -1,5 +1,6 @@
-import { Footer } from "@/components/Footer/Foorter";
+import { Footer } from "@/components/Footer/Footer";
 import About from "@/components/Home/About";
+import BuyTicket from "@/components/Home/BuyTicket";
 import Meetups from "@/components/Home/Meetups";
 import Numbers from "@/components/Home/Numbers";
 import Organizers from "@/components/Home/Organizers";
@@ -7,7 +8,6 @@ import Overview from "@/components/Home/Overview";
 import Schedule from "@/components/Home/Schedule";
 import Speakers from "@/components/Home/Speakers";
 import Sponsors from "@/components/Home/Sponsors";
-import Venue from "@/components/Home/Venue";
 import NavbarTransparent from "@/components/Navbar/NavbarTransparent";
 
 export default function HomePage() {
@@ -22,8 +22,8 @@ export default function HomePage() {
         <Meetups />
         <Schedule />
         <Sponsors />
-        <Venue />
         <Organizers />
+        <BuyTicket />
       </div>
       <Footer />
     </div>

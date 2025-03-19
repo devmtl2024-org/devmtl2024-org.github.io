@@ -5,6 +5,7 @@ import {
   FaRegGrinStars,
   FaRegSurprise,
 } from "react-icons/fa";
+import BuyTicketButton from "../BuyTicket/BuyTicketButton";
 
 function About() {
   return (
@@ -28,9 +29,7 @@ function About() {
             Enjoy a day of learning, networking, and sharing with the local tech
             communities!
           </p>
-          <button className="px-10 py-4 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase">
-            Buy Ticket
-          </button>
+          <BuyTicketButton />
         </motion.div>
 
         {/* Second Section */}

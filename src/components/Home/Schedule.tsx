@@ -3,11 +3,15 @@ import { Speaker } from "@/type/speakers";
 import { loadData } from "@/utils/loadData";
 import { useState, useEffect } from "react";
 
-function TalkCard({ speaker }: { speaker: Speaker }) {
+function TalkCard({ speaker, index }: { speaker: Speaker; index: number }) {
   return (
-    <div className="flex flex-col md:flex-row bg-gray-100 mx-auto mb-6 w-[700px]">
+    <div className="flex flex-col md:flex-row bg-gray-100 mx-auto w-[700px]">
       {/* Left section: Time and Track */}
-      <div className="bg-secondary text-white text-center md:text-left p-4 w-[200px] mb-4 md:mb-0 flex flex-col justify-center">
+      <div
+        className={`${
+          index % 2 === 1 ? "bg-secondary-dark" : "bg-secondary"
+        } text-white text-center md:text-left p-4 w-[200px] mb-4 md:mb-0 flex flex-col justify-center`}
+      >
         <div className="text-lg font-semibold">
           {new Date(speaker.time)
             .toLocaleTimeString("en-US", {
@@ -77,11 +81,13 @@ function Schedule() {
       </div>
 
       {/* Schedule */}
-      {speakers.map((speaker, index) => (
-        <div key={index}>
-          <TalkCard speaker={speaker} />
-        </div>
-      ))}
+      <div>
+        {speakers.map((speaker, index) => (
+          <div key={index}>
+            <TalkCard speaker={speaker} index={index} />
+          </div>
+        ))}
+      </div>
 
       <button className="px-12 py-5 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase">
         See more

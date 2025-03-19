@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { navLinks } from "@/constants/navlinks";
 
 import Logo from "../../assets/logo.svg?react";
+import BuyTicketButton from "../BuyTicket/BuyTicketButton";
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -38,7 +39,7 @@ function Navbar() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`text-lg font-medium relative my-auto`}
+                    className={`text-lg font-medium relative my-auto uppercase`}
                   >
                     {link.name}
                     {/* Ajouter une bordure sous chaque lien */}
@@ -47,6 +48,7 @@ function Navbar() {
                     ></span>
                   </a>
                 ))}
+                <BuyTicketButton />
               </div>
             </div>
 

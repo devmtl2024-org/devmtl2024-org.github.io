@@ -67,6 +67,13 @@ function Sponsors() {
               )
           )}
         </motion.div>
+
+        <a
+          href="mailto:devmontreal.conf@gmail.com"
+          className="px-10 py-4 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase inline-block text-center mt-12"
+        >
+          Become a Sponsor
+        </a>
       </section>
     </div>
   );
