@@ -18,14 +18,14 @@ export default function Layout() {
     <div className="flex flex-col min-h-screen">
       <NavbarTransparent />
       <Header>
-        <div className="z-10 text-white">
+        <div className="z-10 text-white mt-[180px]">
           <h1 className="text-4xl lg:text-6xl font-bold my-6">
             {title}
           </h1>
           <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
         </div>
       </Header>
-      <main className="flex-grow pt-[90px]">
+      <main className="flex-grow pt-7">
         <Outlet />
       </main>
       <Footer />

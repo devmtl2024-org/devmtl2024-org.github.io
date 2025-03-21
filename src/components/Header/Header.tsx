@@ -3,7 +3,7 @@ import overviewImage from "../../assets/overview.jpg";
 function Header({ children }: React.PropsWithChildren) {
   return (
     <section
-      className="relative bg-cover bg-center h-96 flex items-center justify-center text-center w-full"
+      className="relative bg-cover bg-center h-96 flex justify-center w-full"
       style={{
         backgroundImage: `url(${overviewImage})`,
       }}
