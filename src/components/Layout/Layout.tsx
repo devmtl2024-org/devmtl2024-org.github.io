@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
-import NavbarTransparent from "../Navbar/NavbarTransparent";
+import Navbar from "../Navbar";
 import Header from "../Header/Header";
 import { navLinks } from "@/constants/navlinks";
 
@@ -16,7 +16,7 @@ export default function Layout() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <NavbarTransparent />
+      <Navbar />
       <Header>
         <div className="z-10 text-white mt-[180px]">
           <h1 className="text-4xl lg:text-6xl font-bold my-6">

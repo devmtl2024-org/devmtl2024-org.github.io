@@ -7,12 +7,12 @@ import Overview from "@/components/Home/Overview";
 import Schedule from "@/components/Home/Schedule";
 import Speakers from "@/components/Home/Speakers";
 import Sponsors from "@/components/Home/Sponsors";
-import NavbarTransparent from "@/components/Navbar/NavbarTransparent";
+import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
   return (
     <div>
-      <NavbarTransparent />
+      <Navbar />
       <div>
         <Overview />
         <About />
