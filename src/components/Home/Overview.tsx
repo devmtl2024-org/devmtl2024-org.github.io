@@ -1,5 +1,6 @@
-import overviewImage from "../../assets/overview.jpg";
 import BuyTicketButton from "../BuyTicket/BuyTicketButton";
+
+import overviewImage from "../../assets/overview.jpg";
 
 function Overview() {
   return (

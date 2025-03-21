@@ -1,5 +1,5 @@
 import backgroundImage from "../../assets/background-2.jpg";
-import BuyTicketButton from "../BuyTicket/BuyTicketButton";
+import BuyTicketButton from "./BuyTicketButton";
 
 function BuyTicket() {
   return (

@@ -1,6 +1,5 @@
 import { Footer } from "@/components/Footer/Footer";
 import About from "@/components/Home/About";
-import BuyTicket from "@/components/Home/BuyTicket";
 import Meetups from "@/components/Home/Meetups";
 import Numbers from "@/components/Home/Numbers";
 import Organizers from "@/components/Home/Organizers";
@@ -23,7 +22,6 @@ export default function HomePage() {
         <Schedule />
         <Sponsors />
         <Organizers />
-        <BuyTicket />
       </div>
       <Footer />
     </div>
