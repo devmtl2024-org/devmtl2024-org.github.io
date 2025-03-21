@@ -1,4 +1,4 @@
-import TalkCard from "@/components/Schedule/TalkCard";
+import TalkRow from "@/components/Talks/TalkRow";
 import { ScheduleSession } from "@/type/schedule";
 import { Speaker } from "@/type/speakers";
 import { groupSpeakersByTime } from "@/utils/groupSpeakers";
@@ -24,7 +24,7 @@ export default function SchedulePage() {
 
       {/* Schedule */}
       {schedule.map((session, index) => (
-        <TalkCard
+        <TalkRow
           time={session.time}
           speakers={[session.track1, session.track2]}
           index={index}

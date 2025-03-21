@@ -1,6 +1,7 @@
 import { Speaker } from "@/type/speakers";
+import { Link } from "react-router-dom";
 
-export default function TalkCard({
+export default function TalkRow({
   time,
   speakers,
   index,
@@ -41,12 +42,17 @@ export default function TalkCard({
                   </div>
 
                   <div className="flex flex-col w-full">
-                    <div className="text-sm text-gray-600 truncate mb-2">
+                    <div className="text-sm text-gray-600 mb-2">
                       {speaker.name}
                     </div>
-                    <div className="text-xl font-semibold whitespace-normal cursor-pointer">
+                    <Link
+                      to={`/speakers/2024/${speaker.name
+                        .toLowerCase()
+                        .replace(/ /g, "-")}`}
+                      className="text-xl font-semibold whitespace-normal cursor-pointer"
+                    >
                       {speaker.title}
-                    </div>
+                    </Link>
                     <p className="text-sm mt-2 text-gray-600 line-clamp-2">
                       {speaker.description}
                     </p>
