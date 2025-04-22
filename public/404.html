@@ -2,18 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=/website/" />
-    <script>
-      const redirect = () => {
-        const pathname = window.location.pathname;
-        const newPath = '/website' + pathname.replace(/^\/website/, '');
-        window.location.replace(newPath);
-      };
-      redirect();
-    </script>
+    <title>Redirecting…</title>
   </head>
   <body>
-    <p>If you are not redirected automatically, <a href="/website/">click here</a>.</p>
+    <script type="text/javascript">
+      (function () {
+        const pathname = window.location.pathname;
+        const search = window.location.search;
+        const hash = window.location.hash;
+
+        if (!pathname.startsWith("/website")) {
+          const newUrl = "/website" + pathname + search + hash;
+          window.location.replace(newUrl);
+        }
+      })();
+    </script>
+
+    <p>Redirecting… If nothing happens, <a href="/website/">click here</a>.</p>
   </body>
 </html>
