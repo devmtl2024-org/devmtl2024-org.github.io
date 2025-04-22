@@ -37,18 +37,18 @@ export default function SpeakersPage() {
                 {/* Hover effect */}
                 <div
                   className="absolute inset-0 bg-primary/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
-                  onClick={() =>
+                  onClick={() => {
+                    window.scrollTo({ top: 0 });
                     navigate(
                       `/speakers/2024/${speaker.name
                         .toLowerCase()
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
                         .replace(/ /g, "-")}`
-                    )
-                  }
+                    );
+                  }}
                 >
-                  <FiPlus
-                    className="text-white text-3xl"
-                    onClick={() => console.log(`Speaker: ${speaker.name}`)}
-                  />
+                  <FiPlus className="text-white text-3xl" />
                 </div>
               </div>
               <p className="text-xl font-semibold text-gray-700 mt-2 group-hover:text-primary transition duration-300">

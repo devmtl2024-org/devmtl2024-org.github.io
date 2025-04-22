@@ -60,13 +60,14 @@ function Speakers() {
                     navigate(
                       `/speakers/2024/${speaker.name
                         .toLowerCase()
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
                         .replace(/ /g, "-")}`
                     )
                   }
                 >
                   <FiPlus
                     className="text-white text-3xl"
-                    onClick={() => console.log(`Speaker: ${speaker.name}`)}
                   />
                 </div>
               </div>

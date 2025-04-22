@@ -8,7 +8,7 @@ export default function TalkSession({
   index: number;
 }) {
   return (
-    <div className="flex flex-col md:flex-row mx-auto fit-content self-start">
+    <div className="flex flex-col md:flex-row self-start w-full">
       {/* Left section: Time and Track */}
       <div
         className={`${

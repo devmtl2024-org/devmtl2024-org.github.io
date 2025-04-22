@@ -1,4 +1,5 @@
 import { Speaker } from "@/type/speakers";
+import { useNavigate } from "react-router-dom";
 
 export default function TalkOverview({
   speaker,
@@ -7,6 +8,8 @@ export default function TalkOverview({
   speaker: Speaker;
   index: number;
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col md:flex-row bg-gray-100 mx-auto">
       {/* Left section: Time and Track */}
@@ -28,7 +31,19 @@ export default function TalkOverview({
       </div>
 
       {/* Right section: Speaker's Info */}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 p-8 bg-white w-full border border-dashed border-gray-400 md:border-l-0">
+      <div
+        className="flex flex-col md:flex-row items-center gap-4 md:gap-6 p-8 bg-white w-full border border-dashed border-gray-400 md:border-l-0"
+        onClick={() => {
+          window.scrollTo({ top: 0 });
+          navigate(
+            `/speakers/2024/${speaker.name
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .replace(/ /g, "-")}`
+          );
+        }}
+      >
         <div className="relative w-24 h-24 rounded-full overflow-hidden">
           <img
             src={`${import.meta.env.BASE_URL}${speaker.image}`}

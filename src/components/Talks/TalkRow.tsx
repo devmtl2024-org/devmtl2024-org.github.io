@@ -1,5 +1,5 @@
 import { Speaker } from "@/type/speakers";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function TalkRow({
   time,
@@ -10,6 +10,8 @@ export default function TalkRow({
   speakers: (Speaker | null)[];
   index: number;
 }) {
+  const navigate = useNavigate();
+  
   return (
     <div className="grid grid-cols-1 md:grid-cols-[200px_auto] bg-gray-100 mx-auto w-full max-w-screen-lg">
       <div
@@ -38,6 +40,17 @@ export default function TalkRow({
                       src={`${import.meta.env.BASE_URL}${speaker.image}`}
                       alt={speaker.name}
                       className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
+                      onClick={() => {
+                        window.scrollTo({ top: 0 });
+                        navigate(
+                          `/speakers/2024/${speaker.name
+                            .toLowerCase()
+                            .normalize("NFD")
+                            .replace(/[\u0300-\u036f]/g, "")
+                            .replace(/ /g, "-")}`
+                        );
+
+                      }}
                     />
                   </div>
 
