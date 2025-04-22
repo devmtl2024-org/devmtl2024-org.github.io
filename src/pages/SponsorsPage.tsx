@@ -14,8 +14,9 @@ export default function SponsorsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <p className="text-center text-gray-700 mb-6 text-lg">
-        /dev/mtl 2024 is only possible through the generosity of the organizations and businesses on this page.
-        Their donations make this special day possible. Thank you for your support!
+        /dev/mtl 2024 is only possible through the generosity of the
+        organizations and businesses on this page. Their donations make this
+        special day possible. Thank you for your support!
       </p>
 
       {/* Sponsors Section */}
@@ -28,7 +29,7 @@ export default function SponsorsPage() {
             {/* Sponsor Logo */}
             <div className="w-32 h-32">
               <img
-                src={sponsor.logo}
+                src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
                 alt={sponsor.name}
                 className="w-full h-full object-contain"
               />
@@ -36,7 +37,9 @@ export default function SponsorsPage() {
 
             {/* Sponsor Info */}
             <div className="flex-1">
-              <h2 className="text-xl font-semibold text-secondary mb-4">{sponsor.name}</h2>
+              <h2 className="text-xl font-semibold text-secondary mb-4">
+                {sponsor.name}
+              </h2>
               <p className="text-gray-600 mb-6">{sponsor.description}</p>
               <a
                 href={sponsor.url}

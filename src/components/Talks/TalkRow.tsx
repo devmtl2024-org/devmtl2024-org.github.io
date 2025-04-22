@@ -35,7 +35,7 @@ export default function TalkRow({
                 >
                   <div className="relative w-24 h-24 rounded-full overflow-hidden mb-2">
                     <img
-                      src={speaker.image}
+                      src={`${import.meta.env.BASE_URL}${speaker.image}`}
                       alt={speaker.name}
                       className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
                     />

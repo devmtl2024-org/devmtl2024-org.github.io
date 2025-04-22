@@ -1,7 +1,7 @@
 {
     "name": "Billy Taing",
     "bio": "",
-    "image": "/speakers-2024/billy-taing.jpeg",
+    "image": "speakers-2024/billy-taing.jpeg",
     "time": "2024-11-27T14:30:00",
     "track": 2,
     "title": "Introduction to Flutter",

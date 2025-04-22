@@ -1,7 +1,7 @@
 {
     "name": "Xavier Balloy",
     "bio": "Xavier est un développeur senior avec treize ans d’expérience, travaillant à la fois sur le backend et le frontend. Il est un évangéliste de la qualité du code, toujours à la recherche de l’amélioration et du partage des pratiques avec son équipe.",
-    "image": "/speakers-2024/xavier-balloy.jpeg",
+    "image": "speakers-2024/xavier-balloy.jpeg",
     "time": "2024-11-27T14:30:00",
     "track": 1,
     "title": "Retour aux fondamentaux: les 5 principes d’architecture SOLID",

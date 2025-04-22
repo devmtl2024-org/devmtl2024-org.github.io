@@ -12,8 +12,6 @@ import AboutPage from "./pages/AboutPage";
 import VenuePage from "./pages/VenuePage";
 import SpeakersPage from "./pages/SpeakersPage";
 
-console.log(import.meta.env.BASE_URL);
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>

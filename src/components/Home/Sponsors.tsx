@@ -58,7 +58,7 @@ function Sponsors() {
                     className="group"
                   >
                     <img
-                      src={sponsor.logo}
+                      src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
                       alt={sponsor.name}
                       className="w-32 h-32 object-contain mb-4 mx-auto transition duration-300 group-hover:scale-110"
                     />

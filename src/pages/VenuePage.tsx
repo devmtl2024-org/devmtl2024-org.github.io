@@ -15,9 +15,9 @@ export default function VenuePage() {
             École de technologie supérieure (ÉTS)
           </h3>
           <p className="text-lg">
-            Located in the heart of Montreal, ÉTS is an ideal place for tech events. 
-            Easily accessible by public transport, it offers a modern and welcoming 
-            environment to host attendees.
+            Located in the heart of Montreal, ÉTS is an ideal place for tech
+            events. Easily accessible by public transport, it offers a modern
+            and welcoming environment to host attendees.
           </p>
 
           <div>

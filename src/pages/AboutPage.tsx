@@ -64,7 +64,7 @@ export default function AboutPage() {
                 className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 lg:w-1/5"
               >
                 <img
-                  src={organizer.image}
+                  src={`${import.meta.env.BASE_URL}${organizer.image}`}
                   alt={organizer.name}
                   className="w-32 h-32 rounded-full object-cover mb-4 mx-auto"
                 />

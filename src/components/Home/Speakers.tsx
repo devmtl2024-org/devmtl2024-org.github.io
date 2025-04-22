@@ -49,7 +49,7 @@ function Speakers() {
             >
               <div className="relative w-52 h-52 rounded-full overflow-hidden">
                 <img
-                  src={speaker.image}
+                  src={`${import.meta.env.BASE_URL}${speaker.image}`}
                   alt={speaker.name}
                   className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
                 />

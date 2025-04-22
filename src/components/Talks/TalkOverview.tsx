@@ -31,7 +31,7 @@ export default function TalkOverview({
       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 p-8 bg-white w-full border border-dashed border-gray-400 md:border-l-0">
         <div className="relative w-24 h-24 rounded-full overflow-hidden">
           <img
-            src={speaker.image}
+            src={`${import.meta.env.BASE_URL}${speaker.image}`}
             alt={speaker.name}
             className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
           />

@@ -1,7 +1,7 @@
 {
     "name": "Arthur Veys",
     "bio": "Arthur Veys est développeur Kotlin depuis plus de 5 ans et oeuvre en tant que Tech Lead à Desjardins à démocratiser l’utilisation de ce langage JVM dans des projets pour le Bureau de la sécurité.",
-    "image": "/speakers-2024/arthur-veys.jpg",
+    "image": "speakers-2024/arthur-veys.jpg",
     "time": "2024-11-27T10:30:00",
     "track": 1,
     "title": "Ktor: le framework web 100% Kotlin",
