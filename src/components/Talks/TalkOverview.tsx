@@ -13,7 +13,7 @@ export default function TalkOverview({
       <div
         className={`${
           index % 2 === 1 ? "bg-secondary-dark" : "bg-secondary"
-        } text-white text-center md:text-left p-4 w-[200px] mb-4 md:mb-0 flex flex-col justify-center`}
+        } text-white text-center md:text-left p-4 w-[200px] my-4 md:my-0 flex flex-col justify-center`}
       >
         <div className="text-lg font-semibold">
           {new Date(speaker.time)
@@ -28,7 +28,7 @@ export default function TalkOverview({
       </div>
 
       {/* Right section: Speaker's Info */}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 p-8 bg-white w-full border border-dashed border-gray-400 border-l-0">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 p-8 bg-white w-full border border-dashed border-gray-400 md:border-l-0">
         <div className="relative w-24 h-24 rounded-full overflow-hidden">
           <img
             src={speaker.image}

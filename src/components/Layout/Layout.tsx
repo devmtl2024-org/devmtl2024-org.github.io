@@ -19,7 +19,7 @@ export default function Layout() {
       <Navbar />
       <Header>
         <div className="z-10 text-white mt-[180px]">
-          <h1 className="text-4xl lg:text-6xl font-bold my-6">
+          <h1 className="text-4xl lg:text-6xl font-bold my-6 uppercase">
             {title}
           </h1>
           <div className="w-16 h-1 bg-white mx-auto mb-6"></div>

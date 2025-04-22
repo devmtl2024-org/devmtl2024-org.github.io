@@ -7,7 +7,7 @@ export function Footer() {
       <BuyTicket />
       <div className="bg-primary-dark">
         <footer className="max-w-4xl mx-auto px-4 py-12 text-center text-gray-400">
-          <div className="lg:flex gap-8 h-(100%) justify-center mb-4">
+          <div className="flex gap-8 h-(100%) justify-center mb-4 flex-wrap">
             {navLinks.map((link) => (
               <a
                 key={link.name}

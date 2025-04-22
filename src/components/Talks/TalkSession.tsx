@@ -8,7 +8,7 @@ export default function TalkSession({
   index: number;
 }) {
   return (
-    <div className="flex flex-col md:flex-row bg-gray-100 mx-auto fit-content">
+    <div className="flex flex-col md:flex-row mx-auto fit-content self-start">
       {/* Left section: Time and Track */}
       <div
         className={`${
@@ -28,7 +28,7 @@ export default function TalkSession({
       </div>
 
       {/* Right section: Speaker's Info */}
-      <div className="p-8 bg-white w-full border border-dashed border-gray-400 border-l-0">
+      <div className="p-8 bg-white w-full border border-dashed border-gray-400 md:border-l-0">
         <div className="flex flex-col">
           <div className="text-sm text-gray-600">{speaker.name}</div>
           <div className="text-xl font-semibold whitespace-normal">

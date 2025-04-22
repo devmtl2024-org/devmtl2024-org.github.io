@@ -5,10 +5,12 @@ import { navLinks } from "@/constants/navlinks";
 
 import Logo from "../../assets/logo.svg?react";
 import BuyTicketButton from "@/components/BuyTicket/BuyTicketButton";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +46,9 @@ function Navbar() {
               <div
                 style={{
                   width: "200px",
+                  cursor: "pointer",
                 }}
+                onClick={() => navigate("/")}
               >
                 <Logo
                   fill={!isScrolled ? "white" : "#01055E"}

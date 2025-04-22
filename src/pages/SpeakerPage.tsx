@@ -25,8 +25,8 @@ export default function SpeakerPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 flex flex-row gap-8">
-      <div className="p-6 bg-gray-100 flex flex-col items-center">
+    <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+      <div className="p-6 bg-gray-100 flex flex-col items-center min-w-40 lg:min-w-96">
         <img
           src={speaker.image}
           alt={speaker.name}

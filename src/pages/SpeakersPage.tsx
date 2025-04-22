@@ -2,44 +2,25 @@ import { Speaker } from "@/type/speakers";
 import { loadData } from "@/utils/loadData";
 import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
-import { motion } from "framer-motion";
-
-import backgroundImage from "../../assets/background-1.jpg";
 import { useNavigate } from "react-router-dom";
 
-function Speakers() {
+export default function SpeakersPage() {
   const navigate = useNavigate();
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadData<Speaker>("speakers", 4, true).then((speakers) => {
+    loadData<Speaker>("speakers").then((speakers) => {
       setSpeakers(speakers);
     });
   }, []);
 
   return (
-    <section
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-      }}
-    >
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto px-4 py-24 w-full text-center"
-      >
-        {/* Speakers Section */}
-        <div className="mb-12">
-          <h3 className="text-xs text-gray-700 uppercase tracking-widest mb-4">
-            Listen to the
-          </h3>
-          <h3 className="text-4xl font-semibold text-primary leading-tight mb-4">
-            Event Speakers
-          </h3>
-          <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
-        </div>
-
+    <div className="container mx-auto px-4 py-8">
+      {/* Meetups Section */}
+      <div className="mb-12 text-center">
+        <h2 className="text-3xl font-semibold text-gray-700 mb-28">
+          Our Presenters are <br />✨ Amazing ✨
+        </h2>
         {/* Speakers List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {speakers.map((speaker, index) => (
@@ -76,19 +57,7 @@ function Speakers() {
             </div>
           ))}
         </div>
-
-        {/* View All Speakers Button */}
-        <div className="mt-20">
-          <a
-            href="/speakers"
-            className="px-12 py-5 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition duration-200 uppercase"
-          >
-            View all speakers
-          </a>
-        </div>
-      </motion.section>
-    </section>
+      </div>
+    </div>
   );
 }
-
-export default Speakers;

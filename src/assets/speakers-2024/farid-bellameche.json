@@ -1,0 +1,12 @@
+{
+    "name": "Farid Bellameche",
+    "bio": "Passionné d’IA générative, dev/ops, développeur Python, Java. Depuis novembre 2022 et la sortie de chat GPT, j’ai exploré comment utiliser les API d’OpenAI pour en faire des chatBot augmentés (Retrieval Augmented Generation) de base de données privées, entraîner des LLM (Large Language Model) sur des tâches spécifiques et bien plus...",
+    "image": "/speakers-2024/farid-bellameche.jpeg",
+    "time": "2024-11-27T13:00:00",
+    "track": 1,
+    "title": "Construisez un bot sur vos propres donnée avec l’API de GPT",
+    "description": "Farid will talk about building a bot on your own data with OpenAI API.",
+    "github": "https://github.com/fbellame",
+    "linkedin": null,
+    "website": "https://www.youtube.com/@faridautomatic"
+}

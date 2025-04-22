@@ -1,0 +1,12 @@
+{
+    "name": "Mélanie Guérin",
+    "bio": "Mélanie Guérin est présidente de Montréal Python, où elle contribue à rendre le langage Python et le logiciel libre accessibles à tous. Elle s'investit dans le développement de la communauté et dans des projets collaboratifs qui mettent l'accent sur l'innovation et la responsabilité sociale.",
+    "image": "/speakers-2024/melanie-guerin.jpeg",
+    "time": "2024-11-27T09:30:00",
+    "track": 1,
+    "title": "Éthique et AI",
+    "description": "L’intelligence artificielle occupe une place centrale dans nos vies, ce qui nous pousse à questionner ses implications éthiques. Cette conférence se concentrera sur deux enjeux majeurs : la “normalisation” des systèmes IA et leur rôle dans la prise de “décisions”. Les participants seront sensibilisés à l’impact de ces technologies sur nos choix et nos normes sociétales. Nous mettrons en avant des initiatives montréalaises, comme la Charte de Montréal et les travaux de l’OBVIA, qui visent à encadrer l’IA de manière responsable et éthique. Des exemples concrets illustreront ces problématiques pour amener chacun à réfléchir aux choix technologiques à faire face à cette révolution.",
+    "github": null,
+    "linkedin": null,
+    "website": "https://montrealpython.org"
+}

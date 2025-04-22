@@ -4,4 +4,5 @@ export interface Organizer {
   github: string
   linkedin: string | null;
   website: string | null;
+  role: string;
 }

@@ -2,7 +2,7 @@
     "name": "Andy Maleh",
     "bio": "",
     "image": "/speakers-2024/andy-maleh.jpeg",
-    "time": "2024-11-27T09:00:00",
+    "time": "2024-11-27T13:00:00",
     "track": 2,
     "title": "Frontend Ruby with Glimmer DSL for Web",
     "description": "Glimmer is a new Ruby DSL for building web applications. It is a Ruby implementation of the popular Ember.js framework. Glimmer is built on top of Opal, a Ruby compiler that compiles Ruby to JavaScript. This talk will cover the basics of Glimmer, how to get started with it, and how to build a simple web application with it.",

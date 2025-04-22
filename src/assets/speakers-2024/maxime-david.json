@@ -1,0 +1,12 @@
+{
+    "name": "Maxime David",
+    "bio": "Senior Software Engineer @AWS, Lambda Runtimes.",
+    "image": "/speakers-2024/maxime-david.jpeg",
+    "time": "2024-11-27T13:45:00",
+    "track": 1,
+    "title": "Réussir les entretiens GAFAM : Mon expérience authentique",
+    "description": "Dans cette présentation, je vais partager mon parcours et les leçons que j’ai tirées de mes entretiens avec les entreprises GAFAM, avec une transparence totale, en mettant en lumière à la fois mes succès et mes échecs. Je vais révéler des conseils concrets et des stratégies éprouvées pour maximiser vos chances de réussite dans ces processus de sélection exigeants, mais accessibles. Mon expérience sans filtre vous offrira une perspective réaliste pour mieux vous préparer, en vous aidant à éviter les erreurs que j’ai commises.",
+    "github": "https://github.com/maxday",
+    "linkedin": null,
+    "website": "https://maxday.dev"
+}
