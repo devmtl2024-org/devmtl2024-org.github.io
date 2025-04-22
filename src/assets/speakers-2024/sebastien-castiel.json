@@ -6,7 +6,7 @@
     "track": 1,
     "title": "L'outil de gestion des tâches parfait pour notre équipe : une application sur mesure",
     "description": "Dans un monde où les solutions de gestion des tâches sont souvent génériques, trouver celle qui correspond parfaitement aux besoins uniques de votre équipe peut être un véritable défi. Dans cette présentation, je partagerai comment j’ai développé un outil de gestion des tâches sur mesure, spécifiquement conçu pour mon équipe, en utilisant React, Next.js, Liveblocks et Clerk. Je vous expliquerai les décisions de conception et les choix techniques qui ont rendu cet outil efficace, depuis l’utilisation de React et Next.js pour une interface utilisateur dynamique, jusqu’à l’intégration de Liveblocks pour une collaboration en temps réel, et Clerk pour une authentification simplifiée. Rejoignez-moi pour découvrir comment des solutions sur mesure, ciblées, peuvent surpasser les options standards du marché et améliorer considérablement le flux de travail de votre équipe.",
-    "github": "https://github.com/scastiel",
+    "github": "scastiel",
     "linkedin": null,
     "website": "https://scastiel.dev/"
 }

@@ -36,11 +36,11 @@ export default function AboutPage() {
           /dev/mtl is an event that was born from the local tech communities. It
           would not be possible without the contribution of these people.
         </p>
-        <div className="my-20 flex flex-wrap justify-center items-start gap-20">
+        <div className="my-20 flex flex-wrap justify-center items-start gap-10">
           {meetups.map((meetup, index) => (
             <div
               key={index}
-              className="text-3xl font-bold text-gray-500 text-center font-mono flex flex-col"
+              className="text-3xl font-bold text-gray-500 text-center font-mono flex flex-col bg-gray-100 px-8 py-4 rounded-md"
             >
               {meetup.split(" ").map((word, i) => (
                 <span key={i}>{word}</span>
