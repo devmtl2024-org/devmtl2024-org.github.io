@@ -14,7 +14,7 @@ import SpeakersPage from "./pages/SpeakersPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route element={<Layout />}>
