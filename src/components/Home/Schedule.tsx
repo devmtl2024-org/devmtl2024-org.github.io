@@ -3,7 +3,7 @@ import { Speaker } from "@/type/speakers";
 import { loadData } from "@/utils/loadData";
 import { useState, useEffect } from "react";
 import TalkOverview from "../Talks/TalkOverview";
-
+import { Link } from "react-router-dom";
 
 function Schedule() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
@@ -49,9 +49,13 @@ function Schedule() {
         ))}
       </div>
 
-      <button className="px-12 py-5 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase">
+      <Link
+        to="/schedule"
+        className="px-12 py-5 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase"
+        onClick={() => window.scrollTo({ top: 0 })}
+      >
         See more
-      </button>
+      </Link>
     </section>
   );
 }
