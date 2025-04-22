@@ -6,9 +6,13 @@ import { navLinks } from "@/constants/navlinks";
 
 export default function Layout() {
   const location = useLocation();
-  
-  const path = location.pathname.replace(import.meta.env.BASE_URL, "/");
-  const currentNav = navLinks.find((link) => link.href.endsWith(path));
+
+  const path = location.pathname
+    .replace(/\/$/, "");
+
+  const currentNav = navLinks.find(
+    (link) => link.href.replace(/\/$/, "") === path
+  );
   let title = currentNav?.name || "Not found";
 
   if (location.pathname.startsWith("/speakers/")) {
