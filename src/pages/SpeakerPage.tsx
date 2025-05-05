@@ -14,7 +14,7 @@ export default function SpeakerPage() {
     import(`../assets/speakers-${year}/${name}.json`)
       .then((module) => setSpeaker(module.default))
       .catch(() => console.error("Speaker not found"));
-  }, [name]);
+  }, [year, name]);
 
   if (!speaker) {
     return (
