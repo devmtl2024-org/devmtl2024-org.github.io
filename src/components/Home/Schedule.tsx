@@ -28,7 +28,7 @@ function Schedule() {
             Schedule details
           </h3>
           <h3 className="text-4xl font-semibold text-primary leading-tight mb-4">
-            Event Schedules
+            Agenda (2024)
           </h3>
           <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
         </motion.div>

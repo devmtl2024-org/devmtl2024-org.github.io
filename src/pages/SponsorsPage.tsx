@@ -14,7 +14,7 @@ export default function SponsorsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <p className="text-center text-gray-700 mb-6 text-lg">
-        /dev/mtl 2024 is only possible through the generosity of the
+        /dev/mtl 2025 is only possible through the generosity of the
         organizations and businesses on this page. Their donations make this
         special day possible. Thank you for your support!
       </p>

@@ -18,7 +18,7 @@ export default function SchedulePage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <h2 className="text-3xl font-medium mb-4 text-secondary text-center">
-        November 27, 2024
+        November 28, 2025
       </h2>
       <div className="w-16 h-1 bg-secondary mx-auto mb-12"></div>
 
