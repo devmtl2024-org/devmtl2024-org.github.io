@@ -1,6 +1,10 @@
 dist-ssr
 *.local
 
+# We use Yarn, we should not commit other lock files
+package-lock.json
+pnpm-lock.yaml
+
 # Editor directories and files
 .idea
 .DS_Store
