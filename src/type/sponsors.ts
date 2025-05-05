@@ -1,7 +1,7 @@
 export interface Sponsor {
-    name: string;
-    logo: string;
-    url: string;
-    isDisabled: boolean;
-    description: string;
-  }
+  name: string;
+  logo: string;
+  url: string;
+  isEnabled: boolean;
+  description: string;
+}

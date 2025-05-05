@@ -39,33 +39,32 @@ function Sponsors() {
           viewport={{ once: true }}
           className="flex flex-wrap gap-8 justify-center"
         >
-          {sponsors.map(
-            (sponsor, index) =>
-              !sponsor.isDisabled && (
-                <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 50 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 lg:w-1/5"
+          {sponsors
+            .filter((s) => s.isEnabled)
+            .map((sponsor, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 lg:w-1/5"
+              >
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
                 >
-                  <a
-                    href={sponsor.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group"
-                  >
-                    <img
-                      src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
-                      alt={sponsor.name}
-                      className="w-32 h-32 object-contain mb-4 mx-auto transition duration-300 group-hover:scale-110"
-                    />
-                  </a>
-                </motion.div>
-              )
-          )}
+                  <img
+                    src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
+                    alt={sponsor.name}
+                    className="w-32 h-32 object-contain mb-4 mx-auto transition duration-300 group-hover:scale-110"
+                  />
+                </a>
+              </motion.div>
+            ))}
         </motion.div>
 
         <a

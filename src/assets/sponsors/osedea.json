@@ -1,7 +1,7 @@
 {
-    "name": "Osedea",
-    "logo": "sponsors/osedea.png",
-    "url": "https://www.osedea.com",
-    "isDisabled": false,
-    "description": "We’re in the business of crafting brighter tomorrows. For us, it’s all about the people—our clients, our team, and the users at the heart of everything we do. Chasing excellence with relentless dedication, we aim to create work that not only meets but leaps beyond expectations."
-  }
+  "name": "Osedea",
+  "logo": "sponsors/osedea.png",
+  "url": "https://www.osedea.com",
+  "isEnabled": false,
+  "description": "We’re in the business of crafting brighter tomorrows. For us, it’s all about the people—our clients, our team, and the users at the heart of everything we do. Chasing excellence with relentless dedication, we aim to create work that not only meets but leaps beyond expectations."
+}
