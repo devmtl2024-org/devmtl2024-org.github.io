@@ -20,7 +20,6 @@ function Venue() {
           </h3>
           <div className="w-16 h-1 bg-primary mb-6"></div>
         </motion.div>
-
       </div>
     </section>
   );

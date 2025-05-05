@@ -7,11 +7,10 @@ import { navLinks } from "@/constants/navlinks";
 export default function Layout() {
   const location = useLocation();
 
-  const path = location.pathname
-    .replace(/\/$/, "");
+  const path = location.pathname.replace(/\/$/, "");
 
   const currentNav = navLinks.find(
-    (link) => link.href.replace(/\/$/, "") === path
+    (link) => link.href.replace(/\/$/, "") === path,
   );
   let title = currentNav?.name || "Not found";
 

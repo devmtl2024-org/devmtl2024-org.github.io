@@ -16,7 +16,9 @@ function Counter({
   const [count, setCount] = useState(startFrom || 0);
 
   useEffect(() => {
-    if (!inView) return; // Start counting only when in view
+    if (!inView) {
+      return;
+    } // Start counting only when in view
 
     let current = startFrom || 0;
     const duration = 2000;
@@ -60,7 +62,10 @@ function Numbers() {
   ];
 
   return (
-    <div ref={ref} className="bg-gradient-to-b from-primary-dark to-primary/80 px-4 py-24">
+    <div
+      ref={ref}
+      className="bg-gradient-to-b from-primary-dark to-primary/80 px-4 py-24"
+    >
       <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-center">

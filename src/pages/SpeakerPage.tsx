@@ -9,7 +9,9 @@ export default function SpeakerPage() {
   const [speaker, setSpeaker] = useState<Speaker | null>(null);
 
   useEffect(() => {
-    if (!name) return;
+    if (!name) {
+      return;
+    }
 
     import(`../assets/speakers-${year}/${name}.json`)
       .then((module) => setSpeaker(module.default))

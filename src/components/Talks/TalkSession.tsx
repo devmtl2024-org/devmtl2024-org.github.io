@@ -34,9 +34,7 @@ export default function TalkSession({
           <div className="text-xl font-semibold whitespace-normal">
             {speaker.title}
           </div>
-          <p className="text-sm mt-2 text-gray-600">
-            {speaker.description}
-          </p>
+          <p className="text-sm mt-2 text-gray-600">{speaker.description}</p>
         </div>
       </div>
     </div>

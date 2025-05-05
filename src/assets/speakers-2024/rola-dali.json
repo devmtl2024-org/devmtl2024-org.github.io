@@ -1,12 +1,12 @@
 {
-    "name": "Rola Dali",
-    "bio": "Rola Dali is a data enthusiast with over two decades of experience with all things data. She started as an academic researcher producing data to answer various questions about the world around us. She has a PhD in NeuroScience and Bioinformatics from McGill University studying chromatin architecture in brain cancer. She has since moved to industry and helps clients with data and machine learning endeavours in the cloud. Rola is an AWS fan; she is a Golden Jacket certified AWS expert, an AWS ambassador for RapidScale, an AWS community builder and an AWS meetup co-lead.",
-    "image": "speakers-2024/rola_dali.png",
-    "time": "2024-11-27T15:30:00",
-    "track": 2,
-    "title": "Intro to Machine Learning",
-    "description": null,
-    "github": null,
-    "linkedin": null,
-    "website": null
+  "name": "Rola Dali",
+  "bio": "Rola Dali is a data enthusiast with over two decades of experience with all things data. She started as an academic researcher producing data to answer various questions about the world around us. She has a PhD in NeuroScience and Bioinformatics from McGill University studying chromatin architecture in brain cancer. She has since moved to industry and helps clients with data and machine learning endeavours in the cloud. Rola is an AWS fan; she is a Golden Jacket certified AWS expert, an AWS ambassador for RapidScale, an AWS community builder and an AWS meetup co-lead.",
+  "image": "speakers-2024/rola_dali.png",
+  "time": "2024-11-27T15:30:00",
+  "track": 2,
+  "title": "Intro to Machine Learning",
+  "description": null,
+  "github": null,
+  "linkedin": null,
+  "website": null
 }

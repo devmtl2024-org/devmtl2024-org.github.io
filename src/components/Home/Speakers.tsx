@@ -62,13 +62,11 @@ function Speakers() {
                         .toLowerCase()
                         .normalize("NFD")
                         .replace(/[\u0300-\u036f]/g, "")
-                        .replace(/ /g, "-")}`
+                        .replace(/ /g, "-")}`,
                     )
                   }
                 >
-                  <FiPlus
-                    className="text-white text-3xl"
-                  />
+                  <FiPlus className="text-white text-3xl" />
                 </div>
               </div>
               <p className="text-xl font-semibold text-gray-700 mt-2 group-hover:text-primary transition duration-300">

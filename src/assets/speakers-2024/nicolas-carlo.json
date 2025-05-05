@@ -1,12 +1,12 @@
 {
-    "name": "Nicolas Carlo",
-    "bio": "Refactor Legacy Code. I build tools to help you do the same! I share tips & tricks to deal with Tech Debt • understandlegacycode.com Co-organizer of the Software Crafters MTL, React MTL, and Elixir MTL communities.",
-    "image": "speakers-2024/nicolas-carlo.png",
-    "time": "2024-11-27T16:15:00",
-    "track": 2,
-    "title": "Open space",
-    "description": "This will be an interactive session with a format that’s typical of the Software Crafters meetup. Instead of watching a talk, you will have a chance to suggest and vote for topics of discussions! Then, we will pick the most voted topics and split into smaller groups. Expect an interactive session full of insightful discussions with you pairs. A great way to wrap-up the day!",
-    "github": "nicoespeon/",
-    "linkedin": null,
-    "website": "https://understandlegacycode.com/"
+  "name": "Nicolas Carlo",
+  "bio": "Refactor Legacy Code. I build tools to help you do the same! I share tips & tricks to deal with Tech Debt • understandlegacycode.com Co-organizer of the Software Crafters MTL, React MTL, and Elixir MTL communities.",
+  "image": "speakers-2024/nicolas-carlo.png",
+  "time": "2024-11-27T16:15:00",
+  "track": 2,
+  "title": "Open space",
+  "description": "This will be an interactive session with a format that’s typical of the Software Crafters meetup. Instead of watching a talk, you will have a chance to suggest and vote for topics of discussions! Then, we will pick the most voted topics and split into smaller groups. Expect an interactive session full of insightful discussions with you pairs. A great way to wrap-up the day!",
+  "github": "nicoespeon/",
+  "linkedin": null,
+  "website": "https://understandlegacycode.com/"
 }

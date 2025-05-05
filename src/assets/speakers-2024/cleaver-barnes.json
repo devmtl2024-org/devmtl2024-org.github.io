@@ -1,12 +1,12 @@
 {
-    "name": "Cleaver Barnes",
-    "bio": "",
-    "image": "speakers-2024/cleaver-barnes.jpeg",
-    "time": "2024-11-27T11:15:00",
-    "track": 2,
-    "title": "Introduction to Elixir",
-    "description": "",
-    "github": null,
-    "linkedin": null,
-    "website": null
+  "name": "Cleaver Barnes",
+  "bio": "",
+  "image": "speakers-2024/cleaver-barnes.jpeg",
+  "time": "2024-11-27T11:15:00",
+  "track": 2,
+  "title": "Introduction to Elixir",
+  "description": "",
+  "github": null,
+  "linkedin": null,
+  "website": null
 }

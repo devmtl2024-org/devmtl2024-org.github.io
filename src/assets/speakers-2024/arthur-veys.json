@@ -1,12 +1,12 @@
 {
-    "name": "Arthur Veys",
-    "bio": "Arthur Veys est développeur Kotlin depuis plus de 5 ans et oeuvre en tant que Tech Lead à Desjardins à démocratiser l’utilisation de ce langage JVM dans des projets pour le Bureau de la sécurité.",
-    "image": "speakers-2024/arthur-veys.jpg",
-    "time": "2024-11-27T10:30:00",
-    "track": 1,
-    "title": "Ktor: le framework web 100% Kotlin",
-    "description": "Dans un monde JVM back-end pleinement dominé par Spring, on voit depuis quelques années apparaître de nouveaux venus qui tentent d’apporter des visions différentes sur les frameworks web.\nA travers une courte session de live-coding, je vous emmène découvrir Ktor & la librairie Exposed, des solutions 100% Kotlin proposées par Jetbrains pour construire un micro-service simple et performant pour attraper tout plein de pokémons.\nOn en profitera aussi pour fêter la sortie de Kotlin 2.0 et découvrir les principales nouveautés de cette version.",
-    "github": null,
-    "linkedin": "https://www.linkedin.com/in/arthur-veys/",
-    "website": null
-  }
+  "name": "Arthur Veys",
+  "bio": "Arthur Veys est développeur Kotlin depuis plus de 5 ans et oeuvre en tant que Tech Lead à Desjardins à démocratiser l’utilisation de ce langage JVM dans des projets pour le Bureau de la sécurité.",
+  "image": "speakers-2024/arthur-veys.jpg",
+  "time": "2024-11-27T10:30:00",
+  "track": 1,
+  "title": "Ktor: le framework web 100% Kotlin",
+  "description": "Dans un monde JVM back-end pleinement dominé par Spring, on voit depuis quelques années apparaître de nouveaux venus qui tentent d’apporter des visions différentes sur les frameworks web.\nA travers une courte session de live-coding, je vous emmène découvrir Ktor & la librairie Exposed, des solutions 100% Kotlin proposées par Jetbrains pour construire un micro-service simple et performant pour attraper tout plein de pokémons.\nOn en profitera aussi pour fêter la sortie de Kotlin 2.0 et découvrir les principales nouveautés de cette version.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/arthur-veys/",
+  "website": null
+}

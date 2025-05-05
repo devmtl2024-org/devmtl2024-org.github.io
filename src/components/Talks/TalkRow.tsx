@@ -11,7 +11,7 @@ export default function TalkRow({
   index: number;
 }) {
   const navigate = useNavigate();
-  
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-[200px_auto] bg-gray-100 mx-auto w-full max-w-screen-lg">
       <div
@@ -47,9 +47,8 @@ export default function TalkRow({
                             .toLowerCase()
                             .normalize("NFD")
                             .replace(/[\u0300-\u036f]/g, "")
-                            .replace(/ /g, "-")}`
+                            .replace(/ /g, "-")}`,
                         );
-
                       }}
                     />
                   </div>
@@ -74,7 +73,7 @@ export default function TalkRow({
                     </div>
                   </div>
                 </div>
-              )
+              ),
           )
         )}
       </div>

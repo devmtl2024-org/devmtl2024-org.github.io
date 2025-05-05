@@ -1,12 +1,12 @@
 {
-    "name": "David Guida",
-    "bio": "Senior Software Engineer @ Microsoft",
-    "image": "speakers-2024/david-guida.jpeg",
-    "time": "2024-11-27T13:45:00",
-    "track": 2,
-    "title": "Building Resilient Applications",
-    "description": "What is “Resiliency” and why do we need to account for it when building software? In this talk we will discuss some of the considerations and tradeoffs to make when designing resilient applications and how to make sure that our systems are available for our customers.",
-    "github": null,
-    "linkedin": null,
-    "website": "https://www.linkedin.com/in/davideguida"
+  "name": "David Guida",
+  "bio": "Senior Software Engineer @ Microsoft",
+  "image": "speakers-2024/david-guida.jpeg",
+  "time": "2024-11-27T13:45:00",
+  "track": 2,
+  "title": "Building Resilient Applications",
+  "description": "What is “Resiliency” and why do we need to account for it when building software? In this talk we will discuss some of the considerations and tradeoffs to make when designing resilient applications and how to make sure that our systems are available for our customers.",
+  "github": null,
+  "linkedin": null,
+  "website": "https://www.linkedin.com/in/davideguida"
 }

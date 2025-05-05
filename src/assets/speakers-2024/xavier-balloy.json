@@ -1,12 +1,12 @@
 {
-    "name": "Xavier Balloy",
-    "bio": "Xavier est un développeur senior avec treize ans d’expérience, travaillant à la fois sur le backend et le frontend. Il est un évangéliste de la qualité du code, toujours à la recherche de l’amélioration et du partage des pratiques avec son équipe.",
-    "image": "speakers-2024/xavier-balloy.jpeg",
-    "time": "2024-11-27T14:30:00",
-    "track": 1,
-    "title": "Retour aux fondamentaux: les 5 principes d’architecture SOLID",
-    "description": "Les revues de code font partie des outils utilisés par les développeurs pour trouver les problèmes le plus tôt possible. Cependant, il est compliqué d’identifier ceux liés aux principes SOLID si on ne sait pas quoi regarder. Ainsi, plutôt que de vous proposer juste une définition des principes, je vous propose de vous montrer comment les reconnaître et les corriger si besoin.",
-    "github": "xballoy",
-    "linkedin": "https://www.linkedin.com/in/xavierballoy",
-    "website": null
+  "name": "Xavier Balloy",
+  "bio": "Xavier est un développeur senior avec treize ans d’expérience, travaillant à la fois sur le backend et le frontend. Il est un évangéliste de la qualité du code, toujours à la recherche de l’amélioration et du partage des pratiques avec son équipe.",
+  "image": "speakers-2024/xavier-balloy.jpeg",
+  "time": "2024-11-27T14:30:00",
+  "track": 1,
+  "title": "Retour aux fondamentaux: les 5 principes d’architecture SOLID",
+  "description": "Les revues de code font partie des outils utilisés par les développeurs pour trouver les problèmes le plus tôt possible. Cependant, il est compliqué d’identifier ceux liés aux principes SOLID si on ne sait pas quoi regarder. Ainsi, plutôt que de vous proposer juste une définition des principes, je vous propose de vous montrer comment les reconnaître et les corriger si besoin.",
+  "github": "xballoy",
+  "linkedin": "https://www.linkedin.com/in/xavierballoy",
+  "website": null
 }
