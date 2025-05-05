@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
-import { Sponsor } from "@/type/sponsors";
-import { loadData } from "@/utils/loadData";
+import { useSponsors } from "@/utils/useSponsors";
 
 export default function SponsorsPage() {
-  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
-
-  useEffect(() => {
-    loadData<Sponsor>("sponsors").then((sponsors) => {
-      setSponsors(sponsors);
-    });
-  }, []);
+  const sponsors = useSponsors();
 
   return (
     <div className="container mx-auto px-4 py-8">

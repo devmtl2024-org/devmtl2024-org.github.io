@@ -1,16 +1,8 @@
-import { Sponsor } from "@/type/sponsors";
-import { loadData } from "@/utils/loadData";
-import { useEffect, useState } from "react";
+import { useSponsors } from "@/utils/useSponsors";
 import { motion } from "framer-motion";
 
 function Sponsors() {
-  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
-
-  useEffect(() => {
-    loadData<Sponsor>("sponsors").then((sponsors) => {
-      setSponsors(sponsors);
-    });
-  }, []);
+  const sponsors = useSponsors();
 
   return (
     <div className="bg-gradient-to-b from-primary-dark to-primary/80">
