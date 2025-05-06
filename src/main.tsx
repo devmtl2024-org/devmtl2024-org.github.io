@@ -1,11 +1,10 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import Layout from "@/components/Layout/Layout";
 import HomePage from "@/pages/HomePage";
 import SchedulePage from "@/pages/SchedulePage";
-import { LanguageProvider } from "./contexts/LanguageContext";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LanguageProvider } from "./contexts/LanguageContext.Provider";
 import "./index.css";
 import AboutPage from "./pages/AboutPage";
 import SpeakerPage from "./pages/SpeakerPage";
