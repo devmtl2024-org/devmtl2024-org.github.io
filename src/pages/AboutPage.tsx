@@ -1,4 +1,5 @@
 import Social from "@/components/Social/Social";
+import { useTranslation } from "@/hooks/useTranslation";
 import { Organizer } from "@/type/organizers";
 import { loadData } from "@/utils/loadData";
 import { useEffect, useState } from "react";
@@ -19,6 +20,7 @@ const meetups = [
 ];
 
 export default function AboutPage() {
+  const { t } = useTranslation();
   const [organizers, setOrganizers] = useState<Organizer[]>([]);
 
   useEffect(() => {
@@ -31,10 +33,17 @@ export default function AboutPage() {
     <>
       {/* Meetups Section */}
       <div className="container mx-auto px-4 py-8 mb-12 text-center">
-        <h2 className="text-3xl font-semibold text-gray-700 mb-4">Meetups</h2>
+        <h2 className="text-3xl font-semibold text-gray-700 mb-4">
+          {t({
+            fr: "Communautés",
+            en: "Communities",
+          })}
+        </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          /dev/mtl is an event that was born from the local tech communities. It
-          would not be possible without the contribution of these people.
+          {t({
+            fr: "L'événement /dev/mtl est né des communautés locales. Il ne serait pas possible sans le soutien de ces personnes.",
+            en: "/dev/mtl is an event that was born from the local tech communities. It would not be possible without the contribution of these people.",
+          })}
         </p>
         <div className="my-20 flex flex-wrap justify-center items-start gap-10">
           {meetups.map((meetup, index) => (
@@ -54,7 +63,7 @@ export default function AboutPage() {
       <div className="bg-gray-100 py-12">
         <div className="container mx-auto px-4 py-8 text-center">
           <h2 className="text-3xl font-semibold text-gray-700 mb-4">
-            Organizers
+            {t({ fr: "Organisation", en: "Organizers" })}
           </h2>
 
           <div className="flex flex-wrap gap-8 justify-center">

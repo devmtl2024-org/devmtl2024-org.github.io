@@ -1,12 +1,13 @@
+import { useTranslation } from "@/hooks/useTranslation";
 import { Organizer } from "@/type/organizers";
 import { loadData } from "@/utils/loadData";
-import { useEffect, useState } from "react";
-import Social from "../Social/Social";
 import { motion } from "framer-motion";
-
+import { useEffect, useState } from "react";
 import backgroundImage from "../../assets/background-1.jpg";
+import Social from "../Social/Social";
 
 function Organizers() {
+  const { t } = useTranslation();
   const [organizers, setOrganizers] = useState<Organizer[]>([]);
 
   useEffect(() => {
@@ -30,10 +31,10 @@ function Organizers() {
         {/* Speakers Section */}
         <div className="mb-12">
           <h3 className="text-xs text-gray-700 uppercase tracking-widest mb-4">
-            Behind the Scenes
+            {t({ fr: "Derrière le rideau", en: "Behind the Scenes" })}
           </h3>
           <h3 className="text-4xl font-semibold text-primary leading-tight mb-4">
-            Organizing team
+            {t({ fr: "Équipe d'organisation", en: "Organizing team" })}
           </h3>
           <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
         </div>

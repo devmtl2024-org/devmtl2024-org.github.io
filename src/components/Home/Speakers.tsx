@@ -1,13 +1,14 @@
+import { useTranslation } from "@/hooks/useTranslation";
 import { Speaker } from "@/type/speakers";
 import { loadData } from "@/utils/loadData";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
-import { motion } from "framer-motion";
-
-import backgroundImage from "../../assets/background-1.jpg";
 import { useNavigate } from "react-router-dom";
+import backgroundImage from "../../assets/background-1.jpg";
 
 function Speakers() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
@@ -29,13 +30,12 @@ function Speakers() {
         transition={{ duration: 0.5 }}
         className="max-w-5xl mx-auto px-4 py-24 w-full text-center"
       >
-        {/* Speakers Section */}
         <div className="mb-12">
           <h3 className="text-xs text-gray-700 uppercase tracking-widest mb-4">
-            Listen to the
+            {t({ fr: "Écoutez les", en: "Listen to the" })}
           </h3>
           <h3 className="text-4xl font-semibold text-primary leading-tight mb-4">
-            Event Speakers
+            {t({ fr: "Conférenciers", en: "Event Speakers" })}
           </h3>
           <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
         </div>
@@ -76,13 +76,12 @@ function Speakers() {
           ))}
         </div>
 
-        {/* View All Speakers Button */}
         <div className="mt-20">
           <a
             href="/speakers"
             className="px-12 py-5 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition duration-200 uppercase"
           >
-            View all speakers
+            {t({ fr: "Les voir tous", en: "View all speakers" })}
           </a>
         </div>
       </motion.section>

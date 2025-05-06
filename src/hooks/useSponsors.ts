@@ -1,6 +1,6 @@
 import { Sponsor } from "@/type/sponsors";
 import { useEffect, useState } from "react";
-import { loadData } from "./loadData";
+import { loadData } from "../utils/loadData";
 
 export function useSponsors() {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);

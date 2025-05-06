@@ -1,11 +1,13 @@
 import TalkRow from "@/components/Talks/TalkRow";
+import { useTranslation } from "@/hooks/useTranslation";
 import { ScheduleSession } from "@/type/schedule";
 import { Speaker } from "@/type/speakers";
 import { groupSpeakersByTime } from "@/utils/groupSpeakers";
 import { loadData } from "@/utils/loadData";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function SchedulePage() {
+  const { t } = useTranslation();
   const [schedule, setSchedule] = useState<ScheduleSession[]>([]);
 
   useEffect(() => {
@@ -18,11 +20,13 @@ export default function SchedulePage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <h2 className="text-3xl font-medium mb-4 text-secondary text-center">
-        November 28, 2025
+        {t({
+          fr: "Programme du 27 Novembre 2024",
+          en: "Schedule of November 27, 2024",
+        })}
       </h2>
       <div className="w-16 h-1 bg-secondary mx-auto mb-12"></div>
 
-      {/* Schedule */}
       {schedule.map((session, index) => (
         <TalkRow
           time={session.time}

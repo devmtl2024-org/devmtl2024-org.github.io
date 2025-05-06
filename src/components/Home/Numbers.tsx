@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Counter({
   value,
@@ -53,12 +53,18 @@ function Counter({
 function Numbers() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { t } = useTranslation();
 
   const stats = [
-    { label: "Day", value: 1 },
-    { label: "Track", value: 2 },
-    { label: "Talks", value: 18, startFrom: 0 },
-    { label: "Attendees", value: 100, startFrom: 80, plus: true },
+    { label: t({ fr: "Jour", en: "Day" }), value: 1 },
+    { label: t({ fr: "Tracks", en: "Tracks" }), value: 2 },
+    { label: t({ fr: "Présentations", en: "Talks" }), value: 18, startFrom: 0 },
+    {
+      label: t({ fr: "Participant(e)s", en: "Attendees" }),
+      value: 100,
+      startFrom: 80,
+      plus: true,
+    },
   ];
 
   return (

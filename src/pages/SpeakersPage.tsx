@@ -1,3 +1,4 @@
+import { useTranslation } from "@/hooks/useTranslation";
 import { Speaker } from "@/type/speakers";
 import { loadData } from "@/utils/loadData";
 import { useEffect, useState } from "react";
@@ -5,6 +6,7 @@ import { FiPlus } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 export default function SpeakersPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
@@ -16,12 +18,14 @@ export default function SpeakersPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Meetups Section */}
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-semibold text-gray-700 mb-28">
-          Our Presenters are <br />✨ Amazing ✨
+          {t({
+            fr: "Nos conférenciers sont ✨ Fantastiques ✨",
+            en: "Our Presenters are ✨ Amazing ✨",
+          })}
         </h2>
-        {/* Speakers List */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {speakers.map((speaker, index) => (
             <div

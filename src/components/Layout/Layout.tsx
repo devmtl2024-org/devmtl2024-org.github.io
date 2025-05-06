@@ -1,10 +1,12 @@
+import { navLinks } from "@/constants/navlinks";
+import { useTranslation } from "@/hooks/useTranslation";
 import { Outlet, useLocation } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
-import Navbar from "../Navbar";
 import Header from "../Header/Header";
-import { navLinks } from "@/constants/navlinks";
+import Navbar from "../Navbar";
 
 export default function Layout() {
+  const { t } = useTranslation();
   const location = useLocation();
 
   const path = location.pathname.replace(/\/$/, "");
@@ -12,11 +14,11 @@ export default function Layout() {
   const currentNav = navLinks.find(
     (link) => link.href.replace(/\/$/, "") === path,
   );
-  let title = currentNav?.name || "Not found";
-
-  if (location.pathname.startsWith("/speakers/")) {
-    title = "Event Speakers";
-  }
+  const title = t(
+    location.pathname.startsWith("/speakers/")
+      ? { fr: "Conférenciers", en: "Event Speakers" }
+      : currentNav?.name || { fr: "/dev/mtl", en: "/dev/mtl" },
+  );
 
   return (
     <div className="flex flex-col min-h-screen">

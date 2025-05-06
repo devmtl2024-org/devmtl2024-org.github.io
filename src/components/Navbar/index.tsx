@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
-import { navLinks } from "@/constants/navlinks";
-
-import Logo from "../../assets/logo.svg?react";
 import BuyTicketButton from "@/components/BuyTicket/BuyTicketButton";
+import { navLinks } from "@/constants/navlinks";
+import { useTranslation } from "@/hooks/useTranslation";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../assets/logo.svg?react";
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +39,7 @@ function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex mx-auto justify-between w-[90%] lg:w-5/6">
+          <div className="flex mx-auto justify-between w-[90%] xl:w-5/6">
             {/* Primary menu and logo */}
             <div className="flex items-center gap-16 my-6 w-full justify-between">
               {/* Logo */}
@@ -51,8 +51,8 @@ function Navbar() {
                 onClick={() => navigate("/")}
               >
                 <Logo
-                  fill={!isScrolled ? "white" : "#01055E"}
-                  stroke={!isScrolled ? "white" : "#01055E"}
+                  fill={isScrolled ? "#01055E" : "white"}
+                  stroke={isScrolled ? "#01055E" : "white"}
                   className="h-full w-full object-contain"
                 />
               </div>
@@ -61,11 +61,11 @@ function Navbar() {
               <div className="hidden lg:flex gap-8 h-(100%)">
                 {navLinks.map((link) => (
                   <a
-                    key={link.name}
+                    key={link.name.en}
                     href={link.href}
                     className={`text-lg font-medium relative my-auto uppercase`}
                   >
-                    {link.name}
+                    {t(link.name)}
                     {/* Ajouter une bordure sous chaque lien */}
                     <span
                       className={`absolute bottom-0 left-0 w-full h-[2px] bg-transparent transition-all duration-200`}
@@ -106,7 +106,7 @@ function Navbar() {
             <div className="flex flex-col gap-8 font-bold tracking-wider">
               {navLinks.map((link) => (
                 <a
-                  key={link.name}
+                  key={link.name.en}
                   href={link.href}
                   className={`text-lg font-medium text-gray-700 hover:text-gray-900 hover:underline ${
                     isScrolled
@@ -114,7 +114,7 @@ function Navbar() {
                       : "hover:underline-primary"
                   }`}
                 >
-                  {link.name}
+                  {t(link.name)}
                 </a>
               ))}
               <BuyTicketButton />
