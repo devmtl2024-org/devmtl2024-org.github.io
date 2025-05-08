@@ -16,7 +16,7 @@ export function LanguageSwitcher() {
       className="text-md font-light hover:text-secondary transition-colors"
       aria-label={ariaLabel}
     >
-      {language === "fr" ? "🇬🇧 EN" : "🇫🇷 FR"}
+      {language === "fr" ? "🇬🇧 EN" : "🇫🇷 FR"}
     </button>
   );
 }
