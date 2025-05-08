@@ -21,6 +21,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       return storedLang;
     }
 
+    // Otherwise, try to use the browser language
+    const browserLang = navigator.language;
+    if (browserLang.startsWith("en") || browserLang.startsWith("fr")) {
+      return browserLang.startsWith("en") ? "en" : "fr";
+    }
+
     // Defaults to French
     return "fr";
   });
