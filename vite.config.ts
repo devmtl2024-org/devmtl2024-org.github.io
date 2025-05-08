@@ -1,12 +1,11 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
-import svgr from "vite-plugin-svgr";
-import { resolve } from "path";
 import fs from "fs";
+import path, { resolve } from "path";
+import { defineConfig } from "vite";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/website/" : "/",
+  base: "/",
   plugins: [react(), svgr()],
   resolve: {
     alias: {

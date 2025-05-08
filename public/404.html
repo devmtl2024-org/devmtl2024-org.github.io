@@ -11,13 +11,11 @@
         const search = window.location.search;
         const hash = window.location.hash;
 
-        if (!pathname.startsWith("/website")) {
-          const newUrl = "/website" + pathname + search + hash;
-          window.location.replace(newUrl);
-        }
+        const newUrl = "/" + pathname + search + hash;
+        window.location.replace(newUrl);
       })();
     </script>
 
-    <p>Redirecting… If nothing happens, <a href="/website/">click here</a>.</p>
+    <p>Redirecting… If nothing happens, <a href="/">click here</a>.</p>
   </body>
 </html>
