@@ -41,7 +41,6 @@ function Navbar() {
       >
         <div className="max-w-8xl mx-auto">
           <div className="flex mx-auto justify-between w-[90%] xl:w-5/6">
-            {/* Primary menu and logo */}
             <div className="flex items-center gap-16 my-6 w-full justify-between">
               {/* Logo */}
               <div
@@ -58,27 +57,30 @@ function Navbar() {
                 />
               </div>
 
-              {/* Primary */}
               <div className="hidden lg:flex gap-8 h-(100%)">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name.en}
-                    href={link.href}
-                    className={`text-lg font-medium relative my-auto uppercase`}
-                  >
-                    {t(link.name)}
-                    {/* Ajouter une bordure sous chaque lien */}
-                    <span
-                      className={`absolute bottom-0 left-0 w-full h-[2px] bg-transparent transition-all duration-200`}
-                    ></span>
-                  </a>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = window.location.pathname === link.href;
+
+                  return (
+                    <a
+                      key={link.name.en}
+                      href={link.href}
+                      className={`text-lg font-medium relative my-auto uppercase hover:opacity-70 transition-opacity duration-200 block`}
+                    >
+                      {t(link.name)}
+                      <span
+                        className={`absolute bottom-0 left-0 w-full h-[2px] transition-all duration-200 ${
+                          isActive ? "bg-white" : "bg-transparent"
+                        }`}
+                      ></span>
+                    </a>
+                  );
+                })}
                 <LanguageSwitcher />
                 <BuyTicketButton />
               </div>
             </div>
 
-            {/* Secondary */}
             <div className="flex gap-6">
               {/* Mobile navigation toggle */}
               <div className="lg:hidden flex items-center">
