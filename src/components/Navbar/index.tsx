@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.svg?react";
+import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -38,7 +39,7 @@ function Navbar() {
             : "bg-transparent text-white"
         }`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           <div className="flex mx-auto justify-between w-[90%] xl:w-5/6">
             {/* Primary menu and logo */}
             <div className="flex items-center gap-16 my-6 w-full justify-between">
@@ -72,6 +73,7 @@ function Navbar() {
                     ></span>
                   </a>
                 ))}
+                <LanguageSwitcher />
                 <BuyTicketButton />
               </div>
             </div>
@@ -117,6 +119,7 @@ function Navbar() {
                   {t(link.name)}
                 </a>
               ))}
+              <LanguageSwitcher />
               <BuyTicketButton />
             </div>
           </div>
