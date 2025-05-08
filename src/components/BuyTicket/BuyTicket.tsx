@@ -22,7 +22,7 @@ function BuyTicket() {
           {t({ fr: "Dépêchez-vous", en: "Hurry up" })}
         </h3>
         <h3 className="text-4xl font-semibold text-white leading-tight mb-4">
-          {t({ fr: "Réservez une place", en: "Book a seat" })}
+          {t({ fr: "Réservez votre place", en: "Book your seat" })}
         </h3>
         <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
 
