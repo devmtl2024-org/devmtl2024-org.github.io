@@ -1,5 +1,5 @@
 // Could be an env variable, but it's good enough for now
-const ARE_TICKETS_AVAILABLE = false;
+const ARE_TICKETS_AVAILABLE = true;
 
 import { useTranslation } from "@/hooks/useTranslation";
 
@@ -8,7 +8,7 @@ export default function BuyTicketButton() {
 
   return ARE_TICKETS_AVAILABLE ? (
     <a
-      href="https://www.eventbrite.com/e/devmtl-2024-tickets-987499316037"
+      href="https://www.eventbrite.com/e/1357369902919/"
       target="_blank"
       rel="noopener noreferrer"
     >
