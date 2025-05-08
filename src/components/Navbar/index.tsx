@@ -65,7 +65,7 @@ function Navbar() {
                     <a
                       key={link.name.en}
                       href={link.href}
-                      className={`text-lg font-medium relative my-auto uppercase hover:opacity-70 transition-opacity duration-200 block`}
+                      className={`text-lg font-medium relative my-auto uppercase hover:text-secondary transition-opacity duration-200 block`}
                     >
                       {t(link.name)}
                       <span
@@ -107,21 +107,19 @@ function Navbar() {
           }`}
         >
           <div className="px-8 py-4">
-            <div className="flex flex-col gap-8 font-bold tracking-wider">
+            <div className="flex flex-col gap-8 font-medium tracking-wider text-gray-700  text-lg ">
               {navLinks.map((link) => (
                 <a
                   key={link.name.en}
                   href={link.href}
-                  className={`text-lg font-medium text-gray-700 hover:text-gray-900 hover:underline ${
-                    isScrolled
-                      ? "hover:underline-white"
-                      : "hover:underline-primary"
-                  }`}
+                  className="hover:text-secondary"
                 >
                   {t(link.name)}
                 </a>
               ))}
-              <LanguageSwitcher />
+              <div className="hover:text-secondary">
+                <LanguageSwitcher />
+              </div>
               <BuyTicketButton />
             </div>
           </div>
