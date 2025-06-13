@@ -11,5 +11,11 @@ export function useSponsors() {
     });
   }, []);
 
-  return sponsors;
+  return {
+    allSponsors: sponsors,
+    orSponsors: sponsors.filter((s) => s.level === "or"),
+    argentSponsors: sponsors.filter((s) => s.level === "argent"),
+    bronzeSponsors: sponsors.filter((s) => s.level === "bronze"),
+    supporterSponsors: sponsors.filter((s) => s.level === "supporter"),
+  };
 }

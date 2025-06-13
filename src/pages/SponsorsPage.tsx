@@ -3,7 +3,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 
 export default function SponsorsPage() {
   const { t } = useTranslation();
-  const sponsors = useSponsors();
+  const { allSponsors: sponsors } = useSponsors();
 
   return (
     <div className="container mx-auto px-4 py-8">

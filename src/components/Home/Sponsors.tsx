@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 function Sponsors() {
   const { t } = useTranslation();
-  const sponsors = useSponsors();
+  const { allSponsors: sponsors } = useSponsors();
 
   return (
     <div className="bg-gradient-to-b from-primary-dark to-primary/80">

@@ -4,4 +4,5 @@ export interface Sponsor {
   url: string;
   isEnabled: boolean;
   description: string;
+  level: "or" | "argent" | "bronze" | "supporter";
 }
