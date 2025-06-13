@@ -9,7 +9,7 @@ export default function SponsorsPage() {
     <div className="container mx-auto px-4 py-8">
       <p className="text-center text-gray-700 mb-6 text-lg">
         {t({
-          fr: "/dev/mtl 2025 est possible grâce à la générosité des organisations et entreprises de cette page. Leurs dons font de ce jour spécial. Merci pour votre soutien!",
+          fr: "/dev/mtl 2025 est possible grâce à la générosité des organisations et entreprises de cette page. Leurs soutien rend possible cet événement à un prix abordable. Merci à eux!",
           en: "/dev/mtl 2025 is only possible through the generosity of the organizations and businesses on this page. Their donations make this special day possible. Thank you for your support!",
         })}
       </p>

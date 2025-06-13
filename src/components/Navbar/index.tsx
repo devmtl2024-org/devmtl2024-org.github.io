@@ -41,10 +41,11 @@ function Navbar() {
         }`}
       >
         <div className="max-w-8xl mx-auto">
-          <div className="flex mx-auto justify-between w-[90%] xl:w-5/6">
-            <div className="flex items-center gap-16 my-6 w-full justify-between">
+          <div className="flex mx-auto justify-between w-[90%] 2xl:w-5/6">
+            <div className="flex items-center gap-4 2xl:gap-16 my-6 w-full justify-between">
               {/* Logo */}
               <div
+                className="hidden xl:block"
                 style={{
                   width: "200px",
                   cursor: "pointer",

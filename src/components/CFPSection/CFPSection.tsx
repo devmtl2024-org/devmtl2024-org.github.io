@@ -95,7 +95,7 @@ const CFPSection: React.FC = () => {
             className="px-8 py-3 bg-primary text-white text-lg font-medium rounded-lg hover:bg-primary-dark transition duration-300"
           >
             {t({
-              fr: "Présentez un sujet (CFP)",
+              fr: "Présentez (CFP)",
               en: "Call for Papers",
             })}
           </a>
