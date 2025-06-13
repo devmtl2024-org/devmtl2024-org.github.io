@@ -8,7 +8,7 @@ const CFPSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-20 xl:px-20">
         <h2 className="text-3xl font-semibold text-gray-700 mb-6 text-center">
           {t({
-            fr: "Appel à papiers pour 2025",
+            fr: "Appel aux conférenciers pour 2025",
             en: "Call For Papers for 2025",
           })}
         </h2>

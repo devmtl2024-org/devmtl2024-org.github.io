@@ -1,20 +1,75 @@
 import { useSponsors } from "@/hooks/useSponsors";
 import { useTranslation } from "@/hooks/useTranslation";
+import { Sponsor } from "@/type/sponsors";
 
 export default function SponsorsPage() {
   const { t } = useTranslation();
-  const { allSponsors: sponsors } = useSponsors();
+  const { orSponsors, argentSponsors, bronzeSponsors, supporterSponsors } =
+    useSponsors();
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <p className="text-center text-gray-700 mb-6 text-lg">
+      <p className="text-center text-gray-700 mb-12 text-lg">
         {t({
-          fr: "/dev/mtl 2025 est possible grâce à la générosité des organisations et entreprises de cette page. Leurs soutien rend possible cet événement à un prix abordable. Merci à eux!",
-          en: "/dev/mtl 2025 is only possible through the generosity of the organizations and businesses on this page. Their donations make this special day possible. Thank you for your support!",
+          fr: "/dev/mtl 2025 est possible grâce à la générosité des organisations et entreprises de cette page. Leur soutien rend possible cet événement à un prix abordable. Merci à eux!",
+          en: "/dev/mtl 2025 is only possible through the generosity of the organizations and businesses on this page. Their support make this event possible at an affordable price. Thank you!",
         })}
       </p>
 
-      <div className="space-y-8 mb-12">
+      <SponsorSection
+        sponsors={orSponsors}
+        title={{
+          fr: "Commanditaires Or",
+          en: "Gold Sponsors",
+        }}
+      />
+
+      <SponsorSection
+        sponsors={argentSponsors}
+        title={{
+          fr: "Commanditaires Argent",
+          en: "Silver Sponsors",
+        }}
+      />
+
+      <SponsorSection
+        sponsors={bronzeSponsors}
+        title={{
+          fr: "Commanditaires Bronze",
+          en: "Bronze Sponsors",
+        }}
+      />
+
+      <SponsorSection
+        sponsors={supporterSponsors}
+        title={{
+          fr: "Supporteurs",
+          en: "Supporters",
+        }}
+      />
+    </div>
+  );
+}
+
+function SponsorSection({
+  sponsors,
+  title,
+}: {
+  sponsors: Sponsor[];
+  title: { fr: string; en: string };
+}) {
+  const { t } = useTranslation();
+
+  if (sponsors.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="mb-16">
+      <h2 className="text-3xl font-bold text-center text-secondary mb-8">
+        {t(title)}
+      </h2>
+      <div className="space-y-8">
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
@@ -29,9 +84,9 @@ export default function SponsorsPage() {
             </div>
 
             <div className="flex-1">
-              <h2 className="text-xl font-semibold text-secondary mb-4">
+              <h3 className="text-xl font-semibold text-secondary mb-4">
                 {sponsor.name}
-              </h2>
+              </h3>
               <p className="text-gray-600 mb-6">{sponsor.description}</p>
               <a
                 href={sponsor.url}

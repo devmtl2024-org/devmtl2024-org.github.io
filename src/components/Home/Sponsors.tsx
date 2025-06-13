@@ -1,10 +1,12 @@
 import { useSponsors } from "@/hooks/useSponsors";
 import { useTranslation } from "@/hooks/useTranslation";
+import { Sponsor } from "@/type/sponsors";
 import { motion } from "framer-motion";
 
 function Sponsors() {
   const { t } = useTranslation();
-  const { allSponsors: sponsors } = useSponsors();
+  const { orSponsors, argentSponsors, bronzeSponsors, supporterSponsors } =
+    useSponsors();
 
   return (
     <div className="bg-gradient-to-b from-primary-dark to-primary/80">
@@ -26,44 +28,18 @@ function Sponsors() {
           <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
         </motion.div>
 
-        {/* Sponsors List - Staggered Animation */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex flex-wrap gap-8 justify-center"
-        >
-          {sponsors.map((sponsor, index) => (
-            <motion.div
-              key={index}
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 lg:w-1/5"
-            >
-              <a
-                href={sponsor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
-                  alt={sponsor.name}
-                  className="w-32 h-32 object-contain mb-4 mx-auto transition duration-300 group-hover:scale-110"
-                />
-              </a>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="flex flex-col gap-6">
+          <SponsorsGroup sponsors={orSponsors} className="size-52" />
+          <SponsorsGroup sponsors={argentSponsors} className="size-44" />
+          <SponsorsGroup sponsors={bronzeSponsors} className="size-36" />
+          <SponsorsGroup sponsors={supporterSponsors} className="size-36" />
+        </div>
 
         <a
           href="mailto:devmontreal.conf@gmail.com&subject=We%20want%20to%20sponsor%20/dev/mtl%202025"
           className="px-10 py-4 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase inline-block text-center mt-12"
         >
-          {t({ fr: "Devenez sponsor", en: "Become a Sponsor" })}
+          {t({ fr: "Devenez commanditaire", en: "Become a Sponsor" })}
         </a>
       </section>
     </div>
@@ -71,3 +47,49 @@ function Sponsors() {
 }
 
 export default Sponsors;
+
+function SponsorsGroup({
+  sponsors,
+  className,
+}: {
+  sponsors: Sponsor[];
+  className: string;
+}) {
+  if (sponsors.length === 0) {
+    return null;
+  }
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="flex flex-wrap gap-8 justify-center items-end"
+    >
+      {sponsors.map((sponsor, index) => (
+        <motion.div
+          key={`${sponsor.level}-${index}`}
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-center"
+        >
+          <a
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
+              alt={sponsor.name}
+              className={`${className} object-contain mx-auto transition duration-300 group-hover:scale-110 bg-white p-4`}
+            />
+          </a>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+}
