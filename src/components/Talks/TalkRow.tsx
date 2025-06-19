@@ -11,6 +11,8 @@ export default function TalkRow({
   index: number;
 }) {
   const navigate = useNavigate();
+  const visibleSpeakers = speakers.filter(Boolean);
+  const colCount = visibleSpeakers.length || 1;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-[200px_auto] bg-gray-100 mx-auto w-full max-w-screen-lg">
@@ -22,13 +24,15 @@ export default function TalkRow({
         <div className="text-lg font-semibold">{time.toUpperCase()}</div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-6 bg-white w-full border border-dashed border-gray-400">
-        {speakers.every((speaker) => speaker === null) ? (
+      <div
+        className={`grid grid-cols-1 md:grid-cols-${colCount} gap-4 md:gap-6 p-6 bg-white w-full border border-dashed border-gray-400`}
+      >
+        {visibleSpeakers.length === 0 ? (
           <div className="text-center text-gray-500 font-medium w-full col-span-2">
             Break
           </div>
         ) : (
-          speakers.map(
+          visibleSpeakers.map(
             (speaker, idx) =>
               speaker && (
                 <div

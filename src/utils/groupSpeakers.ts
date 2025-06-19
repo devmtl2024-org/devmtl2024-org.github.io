@@ -10,10 +10,20 @@ export function groupSpeakersByTime(speakers: Speaker[]): ScheduleSession[] {
       minute: "2-digit",
       hour12: true,
     });
+
+    const trackIndex = speaker.track - 1;
+
     if (!grouped[time]) {
-      grouped[time] = { time, track1: null, track2: null };
+      grouped[time] = { time, tracks: [] };
     }
-    grouped[time][`track${speaker.track}` as "track1" | "track2"] = speaker;
+
+    const session = grouped[time];
+
+    while (session.tracks.length <= trackIndex) {
+      session.tracks.push(null);
+    }
+
+    session.tracks[trackIndex] = speaker;
   });
 
   return Object.values(grouped).sort(
