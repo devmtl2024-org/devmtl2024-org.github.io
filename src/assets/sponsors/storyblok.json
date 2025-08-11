@@ -1,0 +1,8 @@
+{
+  "name": "Storyblok",
+  "logo": "sponsors/storyblok.png",
+  "url": "https://www.storyblok.com/",
+  "isEnabled": true,
+  "description": "Storyblok is a headless CMS that is designed by devs for devs. That means it's API first, component based and framework agnostic. It frees you from the pain of legacy CMS platforms and empowers your teams to ship content quickly and build with complete flexibility.\n\nLegendary brands like Adidas, T-Mobile, and Renault use Storyblok to make content management fun and collaborative. It’s Joyful Headless™ and it changes everything.",
+  "level": "or"
+}
