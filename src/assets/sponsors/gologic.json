@@ -1,0 +1,8 @@
+{
+  "name": "Gologic",
+  "logo": "sponsors/gologic.png",
+  "url": "https://www.gologic.ca/",
+  "isEnabled": true,
+  "description": "Gologic partage la culture DevOps depuis 2011. C’est tout naturellement que notre positionnement à titre d’experte en livraison continue orientée produit s’est effectué au fil des années. Il en résulte une connaissance approfondie sur les meilleures pratiques de développement de l’industrie. Aujourd’hui, nous accompagnons les organisations, notamment les institutions bancaires, gouvernementales et en télécommunications pour accélérer leur cycle de livraison grâce à nos bilans DevOps, nos expertises DevOps, ainsi qu’à nos formations. Notre approche stratégique apporte de la valeur aux processus, optimise les mises en production et assure une qualité fonctionnelle et sécuritaire des applications. Collaborez. Automatisez. Innovez.",
+  "level": "or"
+}
