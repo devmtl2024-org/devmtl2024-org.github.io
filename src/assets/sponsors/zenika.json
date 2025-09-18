@@ -3,6 +3,9 @@
   "logo": "sponsors/zenika.png",
   "url": "https://zenika.ca/contact",
   "isEnabled": true,
-  "description": "Zenika est spécialisée dans la transformation numérique, avec une expertise en Agile, DevOps, et cybersécurité, offrant des services de conseil, d'accompagnement et de formation. Avec notre présence internationale et des valeurs fortes d'ouverture, de partage et de responsabilité numérique, Zenika soutient les entreprises dans leurs défis technologiques et organisationnels grâce à une communauté d'experts et un modèle d'agilité à l'échelle locale et globale.",
+  "description": {
+    "fr": "Zenika est spécialisée dans la transformation numérique, avec une expertise en Agile, DevOps, et cybersécurité, offrant des services de conseil, d'accompagnement et de formation. Avec notre présence internationale et des valeurs fortes d'ouverture, de partage et de responsabilité numérique, Zenika soutient les entreprises dans leurs défis technologiques et organisationnels grâce à une communauté d'experts et un modèle d'agilité à l'échelle locale et globale.",
+    "en": "Zenika specializes in digital transformation, with expertise in Agile, DevOps, and cybersecurity, offering consulting, support, and training services. With our international presence and strong values of openness, sharing, and digital responsibility, Zenika supports companies in their technological and organizational challenges through a community of experts and an agile model at the local and global levels."
+  },
   "level": "argent"
 }

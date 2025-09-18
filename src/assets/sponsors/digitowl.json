@@ -3,6 +3,9 @@
   "logo": "sponsors/digitowl.png",
   "url": "https://www.lafabriquedigitowl.com",
   "isEnabled": true,
-  "description": "La fabrique Digit’Owl est une firme de consultation en technologies de l’information, reconnue pour son expertise technique et son innovation. Fondée par quatre experts issus du domaine, l’entreprise s’est toujours positionnée en tant qu’early adopter des nouvelles technologies, notamment dans les domaines de l’intelligence artificielle et des plateformes mobile. Nos collaborateurs, soigneusement sélectionnés, sont des profils techniques expérimentés, ce qui nous permet de maintenir un niveau d’excellence élevé.",
+  "description": {
+    "fr": "La fabrique Digit’Owl est une firme de consultation en technologies de l’information, reconnue pour son expertise technique et son innovation. Fondée par quatre experts issus du domaine, l’entreprise s’est toujours positionnée en tant qu’early adopter des nouvelles technologies, notamment dans les domaines de l’intelligence artificielle et des plateformes mobile. Nos collaborateurs, soigneusement sélectionnés, sont des profils techniques expérimentés, ce qui nous permet de maintenir un niveau d’excellence élevé.",
+    "en": "Digit'Owl Factory is an information technology consulting firm, recognized for its technical expertise and innovation. Founded by four domain experts, the company has always positioned itself as an early adopter of new technologies, particularly in the fields of artificial intelligence and mobile platforms. Our carefully selected collaborators are experienced technical profiles, which allows us to maintain a high level of excellence."
+  },
   "level": "or"
 }

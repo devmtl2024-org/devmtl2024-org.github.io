@@ -3,6 +3,9 @@
   "logo": "sponsors/wallaby-js.png",
   "url": "https://wallabyjs.com/",
   "isEnabled": true,
-  "description": "Wallaby.js runs your JavaScript and TypeScript tests as you type, with results displayed next to your code. It also feeds rich runtime context to AI tools to help you write and fix code faster.",
+  "description": {
+    "fr": "Wallaby.js exécute vos tests JavaScript et TypeScript pendant que vous tapez, avec les résultats affichés à côté de votre code. Il fournit également un contexte d'exécution riche aux outils d'IA pour vous aider à écrire et corriger le code plus rapidement.",
+    "en": "Wallaby.js runs your JavaScript and TypeScript tests as you type, with results displayed next to your code. It also feeds rich runtime context to AI tools to help you write and fix code faster."
+  },
   "level": "supporter"
 }

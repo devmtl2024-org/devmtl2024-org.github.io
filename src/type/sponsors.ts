@@ -3,6 +3,6 @@ export interface Sponsor {
   logo: string;
   url: string;
   isEnabled: boolean;
-  description: string;
+  description: { fr: string; en: string };
   level: "or" | "argent" | "bronze" | "supporter";
 }

@@ -3,6 +3,9 @@
   "logo": "sponsors/ets-formation.png",
   "url": "https://www.perf.etsmtl.ca",
   "isEnabled": true,
-  "description": "ÉTS Formation est le service de formation continue et de développement de compétences de l’École de technologie supérieure. Plus de 300 formations de 1 à 6 jours dans 9 domaines d’expertise sont offertes, et plus de 7500 personnes issues de tous les secteurs économiques sont formées chaque année. Que vous soyez un professionnel ou une professionnelle, un ou une gestionnaire, ou encore un technicien ou une technicienne, vous trouverez, dans notre programmation, une multitude de formations pertinentes, concrètes, interactives et pratiques qui rehausseront vos compétences.",
+  "description": {
+    "fr": "ÉTS Formation est le service de formation continue et de développement de compétences de l’École de technologie supérieure. Plus de 300 formations de 1 à 6 jours dans 9 domaines d’expertise sont offertes, et plus de 7500 personnes issues de tous les secteurs économiques sont formées chaque année. Que vous soyez un professionnel ou une professionnelle, un ou une gestionnaire, ou encore un technicien ou une technicienne, vous trouverez, dans notre programmation, une multitude de formations pertinentes, concrètes, interactives et pratiques qui rehausseront vos compétences.",
+    "en": "ÉTS Formation is the continuing education and skills development service of the École de technologie supérieure. More than 300 training courses lasting 1 to 6 days in 9 areas of expertise are offered, and more than 7,500 people from all economic sectors are trained each year. Whether you are a professional, a manager, or a technician, you will find in our programming a multitude of relevant, concrete, interactive and practical training courses that will enhance your skills."
+  },
   "level": "supporter"
 }

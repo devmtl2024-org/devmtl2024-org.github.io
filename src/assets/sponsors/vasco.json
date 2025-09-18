@@ -3,6 +3,9 @@
   "logo": "sponsors/vasco.png",
   "url": "https://vasco.app",
   "isEnabled": true,
-  "description": "At Vasco, we’re building an all-in-one RevOps platform that combines powerful software, peer-driven community, and actionable insights. Our goal is to empower startups and scale-ups to grow faster, smarter, and predictably.",
+  "description": {
+    "fr": "Chez Vasco, nous construisons une plateforme RevOps tout-en-un qui combine un logiciel puissant, une communauté dirigée par les pairs et des insights actionnables. Notre objectif est de permettre aux startups et scale-ups de croître plus rapidement, plus intelligemment et de manière prévisible.",
+    "en": "At Vasco, we’re building an all-in-one RevOps platform that combines powerful software, peer-driven community, and actionable insights. Our goal is to empower startups and scale-ups to grow faster, smarter, and predictably."
+  },
   "level": "argent"
 }

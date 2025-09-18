@@ -87,7 +87,7 @@ function SponsorSection({
               <h3 className="text-xl font-semibold text-secondary mb-4">
                 {sponsor.name}
               </h3>
-              <p className="text-gray-600 mb-6">{sponsor.description}</p>
+              <p className="text-gray-600 mb-6">{t(sponsor.description)}</p>
               <a
                 href={sponsor.url}
                 target="_blank"

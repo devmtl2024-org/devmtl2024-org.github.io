@@ -3,6 +3,9 @@
   "logo": "sponsors/osedea.png",
   "url": "https://www.osedea.com",
   "isEnabled": true,
-  "description": "We’re in the business of crafting brighter tomorrows. For us, it’s all about the people—our clients, our team, and the users at the heart of everything we do. Chasing excellence with relentless dedication, we aim to create work that not only meets but leaps beyond expectations.",
+  "description": {
+    "fr": "Nous sommes dans le métier de créer des lendemains plus brillants. Pour nous, tout tourne autour des gens—nos clients, notre équipe, et les utilisateurs au cœur de tout ce que nous faisons. Poursuivant l'excellence avec un dévouement implacable, nous visons à créer un travail qui non seulement répond aux attentes mais les dépasse largement.",
+    "en": "We’re in the business of crafting brighter tomorrows. For us, it’s all about the people—our clients, our team, and the users at the heart of everything we do. Chasing excellence with relentless dedication, we aim to create work that not only meets but leaps beyond expectations."
+  },
   "level": "argent"
 }
