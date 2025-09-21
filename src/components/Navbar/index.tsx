@@ -31,6 +31,8 @@ function Navbar() {
     };
   }, []);
 
+  const headerNavLinks = navLinks.filter((link) => link.inHeader);
+
   return (
     <div className="app">
       <nav
@@ -60,7 +62,7 @@ function Navbar() {
               </div>
 
               <div className="hidden lg:flex gap-8 h-(100%)">
-                {navLinks.map((link) => {
+                {headerNavLinks.map((link) => {
                   const isActive = window.location.pathname === link.href;
 
                   if (link.name.en === "Speakers") {
@@ -147,7 +149,7 @@ function Navbar() {
         >
           <div className="px-8 py-4">
             <div className="flex flex-col gap-8 font-medium tracking-wider text-gray-700 text-lg ">
-              {navLinks.map((link) => {
+              {headerNavLinks.map((link) => {
                 if (link.name.en === "Speakers") {
                   return (
                     <div key={link.name.en} className="flex flex-col gap-2">
