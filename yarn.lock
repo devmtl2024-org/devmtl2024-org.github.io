@@ -974,6 +974,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kurkle/color@npm:^0.3.0":
+  version: 0.3.4
+  resolution: "@kurkle/color@npm:0.3.4"
+  checksum: b95c6abe0241ba1745b3c84de3b464296b95ce577110b54f46e6c6dcc9a0966491533df43812bd6c66f92cf818e385d1390b280cd5851d4afb52fc37f8a6c0b9
+  languageName: node
+  linkType: hard
+
 "@modelcontextprotocol/sdk@npm:^1.8.0":
   version: 1.11.0
   resolution: "@modelcontextprotocol/sdk@npm:1.11.0"
@@ -3101,6 +3108,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chart.js@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "chart.js@npm:4.5.0"
+  dependencies:
+    "@kurkle/color": ^0.3.0
+  checksum: 64a79abd7c6631f3c1654fa865a9e1e36fec946b4e333e3c0a78685c15a6d539608331e2bf7642b1bf0c118d1febe24116bb5a813ff80b841c26b6d28afc5470
+  languageName: node
+  linkType: hard
+
 "check-error@npm:^1.0.3":
   version: 1.0.3
   resolution: "check-error@npm:1.0.3"
@@ -3446,6 +3462,7 @@ __metadata:
     "@vitejs/plugin-react-swc": ^3.7.2
     "@vitest/ui": ^1.6.0
     autoprefixer: ^10.4.20
+    chart.js: ^4.5.0
     eslint: ^9.26.0
     eslint-config-prettier: ^10.1.2
     eslint-plugin-prettier: ^5.4.0
@@ -3463,6 +3480,7 @@ __metadata:
     prettier-plugin-packagejson: ^2.5.11
     prettier-plugin-sh: ^0.17.2
     react: ^18.3.1
+    react-chartjs-2: ^5.3.0
     react-dom: ^18.3.1
     react-icons: ^5.5.0
     react-router-dom: ^7.1.3
@@ -6358,6 +6376,16 @@ __metadata:
     iconv-lite: 0.6.3
     unpipe: 1.0.0
   checksum: 25b7cf7964183db322e819050d758a5abd0f22c51e9f37884ea44a9ed6855a1fb61f8caa8ec5b61d07e69f54db43dbbc08ad98ef84556696d6aa806be247af0e
+  languageName: node
+  linkType: hard
+
+"react-chartjs-2@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "react-chartjs-2@npm:5.3.0"
+  peerDependencies:
+    chart.js: ^4.1.1
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: af05212a1e30a98379959dd2cd4670ff29ca6e9b1ad5d54d73ddc4336f463567fb0386f33dbc9de01ea724ac75dd0b7a8374e3936a91c7751b7c20c19ef3e920
   languageName: node
   linkType: hard
 

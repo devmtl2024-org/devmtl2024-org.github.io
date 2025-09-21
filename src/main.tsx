@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage";
 import SpeakerPage from "./pages/SpeakerPage";
 import SpeakersPage from "./pages/SpeakersPage";
 import SponsorsPage from "./pages/SponsorsPage";
+import TransparencyPage from "./pages/TransparencyPage";
 import VenuePage from "./pages/VenuePage";
 
 createRoot(document.getElementById("root")!).render(
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/speakers/:year" element={<SpeakersPage />} />
             <Route path="/speakers/:year/:name" element={<SpeakerPage />} />
             <Route path="/sponsors" element={<SponsorsPage />} />
+            <Route path="/transparency" element={<TransparencyPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

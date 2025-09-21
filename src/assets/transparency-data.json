@@ -1,0 +1,52 @@
+{
+  "description": {
+    "fr": "Depuis le début de /dev/mtl en 2024, notre objectif a été de créer un événement non-lucratif qui rassemble les communautés tech locales. Nous croyons fermement que la transparence est essentielle pour construire une communauté forte. C'est pourquoi nous publions ici toutes nos données, pour faciliter la tâche des communautés qui souhaitent s'appuyer sur nos connaissances.",
+    "en": "Since we started /dev/mtl in 2024, our goal has been to create a non-profit event that brings together the local tech communities. We firmly believe that transparency is essential to building a strong community. That's why we publish all our data here, to make it easier for communities that want to learn from our experience."
+  },
+  "methodology": {
+    "fr": "Tous les chiffres ci-dessous sont en dollars canadiens (CAD). Les montants peuvent évoluer au fil des ans à mesure que le contexte évolue. Par exemple, la première édition en 2024 avait environ 60 participants, tandis que nous prévoyons 100 participants pour 2025.",
+    "en": "All figures below are in Canadian dollars (CAD). Amounts may change from year to year as the context changes. For example, the first edition in 2024 had around 60 attendees, while we expect 100 attendees for 2025."
+  },
+  "years": [
+    {
+      "year": 2024,
+      "budget": 1830,
+      "income": {
+        "sponsors": 0,
+        "tickets": 2135
+      },
+      "expenses": {
+        "venue": 0,
+        "speakers": 0,
+        "catering": 1450,
+        "marketing": 360,
+        "equipment": 330,
+        "other": 20
+      },
+      "notes": {
+        "en": "First edition of /dev/mtl, without sponsors, graciously hosted by ETS Formation",
+        "fr": "Première édition de /dev/mtl, sans commanditaire, gracieusement hébergée à l'ÉTS Formation"
+      }
+    },
+    {
+      "year": 2025,
+      "budget": 6990,
+      "income": {
+        "sponsors": 0,
+        "tickets": 0
+      },
+      "expenses": {
+        "venue": 0,
+        "speakers": 0,
+        "catering": 0,
+        "marketing": 0,
+        "equipment": 0,
+        "other": 0
+      },
+      "notes": {
+        "en": "Planned budget for 2025, will be updated after the event",
+        "fr": "Budget prévisionnel pour 2025, sera mis à jour après l'événement"
+      }
+    }
+  ]
+}

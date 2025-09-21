@@ -23,6 +23,10 @@ export const navLinks = [
     href: `${base}sponsors`,
   },
   {
+    name: { fr: "Transparence", en: "Transparency" },
+    href: `${base}transparency`,
+  },
+  {
     name: { fr: "Présentez (CFP)", en: "Call For Papers" },
     href: "https://www.papercall.io/dev-mtl-2025",
   },
