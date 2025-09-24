@@ -4,19 +4,47 @@ import { Organizer } from "@/type/organizers";
 import { loadData } from "@/utils/loadData";
 import { useEffect, useState } from "react";
 
-const meetups = [
-  "Montréal Python",
-  "Women in AI",
-  "Jug Montréal",
-  "TypeScript Montréal",
-  "React Montréal",
-  "Elixir Montréal",
-  "Generative AI Montréal",
-  "Ruby Montréal",
-  "AWS Montréal",
-  "Software Crafters Montréal",
-  "Software Crafters Québec",
-  "Flutter Montréal",
+interface Meetup {
+  name: string;
+  url?: string;
+}
+
+const meetups: Meetup[] = [
+  { name: "Jug Montréal", url: "https://www.montreal-jug.org/" },
+  { name: "Montréal Python", url: "https://montrealpython.org/" },
+  {
+    name: "Software Crafters Montréal",
+    url: "https://guild.host/software-crafters-montreal",
+  },
+  { name: "React Montréal", url: "https://guild.host/react-montreal" },
+  {
+    name: "TypeScript Montréal",
+    url: "https://guild.host/typescript-montreal/",
+  },
+  {
+    name: "CNCF Montréal",
+    url: "https://community.cncf.io/cloud-native-montreal/",
+  },
+  {
+    name: "AI Tinkerers Montréal",
+    url: "https://montreal.aitinkerers.org/",
+  },
+  {
+    name: "Generative AI Montréal",
+    url: "https://luma.com/calendar/cal-ugymCoObncHE8Ph",
+  },
+  {
+    name: "Software Crafters Québec",
+    url: "https://guild.host/software-crafters-quebec",
+  },
+  { name: "Women in AI", url: "https://www.womeninai.co/canada" },
+  { name: "Elixir Montréal", url: "https://www.montrealelixir.ca/" },
+  { name: "Ruby Montréal", url: "https://www.meetup.com/montrealrb/" },
+  {
+    name: "AWS Montréal",
+    url: "https://www.meetup.com/Montreal-AWS-Users-United/",
+  },
+  { name: "Flutter Montréal", url: "https://www.meetup.com/Flutter-Montreal/" },
 ];
 
 export default function AboutPage() {
@@ -51,8 +79,21 @@ export default function AboutPage() {
               key={index}
               className="text-3xl font-bold text-gray-500 text-center font-mono flex flex-col bg-gray-100 px-8 py-4 rounded-md"
             >
-              {meetup.split(" ").map((word, i) => (
-                <span key={i}>{word}</span>
+              {meetup.name.split(" ").map((word, i) => (
+                <span key={i}>
+                  {meetup.url ? (
+                    <a
+                      href={meetup.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-gray-700 transition-colors"
+                    >
+                      {word}
+                    </a>
+                  ) : (
+                    word
+                  )}
+                </span>
               ))}
             </div>
           ))}
