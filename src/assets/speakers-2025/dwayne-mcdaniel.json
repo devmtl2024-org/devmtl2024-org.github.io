@@ -1,0 +1,12 @@
+{
+  "name": "Dwayne McDaniel",
+  "bio": "Senior Developer Advocate @ GitGuardian",
+  "image": "speakers-2025/dwayne-mcdaniel.png",
+  "time": "2025-11-28T16:00:00",
+  "track": 2,
+  "title": "Secrets Security End-To-End",
+  "description": "Nobody said solving authentication and authorization would be easy, but wow, we made it so hard. Getting a handle on your non-human identities' permissions means getting a hold on secrets security. Let's build a step-by-step roadmap that makes the secure path the easy path.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}

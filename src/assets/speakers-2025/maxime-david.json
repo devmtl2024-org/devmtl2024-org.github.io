@@ -1,0 +1,12 @@
+{
+  "name": "Maxime David",
+  "bio": "Senior Software Engineer @ AWS",
+  "image": "speakers-2025/maxime-david.jpeg",
+  "time": "2025-11-28T10:15:00",
+  "track": 3,
+  "title": "My Journey into Open Source: Lessons, Pitfalls, and How You Can Start Too",
+  "description": "Open source shaped my journey: from user to contributor to AWS Lambda Runtimes maintainer. In this AI-driven era, OSS is key to standing out. I'll share lessons, pitfalls, and how open source can grow your skills, network, and impact. Join me to see why it’s worth it and how to begin.",
+  "github": "maxday",
+  "linkedin": null,
+  "website": "https://maxday.dev"
+}
