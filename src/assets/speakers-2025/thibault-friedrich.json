@@ -1,0 +1,12 @@
+{
+  "name": "Thibault Friedrich",
+  "bio": "Staff Software Developer @ Plusgrade",
+  "image": "speakers-2025/thibault-friedrich.png",
+  "time": "2025-11-28T09:15:00",
+  "track": 3,
+  "title": "A Pragmatic Approach to Design Systems",
+  "description": "Design systems are often seen as essential in growing organizations. However, where design team is under-resourced, maintaining and evolving a coherent system becomes a challenge. This talk presents a pragmatic, engineer-led approach to promoting, using concrete React patterns and techniques.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}

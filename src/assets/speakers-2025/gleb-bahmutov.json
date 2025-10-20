@@ -1,0 +1,12 @@
+{
+  "name": "Gleb Bahmutov",
+  "bio": "Sr Director of Engineering @ Mercari US",
+  "image": "speakers-2025/gleb-bahmutov.jpg",
+  "time": "2025-11-28T11:15:00",
+  "track": 2,
+  "title": "Feature Flags And End-to-End Testing",
+  "description": "Using feature flags is a popular way of developing new software features, but it presents problems for the integration and end-to-end tests. In my talk I will show principles for dealing with feature flags from E2E web tests.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}
