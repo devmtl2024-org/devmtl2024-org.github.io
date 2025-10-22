@@ -1,5 +1,6 @@
 {
   "name": "Farid Bellameche",
+  "position": null,
   "bio": "Passionné d’IA générative, dev/ops, développeur Python, Java. Depuis novembre 2022 et la sortie de chat GPT, j’ai exploré comment utiliser les API d’OpenAI pour en faire des chatBot augmentés (Retrieval Augmented Generation) de base de données privées, entraîner des LLM (Large Language Model) sur des tâches spécifiques et bien plus...",
   "image": "speakers-2024/farid-bellameche.jpeg",
   "time": "2024-11-27T13:00:00",

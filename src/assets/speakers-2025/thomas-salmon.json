@@ -1,0 +1,13 @@
+{
+  "name": "Thomas Salmon",
+  "bio": "Développeur passionné, artisan du logiciel et grand fan de l’architecture bien pensée. Fort de plus de 10 ans d’expérience, j’ai eu l’opportunité de contribuer à des projets aussi variés qu’ambitieux : du site vitrine jusqu'au cœur d’une banque en ligne. Ce qui m’anime au quotidien ? Concevoir des logiciels élégants, évolutifs et résilients, mais surtout, les construire en équipe ! Je crois profondément que le partage d’expériences, qu’elles soient réussites ou échecs, est la clé pour faire grandir nos pratiques et bâtir, ensemble, des solutions plus simples et plus durables.",
+  "position": "Senior Full Stack Software Developer @ Osedea",
+  "image": "speakers-2025/thomas-salmon.jpg",
+  "time": "2025-11-28T09:15:00",
+  "track": 1,
+  "title": "Comment saboter son projet sans même s'en rendre compte",
+  "description": "Dans cette présentation, je vais vous présenter comment saboter un projet sans même s'en rendre compte. Je vais vous montrer comment vous pouvez découvrir les failles de sécurité dans votre code, comment les corriger et comment les exploiter pour vous faire gagner du temps et de l'argent.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}

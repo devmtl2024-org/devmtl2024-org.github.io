@@ -1,0 +1,13 @@
+{
+  "name": "David Cornu",
+  "bio": "David’s misspent youth clicking all the buttons in Microsoft Frontpage and copy-pasting PHP snippets from dubious sources somehow led to a 15+ year career in software engineering and leadership at companies like Shopify and Wealthsimple. He currently works on the developer experience at turbopuffer.",
+  "position": "Software Engineer @ Turbopuffer",
+  "image": "speakers-2025/david-cornu.jpg",
+  "time": "2025-11-28T15:00:00",
+  "track": 2,
+  "title": "Full-text search for busy developers",
+  "description": "Many applications will eventually get to the point where some form of text search becomes a necessity to let users find what they need in large datasets. In this talk we’ll build a mental model of the techniques and technologies at our disposal, ranging from `LIKE` queries to vector embeddings.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}

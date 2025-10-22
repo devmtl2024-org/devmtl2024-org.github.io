@@ -17,9 +17,21 @@ export default function SpeakersPage() {
       return;
     }
 
-    loadData<Speaker>(`speakers-${numericYear}`)
-      .then(setSpeakers)
-      .catch((err) => console.error("Error loading speakers:", err));
+    if (numericYear === 2024) {
+      loadData<Speaker>("speakers2024")
+        .then(setSpeakers)
+        .catch((err) => console.error("Error loading speakers:", err));
+
+      return;
+    }
+
+    if (numericYear === 2025) {
+      loadData<Speaker>("speakers2025")
+        .then(setSpeakers)
+        .catch((err) => console.error("Error loading speakers:", err));
+
+      return;
+    }
   }, [year]);
 
   return (

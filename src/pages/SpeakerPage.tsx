@@ -69,6 +69,9 @@ export default function SpeakerPage() {
           website={speakerInfo.website}
         />
 
+        <p className="mt-4 text-gray-600 text-center font-semibold">
+          {speakerInfo.position}
+        </p>
         <p className="mt-4 text-gray-600 text-center">{speakerInfo.bio}</p>
       </div>
 

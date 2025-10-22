@@ -1,0 +1,13 @@
+{
+  "name": "Olivier Gatimel",
+  "bio": "Olivier est habitué de travailler avec Java et les processus CI/CD depuis maintenant 15 ans. Heureux de partager avec ses équipes outils et méthodes pour s'améliorer, il dispense aussi ses connaissances en escalade ou en arts martiaux,",
+  "position": "Développeur principal Java @ CARL Berger-Levrault",
+  "image": "speakers-2025/olivier-gatimel.jpg",
+  "time": "2025-11-28T10:15:00",
+  "track": 1,
+  "title": "L'observabilité sans limite avec OpenTelemetry",
+  "description": "L'observabilité est essentielle pour créer des systèmes fiables, mais comment la mettre en œuvre efficacement ? Cette session présente OpenTelemetry, son histoire, le soutien d'acteurs, les SDKs dans différents langages et des cas concrets sur la collecte des traces, métriques et logs.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}

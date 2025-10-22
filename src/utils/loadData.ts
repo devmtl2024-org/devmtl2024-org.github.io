@@ -1,32 +1,30 @@
-export type DataFolders = "organizers" | "sponsors" | `speakers${number}`;
+type DataFolders = "organizers" | "sponsors" | "speakers2024" | "speakers2025";
 
 const paths = {
   organizers: import.meta.glob("/src/assets/organizers/*.json"),
   sponsors: import.meta.glob("/src/assets/sponsors/*.json"),
-  ...import.meta.glob("/src/assets/speakers*/**/*.json"),
+  speakers2024: import.meta.glob("/src/assets/speakers-2024/**/*.json"),
+  speakers2025: import.meta.glob("/src/assets/speakers-2025/**/*.json"),
 };
 
-export const loadData = async <T>(
-  folder: string,
+export async function loadData<T>(
+  folder: DataFolders,
   limit?: number,
   random?: boolean,
-): Promise<T[]> => {
-  const allPaths = Object.entries(paths)
-    .filter(
-      ([path, loader]) => typeof loader === "function" && path.includes(folder),
-    )
-    .map(([, loader]) => loader as unknown as () => Promise<{ default: T }>);
+): Promise<T[]> {
+  const modules = Object.entries(paths)
+    .filter(([key]) => key === folder)
+    .flatMap(([, value]) => Object.entries(value))
+    .map(([, loader]) => loader);
 
   const loadedData = await Promise.all(
-    allPaths.map(async (load) => (await load()).default),
+    modules.map(async (load) => {
+      const mod = await (load as () => Promise<{ default: T }>)();
+      return mod.default;
+    }),
   );
 
-  if (random) {
-    for (let i = loadedData.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [loadedData[i], loadedData[j]] = [loadedData[j], loadedData[i]];
-    }
-  }
+  const data = random ? loadedData.sort(() => Math.random() - 0.5) : loadedData;
 
-  return limit ? loadedData.slice(0, limit) : loadedData;
-};
+  return limit ? data.slice(0, limit) : data;
+}

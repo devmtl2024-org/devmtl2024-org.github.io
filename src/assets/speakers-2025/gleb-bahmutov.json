@@ -1,6 +1,7 @@
 {
   "name": "Gleb Bahmutov",
-  "bio": "Sr Director of Engineering @ Mercari US",
+  "bio": "Gleb Bahmutov is a JavaScript ninja, image processing expert, and software quality fanatic. During the day Gleb is making the engineers more productive at Mercari US in his position as the Senior Director of Engineering. At night he is fighting software bugs and blogs about it at https://glebbahmutov.com/blog/. You can follow him and his work on BlueSky bahmutov.bsky.social and find the slides from conference presentations at https://slides.com/bahmutov.",
+  "position": "Sr Director of Engineering @ Mercari US",
   "image": "speakers-2025/gleb-bahmutov.jpg",
   "time": "2025-11-28T11:15:00",
   "track": 2,
@@ -8,5 +9,5 @@
   "description": "Using feature flags is a popular way of developing new software features, but it presents problems for the integration and end-to-end tests. In my talk I will show principles for dealing with feature flags from E2E web tests.",
   "github": null,
   "linkedin": null,
-  "website": null
+  "website": "https://glebbahmutov.com/blog/"
 }

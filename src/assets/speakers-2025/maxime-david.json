@@ -1,6 +1,7 @@
 {
   "name": "Maxime David",
-  "bio": "Senior Software Engineer @ AWS",
+  "bio": "Maxime David is a Senior Software Engineer at AWS, working on the AWS Lambda Runtimes team. He's passionate about open source, serverless performance, and observability. A frequent conference speaker, Maxime has shared insights at re:Invent, PyCon US, Devoxx, and CNCF meetups around the world. When he's not deep in code or on stage sharing knowledge, Maxime is on a personal quest to try every banana bread he can find.",
+  "position": "Senior Software Engineer @ AWS",
   "image": "speakers-2025/maxime-david.jpeg",
   "time": "2025-11-28T10:15:00",
   "track": 3,

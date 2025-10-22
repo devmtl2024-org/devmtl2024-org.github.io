@@ -1,6 +1,7 @@
 export interface Speaker {
   name: string;
-  bio: string;
+  bio: string | null;
+  position: string | null;
   image: string;
   time: Date;
   track: number;

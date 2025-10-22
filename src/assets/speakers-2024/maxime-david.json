@@ -1,6 +1,7 @@
 {
   "name": "Maxime David",
-  "bio": "Senior Software Engineer @AWS, Lambda Runtimes.",
+  "bio": null,
+  "position": "Senior Software Engineer @AWS, Lambda Runtimes.",
   "image": "speakers-2024/maxime-david.jpeg",
   "time": "2024-11-27T13:45:00",
   "track": 1,
