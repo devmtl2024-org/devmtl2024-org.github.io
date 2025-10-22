@@ -15,7 +15,7 @@ export const loadData = async <T>(
     .filter(
       ([path, loader]) => typeof loader === "function" && path.includes(folder),
     )
-    .map(([_, loader]) => loader as unknown as () => Promise<{ default: T }>);
+    .map(([, loader]) => loader as unknown as () => Promise<{ default: T }>);
 
   const loadedData = await Promise.all(
     allPaths.map(async (load) => (await load()).default),

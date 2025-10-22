@@ -9,6 +9,8 @@ export default function Layout() {
   const { t } = useTranslation();
   const location = useLocation();
 
+  window.scrollTo({ top: 0 });
+
   const path = location.pathname.replace(/\/$/, "");
 
   const currentNav = navLinks.find(

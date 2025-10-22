@@ -28,16 +28,14 @@ export default function SpeakerPage() {
     const matchedTalks: SpeakerWithYear[] = [];
 
     const promises = Object.entries(modules).map(async ([path, loader]) => {
-      try {
-        const { default: speaker } = (await loader()) as { default: Speaker };
-        if (normalize(speaker.name) === normalize(name)) {
-          const yearMatch = path.match(/speakers-(\d{4})/);
-          matchedTalks.push({
-            ...speaker,
-            year: yearMatch ? parseInt(yearMatch[1]) : undefined,
-          });
-        }
-      } catch {}
+      const { default: speaker } = (await loader()) as { default: Speaker };
+      if (normalize(speaker.name) === normalize(name)) {
+        const yearMatch = path.match(/speakers-(\d{4})/);
+        matchedTalks.push({
+          ...speaker,
+          year: yearMatch ? parseInt(yearMatch[1]) : undefined,
+        });
+      }
     });
 
     Promise.all(promises).then(() => {
