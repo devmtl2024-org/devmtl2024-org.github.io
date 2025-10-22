@@ -13,7 +13,7 @@ function Speakers() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadData<Speaker>("speakers", 4, true).then((speakers) => {
+    loadData<Speaker>("speakers-2025", 4, true).then((speakers) => {
       setSpeakers(speakers);
     });
   }, []);
@@ -58,7 +58,7 @@ function Speakers() {
                   className="absolute inset-0 bg-primary/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
                   onClick={() =>
                     navigate(
-                      `/speakers/2024/${speaker.name
+                      `/speaker/${speaker.name
                         .toLowerCase()
                         .normalize("NFD")
                         .replace(/[\u0300-\u036f]/g, "")
@@ -78,7 +78,7 @@ function Speakers() {
 
         <div className="mt-20">
           <a
-            href="/speakers"
+            href="/speakers/2025"
             className="px-12 py-5 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition duration-200 uppercase"
           >
             {t({ fr: "Les voir tous", en: "View all speakers" })}

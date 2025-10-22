@@ -24,7 +24,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/venue" element={<VenuePage />} />
             <Route path="/schedule" element={<SchedulePage />} />
             <Route path="/speakers/:year" element={<SpeakersPage />} />
-            <Route path="/speakers/:year/:name" element={<SpeakerPage />} />
+            <Route path="/speaker/:name" element={<SpeakerPage />} />
             <Route path="/sponsors" element={<SponsorsPage />} />
             <Route path="/transparency" element={<TransparencyPage />} />
           </Route>
