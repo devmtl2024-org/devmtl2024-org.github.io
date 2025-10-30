@@ -1,0 +1,13 @@
+{
+  "name": "Anthony Dahanne",
+  "bio": "",
+  "position": "Développeur Logiciel @ HeroDevs",
+  "image": "speakers-2025/anthony-dahanne.jpg",
+  "time": "2025-11-28T11:15:00",
+  "track": 1,
+  "title": "De la vulnérabilité à la victoire : maîtriser le cycle de vie des CVE pour les développeurs Java",
+  "description": "Démystifiez le cycle de vie des CVE pour les développeurs Java ! Découvrez comment les vulnérabilités sont trouvées, évaluées et corrigées, ainsi que des outils pratiques pour automatiser la remédiation, résoudre les conflits de dépendances et gérer la fin de vie des frameworks.",
+  "github": null,
+  "linkedin": null,
+  "website": "https://blog.dahanne.net/"
+}

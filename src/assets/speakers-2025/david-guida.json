@@ -8,6 +8,6 @@
   "title": "From Zero to Emulator: CHIP-8 and the Art of C# Abstraction",
   "description": "From decoding opcodes to rendering sprites, this talk shows how to build a CHIP-8 emulator in C#—and run it anywhere from Blazor to MonoGame. Nerdy? Yes. Fun? Absolutely.",
   "github": null,
-  "linkedin": null,
-  "website": "https://www.linkedin.com/in/davideguida"
+  "linkedin": "https://www.linkedin.com/in/davideguida",
+  "website": "https://www.davidguida.net"
 }

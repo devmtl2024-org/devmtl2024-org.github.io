@@ -13,7 +13,7 @@ function Speakers() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadData<Speaker>("speakers-2025", 4, true).then((speakers) => {
+    loadData<Speaker>("speakers2025", 4, true).then((speakers) => {
       setSpeakers(speakers);
     });
   }, []);

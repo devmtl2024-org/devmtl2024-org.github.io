@@ -1,0 +1,13 @@
+{
+  "name": "Kévin Lalumière",
+  "bio": "",
+  "position": "Senior developer @ Coveo",
+  "image": "speakers-2025/user.png",
+  "time": "2025-11-28T15:00:00",
+  "track": 1,
+  "title": "Echanges avec les collegues qui refusent d'appliquer les bonnes pratiques",
+  "description": "Une question récente sur Stack Exchange Workplace demandait : How should I deal with a team member who rejects 'good' programming practices? [1]. Cette question, en apparence simple, ouvre la porte à de nombreuses autres interrogations. En surface, la question invite à réfléchir aux stratégies de persuasion et de négociation. En creusant, on peut se demander d’où viennent ces bonnes pratiques (good practices) ou pratiques de pointe (leading practices). On peut aussi se demander pourquoi la communauté de développement logiciel semble avoir tant de difficulté à établir un consensus sur la nature de ces pratiques. Sommes-nous si différents des autres industries? En fait, a-t-on vraiment besoin de bonnes pratiques ou bien un logiciel qui fonctionne devrait-il être la seule mesure de notre succès?Cette présentation aborde ces questions de manière frontale et en utilisant des exemples concrets.En particulier, j’argumenterai que le terme bonnes pratiques porte à confusion et qu’il devrait plutôt être compris comme pratiques par défaut",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}

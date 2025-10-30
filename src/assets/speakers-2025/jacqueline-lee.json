@@ -1,0 +1,13 @@
+{
+  "name": "Jacqueline Lee",
+  "bio": "",
+  "position": "Software Developer @ Yelp",
+  "image": "speakers-2025/user.png",
+  "time": "2025-11-28T11:15:00",
+  "track": 3,
+  "title": "Product Thinking on Data and Platform Teams: Is It Worth It?",
+  "description": "Internal platforms deserve product thinking too. Learn how engineers at Yelp used lightweight observability to understand real usage, debug unexpected behaviors, and uncover unmet needs—transforming frustration into insight. Was it worth it? We’ll show you.",
+  "github": "jmasonlee/",
+  "linkedin": null,
+  "website": null
+}

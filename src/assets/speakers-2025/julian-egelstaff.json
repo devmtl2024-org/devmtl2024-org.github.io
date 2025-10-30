@@ -1,0 +1,13 @@
+{
+  "name": "Julian Egelstaff",
+  "bio": "",
+  "position": "Lead developer @ Formulize",
+  "image": "speakers-2025/user.png",
+  "time": "2025-11-28T09:15:00",
+  "track": 2,
+  "title": "Modern DevOps on Legacy Code",
+  "description": "Comprehensive testing, automated deployment, local dev environments on demand. Can you add modern best practices to a 20 year old web application, that depends on a live database? Testing was the easy part, deployment and local dev environments were harder, but not impossible. Let us show you how.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}

@@ -78,11 +78,6 @@ export default function SpeakersPage() {
             </div>
           ))}
         </div>
-        <div className="text-lg text-gray-600 mt-20 mb-8">
-          <h2 className="text-3xl font-semibold text-gray-700 mb-6 text-center">
-            More coming soon ...
-          </h2>
-        </div>
       </div>
     </div>
   );

@@ -1,0 +1,13 @@
+{
+  "name": "Reza Madabadi",
+  "bio": "",
+  "position": "Backend Developer and SRE @ 360.agency",
+  "image": "speakers-2025/user.png",
+  "time": "2025-11-28T13:00:00",
+  "track": 2,
+  "title": "Why Your Database Hates You: The N+1 Query Problem",
+  "description": "Ever faced a surge in CPU usage and an avalanche of database queries during nightly imports? It saves $$$ In this talk, I will talk about N+1 issue: - What is it ? - What are the impacts ? - How to detect it ? - How to perform fixes. Temporary & permanent. Backed with data and some code :)",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}
