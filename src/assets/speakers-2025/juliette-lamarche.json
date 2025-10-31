@@ -1,13 +1,13 @@
 {
   "name": "Juliette Lamarche",
-  "bio": "",
+  "bio": "Math graduate and poet turned cook turned front-end developer, with a focus on pragmatic functional programming and expressive code. Poetesse diplômée en mathématiques devenue cuisinière deveue développeuse front-end, avec un intérêt pour la programmation fonctionnelle pragmatique et le code expressif.",
   "position": "Frontend developer @ Banque Nationale du Canada",
-  "image": "speakers-2025/user.png",
+  "image": "speakers-2025/juliette-lamarche.jpeg",
   "time": "2025-11-28T15:00:00",
   "track": 3,
   "title": "Leaving the Happy Path: All Those Things we Have Called an Error",
   "description": "Error handling is often a missing piece in application design. We will take a deep dive into different concepts that can hide behind the notion of error and their most common implementations. Concrete examples will be taken from Node, React and Tanstack Query.",
   "github": null,
-  "linkedin": null,
+  "linkedin": "https://www.linkedin.com/in/juliette-lamarche-2295a4248/",
   "website": "https://prncss-xyz.github.io/portefolio/about"
 }
