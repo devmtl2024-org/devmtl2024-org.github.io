@@ -85,16 +85,16 @@ function Navbar() {
 
                         <div className="absolute left-0 top-full mt-2 w-32 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
                           <a
-                            href="/speakers/2024"
+                            href="/speakers/2025"
                             className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-t-md"
                           >
-                            2024
+                            2025
                           </a>
                           <a
-                            href="/speakers/2025"
+                            href="/speakers/2024"
                             className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-b-md"
                           >
-                            2025
+                            2024
                           </a>
                         </div>
                       </div>
