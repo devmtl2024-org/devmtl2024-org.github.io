@@ -47,7 +47,7 @@ export default function TalkRow({
                       onClick={() => {
                         window.scrollTo({ top: 0 });
                         navigate(
-                          `/speakers/2024/${speaker.name
+                          `/speaker/${speaker.name
                             .toLowerCase()
                             .normalize("NFD")
                             .replace(/[\u0300-\u036f]/g, "")
@@ -62,7 +62,7 @@ export default function TalkRow({
                       {speaker.name}
                     </div>
                     <Link
-                      to={`/speakers/2024/${speaker.name
+                      to={`/speaker/${speaker.name
                         .toLowerCase()
                         .replace(/ /g, "-")}`}
                       className="text-xl font-semibold whitespace-normal cursor-pointer"
