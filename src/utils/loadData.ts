@@ -1,8 +1,14 @@
-type DataFolders = "organizers" | "sponsors" | "speakers2024" | "speakers2025";
+type DataFolders =
+  | "organizers"
+  | "sponsors"
+  | "pauses"
+  | "speakers2024"
+  | "speakers2025";
 
 const paths = {
   organizers: import.meta.glob("/src/assets/organizers/*.json"),
   sponsors: import.meta.glob("/src/assets/sponsors/*.json"),
+  pauses: import.meta.glob("/src/assets/pauses.json"),
   speakers2024: import.meta.glob("/src/assets/speakers-2024/**/*.json"),
   speakers2025: import.meta.glob("/src/assets/speakers-2025/**/*.json"),
 };
