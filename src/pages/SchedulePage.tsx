@@ -27,7 +27,7 @@ export default function SchedulePage() {
   const [schedule, setSchedule] = useState<ScheduleSession[]>([]);
 
   useEffect(() => {
-    loadData<Speaker>("speakers").then((speakers) => {
+    loadData<Speaker>("speakers2025").then((speakers) => {
       const groupedByTime = groupSpeakersByTime(speakers);
       setSchedule(groupedByTime);
     });
