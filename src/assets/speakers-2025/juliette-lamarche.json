@@ -5,8 +5,8 @@
   "image": "speakers-2025/juliette-lamarche.jpeg",
   "time": "2025-11-28T15:00:00",
   "track": 3,
-  "title": "Leaving the Happy Path: All Those Things we Have Called an Error",
-  "description": "Error handling is often a missing piece in application design. We will take a deep dive into different concepts that can hide behind the notion of error and their most common implementations. Concrete examples will be taken from Node, React and Tanstack Query.",
+  "title": "Quitter le chemin du bonheur: toutes ces choses que nous appellons « erreur »",
+  "description": "La gestion des erreurs est souvent le maillon manquant dans la conception des applications. Nous plongerons en profondeur dans les différents concepts qui peuvent se cacher derrière la notion d’erreur et leurs implémentations les plus courantes. Des exemples concrets seront tirés de Node, React et Tanstack Query.",
   "github": null,
   "linkedin": "https://www.linkedin.com/in/juliette-lamarche-2295a4248/",
   "website": "https://prncss-xyz.github.io/portefolio/about"
