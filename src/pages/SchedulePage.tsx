@@ -1,11 +1,11 @@
-import { useTranslation } from "@/hooks/useTranslation";
-import { useEffect, useState,  } from "react";
-import { loadData } from "@/utils/loadData.ts";
-import { Speaker } from "@/type/speakers.ts";
-import { ScheduleSession } from "@/type/schedule.ts";
-import { groupSpeakersByTime } from "@/utils/groupSpeakers.ts";
+import PauseRow from "@/components/Talks/PauseRow.tsx";
 import TalkRow from "@/components/Talks/TalkRow.tsx";
-import React from "react";
+import { useTranslation } from "@/hooks/useTranslation";
+import { ScheduleSession } from "@/type/schedule.ts";
+import { Speaker } from "@/type/speakers.ts";
+import { groupSpeakersByTime } from "@/utils/groupSpeakers.ts";
+import { loadData } from "@/utils/loadData.ts";
+import { useEffect, useState } from "react";
 
 // export default function SchedulePage() {
 //   const { t } = useTranslation();
@@ -43,15 +43,34 @@ export default function SchedulePage() {
       </h2>
       <div className="w-16 h-1 bg-secondary mx-auto mb-12"></div>
 
-       {schedule.map((session, index) => (
-         <React.Fragment key={index}>
+       {schedule.map((session, index) => {
+         // Check if all tracks are break/pause sessions
+         const allTracksAreBreaks = session.tracks.every(
+           (speaker) =>
+             speaker &&
+             (speaker.title?.toLowerCase() === "break" ||
+              speaker.title?.toLowerCase() === "pause")
+         );
+
+         if (allTracksAreBreaks) {
+           return (
+             <PauseRow
+               key={index}
+               time={session.time}
+               index={index}
+             />
+           );
+         }
+
+         return (
            <TalkRow
+             key={index}
              time={session.time}
              speakers={session.tracks}
              index={index}
            />
-         </React.Fragment>
-       ))}
+         );
+       })}
      </div>
    );
  }
