@@ -4,7 +4,7 @@ import Meetups from "@/components/Home/Meetups";
 import Numbers from "@/components/Home/Numbers";
 import Organizers from "@/components/Home/Organizers";
 import Overview from "@/components/Home/Overview";
-import Schedule from "@/components/Home/Schedule";
+import { Schedule } from "@/components/Home/Schedule";
 import Speakers from "@/components/Home/Speakers";
 import Sponsors from "@/components/Home/Sponsors";
 import Navbar from "@/components/Navbar";

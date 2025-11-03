@@ -1,7 +1,10 @@
 import { ScheduleSession } from "@/type/schedule";
 import { Speaker } from "@/type/speakers";
 
-export function groupSpeakersByTime(speakers: Speaker[]): ScheduleSession[] {
+export function groupSpeakersByTime(
+  speakers: Speaker[],
+  pauses: string[],
+): ScheduleSession[] {
   const grouped: Record<string, ScheduleSession> = {};
 
   speakers.forEach((speaker) => {
@@ -24,6 +27,18 @@ export function groupSpeakersByTime(speakers: Speaker[]): ScheduleSession[] {
     }
 
     session.tracks[trackIndex] = speaker;
+  });
+
+  pauses.forEach((pauseTime) => {
+    const time = new Date(pauseTime).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    if (!grouped[time]) {
+      grouped[time] = { time, tracks: [], isPause: true };
+    }
   });
 
   return Object.values(grouped).sort(

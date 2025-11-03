@@ -1,8 +1,20 @@
 import { useTranslation } from "@/hooks/useTranslation";
+import { Speaker } from "@/type/speakers";
+import { loadData } from "@/utils/loadData";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import TalkOverview from "../Talks/TalkOverview";
 
-function Schedule() {
+export function Schedule() {
   const { t } = useTranslation();
+  const [speakers, setSpeakers] = useState<Speaker[]>([]);
+
+  useEffect(() => {
+    loadData<Speaker>("speakers2025", 3, true).then((speakers) => {
+      setSpeakers(speakers);
+    });
+  }, []);
 
   return (
     <section className="bg-gray-100 py-24 px-6 overflow-hidden items-center gap-12 flex flex-col">
@@ -22,12 +34,30 @@ function Schedule() {
           <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
         </motion.div>
 
-        <p className="text-gray-700 text-2xl">
-          {t({ fr: "Bientôt disponible ...", en: "Coming soon ..." })}
-        </p>
+        {/* Date Card */}
+        <div className="bg-secondary text-white rounded-lg p-8 shadow-md w-64 text-center">
+          <h4 className="text-2xl font-semibold mb-2">
+            {t({ fr: "28 Novembre", en: "November 28th" })}
+          </h4>
+          <p className="text-xl">{t({ fr: "Vendredi", en: "Friday" })}</p>
+        </div>
       </div>
+
+      <div>
+        {speakers.map((speaker, index) => (
+          <div key={index}>
+            <TalkOverview speaker={speaker} index={index} />
+          </div>
+        ))}
+      </div>
+
+      <Link
+        to="/schedule"
+        className="px-12 py-5 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase"
+        onClick={() => window.scrollTo({ top: 0 })}
+      >
+        {t({ fr: "Voir plus", en: "See more" })}
+      </Link>
     </section>
   );
 }
-
-export default Schedule;
