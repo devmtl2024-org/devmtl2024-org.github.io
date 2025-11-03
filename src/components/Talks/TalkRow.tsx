@@ -36,7 +36,7 @@ export default function TalkRow({
                   <img
                     src={`${import.meta.env.BASE_URL}${speaker.image}`}
                     alt={speaker.name}
-                    className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition duration-300 group-hover:scale-110 cursor-pointer"
                     onClick={() => {
                       window.scrollTo({ top: 0 });
                       navigate(
@@ -65,9 +65,6 @@ export default function TalkRow({
                   <p className="text-sm mt-2 text-gray-600 line-clamp-2">
                     {speaker.description}
                   </p>
-                  <div className="mt-4 text-xs font-medium uppercase text-white px-2 py-1 rounded bg-primary w-fit mx-auto">
-                    {`Track ${speaker.track}`}
-                  </div>
                 </div>
               </div>
             ),

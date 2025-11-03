@@ -1,9 +1,11 @@
 export default function PauseRow({
   time,
   index,
+  text = "Break/Pause",
 }: {
   time: string;
   index: number;
+  text?: string;
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-[200px_auto] bg-gray-100 mx-auto w-full max-w-screen-lg">
@@ -16,7 +18,7 @@ export default function PauseRow({
       </div>
       <div className="flex items-center justify-center p-6 bg-white w-full border border-dashed border-gray-400">
         <div className="text-center text-gray-600 font-medium text-xl">
-          Break/Pause
+          {text}
         </div>
       </div>
     </div>
