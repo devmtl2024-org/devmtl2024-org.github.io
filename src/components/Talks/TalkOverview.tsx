@@ -1,5 +1,6 @@
 import { Speaker } from "@/type/speakers";
 import { useNavigate } from "react-router-dom";
+import { formatTime } from "./formatTime";
 
 export default function TalkOverview({
   speaker,
@@ -18,15 +19,7 @@ export default function TalkOverview({
           index % 2 === 1 ? "bg-secondary-dark" : "bg-secondary"
         } text-white text-center md:text-left p-4 w-[200px] my-4 md:my-0 flex flex-col justify-center`}
       >
-        <div className="text-lg font-semibold">
-          {new Date(speaker.time)
-            .toLocaleTimeString("en-US", {
-              hour: "numeric",
-              minute: "2-digit",
-              hour12: true,
-            })
-            .toUpperCase()}
-        </div>
+        <div className="text-lg font-semibold">{formatTime(speaker.time)}</div>
         <div className="text-sm">{`Track ${speaker.track}`}</div>
       </div>
 

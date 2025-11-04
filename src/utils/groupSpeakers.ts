@@ -8,12 +8,7 @@ export function groupSpeakersByTime(
   const grouped: Record<string, ScheduleSession> = {};
 
   speakers.forEach((speaker) => {
-    const time = new Date(speaker.time).toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
-
+    const time = speaker.time;
     const trackIndex = speaker.track - 1;
 
     if (!grouped[time]) {
@@ -30,11 +25,7 @@ export function groupSpeakersByTime(
   });
 
   pauses.forEach((pauseTime) => {
-    const time = new Date(pauseTime).toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
+    const time = pauseTime;
 
     if (!grouped[time]) {
       grouped[time] = { time, tracks: [], isPause: true };
@@ -42,8 +33,6 @@ export function groupSpeakersByTime(
   });
 
   return Object.values(grouped).sort(
-    (a, b) =>
-      new Date(`1970/01/01 ${a.time}`).getTime() -
-      new Date(`1970/01/01 ${b.time}`).getTime(),
+    (a, b) => new Date(a.time).getTime() - new Date(b.time).getTime(),
   );
 }
