@@ -55,7 +55,7 @@ export default function SchedulePage() {
         ></div>
 
         <div
-          className={`grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 p-6 bg-white w-full border border-dashed border-gray-400`}
+          className={`hidden md:grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 p-6 bg-white w-full border border-dashed border-gray-400`}
         >
           <div className="text-center w-full text-xl font-semibold text-gray-600 mb-2">
             Track 1 (FR)
