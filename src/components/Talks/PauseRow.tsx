@@ -1,5 +1,3 @@
-import { formatTime } from "./formatTime";
-
 export default function PauseRow({
   time,
   index,
@@ -16,7 +14,7 @@ export default function PauseRow({
           index % 2 === 1 ? "bg-secondary-dark" : "bg-secondary"
         } text-white text-center p-4 flex flex-col justify-center w-full md:w-[200px]`}
       >
-        <div className="text-lg font-semibold">{formatTime(time)}</div>
+        <div className="text-lg font-semibold">{time}</div>
       </div>
       <div className="flex items-center justify-center p-6 bg-white w-full border border-dashed border-gray-400">
         <div className="text-center text-gray-600 font-medium text-xl">
