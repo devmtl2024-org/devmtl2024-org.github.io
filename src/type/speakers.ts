@@ -3,7 +3,7 @@ export interface Speaker {
   bio: string | null;
   position: string | null;
   image: string;
-  time: Date;
+  time: string;
   track: number;
   title: string;
   description: string;

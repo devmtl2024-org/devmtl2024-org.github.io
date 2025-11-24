@@ -19,7 +19,7 @@ export default function TalkRow({
           index % 2 === 1 ? "bg-secondary-dark" : "bg-secondary"
         } text-white text-center p-4 flex flex-col justify-center w-full md:w-[200px]`}
       >
-        <div className="text-lg font-semibold">{time.toUpperCase()}</div>
+        <div className="text-lg font-semibold">{time}</div>
       </div>
 
       <div
