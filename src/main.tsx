@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext.Provider";
 import "./index.css";
 import AboutPage from "./pages/AboutPage";
+import ConductPage from "./pages/ConductPage";
 import SpeakerPage from "./pages/SpeakerPage";
 import SpeakersPage from "./pages/SpeakersPage";
 import SponsorsPage from "./pages/SponsorsPage";
@@ -27,6 +28,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/speaker/:name" element={<SpeakerPage />} />
             <Route path="/sponsors" element={<SponsorsPage />} />
             <Route path="/transparency" element={<TransparencyPage />} />
+            <Route path="/conduct" element={<ConductPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
