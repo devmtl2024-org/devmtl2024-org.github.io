@@ -29,7 +29,10 @@ export default function VenuePage() {
               {t({ fr: "Adresse", en: "Address" })}
             </h4>
             <p className="text-lg">
-              1220 Rue Notre-Dame Ouest, Montreal, QC H3C 1K5, Canada
+              {t({
+                fr: "3 ème étage, 1220 Rue Notre-Dame Ouest, Montreal, QC H3C 1K5, Canada",
+                en: "3rd floor, 1220 Notre-Dame Street West, Montreal, QC H3C 1K5, Canada",
+              })}
             </p>
           </div>
 
