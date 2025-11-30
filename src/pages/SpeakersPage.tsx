@@ -45,38 +45,40 @@ export default function SpeakersPage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {speakers.map((speaker, index) => (
-            <div
-              key={index}
-              className="relative flex flex-col items-center group"
-            >
-              <div className="relative w-52 h-52 rounded-full overflow-hidden">
-                <img
-                  src={`${import.meta.env.BASE_URL}${speaker.image}`}
-                  alt={speaker.name}
-                  className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
-                />
-                <div
-                  className="absolute inset-0 bg-primary/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
-                  onClick={() => {
-                    window.scrollTo({ top: 0 });
-                    navigate(
-                      `/speaker/${speaker.name
-                        .toLowerCase()
-                        .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, "")
-                        .replace(/ /g, "-")}`,
-                    );
-                  }}
-                >
-                  <FiPlus className="text-white text-3xl" />
+          {speakers
+            .filter((speaker) => speaker.title !== "Intro")
+            .map((speaker, index) => (
+              <div
+                key={index}
+                className="relative flex flex-col items-center group"
+              >
+                <div className="relative w-52 h-52 rounded-full overflow-hidden">
+                  <img
+                    src={`${import.meta.env.BASE_URL}${speaker.image}`}
+                    alt={speaker.name}
+                    className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
+                  />
+                  <div
+                    className="absolute inset-0 bg-primary/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
+                    onClick={() => {
+                      window.scrollTo({ top: 0 });
+                      navigate(
+                        `/speaker/${speaker.name
+                          .toLowerCase()
+                          .normalize("NFD")
+                          .replace(/[\u0300-\u036f]/g, "")
+                          .replace(/ /g, "-")}`,
+                      );
+                    }}
+                  >
+                    <FiPlus className="text-white text-3xl" />
+                  </div>
                 </div>
+                <p className="text-xl font-semibold text-gray-700 mt-2 group-hover:text-primary transition duration-300">
+                  {speaker.name}
+                </p>
               </div>
-              <p className="text-xl font-semibold text-gray-700 mt-2 group-hover:text-primary transition duration-300">
-                {speaker.name}
-              </p>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
