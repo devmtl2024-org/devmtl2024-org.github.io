@@ -95,13 +95,14 @@ export default function BudgetOverviewChart({ data }: { data: BudgetYear[] }) {
         <Bar data={chartData} options={options} />
       </div>
       <div className="mt-4 text-sm text-gray-500 text-center">
-        <p>
+        {/* TODO: Add back when we have a budget for 2026 */}
+        {/* <p>
           *{" "}
           {t({
-            fr: "Le budget de 2025 est une projection basée sur les revenus planifiés.",
-            en: "2025 budget is a projection based on expected income.",
+            fr: "Le budget de 2026 est une projection basée sur les revenus planifiés.",
+            en: "2026 budget is a projection based on expected income.",
           })}
-        </p>
+        </p> */}
       </div>
     </div>
   );

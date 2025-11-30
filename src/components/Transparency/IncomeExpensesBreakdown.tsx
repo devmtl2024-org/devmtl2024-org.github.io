@@ -20,10 +20,12 @@ export default function IncomeExpensesBreakdown({
   data,
 }: IncomeExpensesBreakdownProps) {
   const { t } = useTranslation();
-  const [selectedYear, setSelectedYear] = useState(data[0]?.year || 2024);
+  const [selectedYear, setSelectedYear] = useState(
+    data[data.length - 1]?.year || 2024,
+  );
 
   const selectedData =
-    data.find(({year}) => year === selectedYear) || data[0];
+    data.find(({ year }) => year === selectedYear) || data[0];
 
   const incomeData = {
     labels: [
@@ -33,14 +35,8 @@ export default function IncomeExpensesBreakdown({
     datasets: [
       {
         data: [selectedData.income.sponsors, selectedData.income.tickets],
-        backgroundColor: [
-          "rgba(59, 130, 246, 0.8)",
-          "rgba(34, 197, 94, 0.8)",
-        ],
-        borderColor: [
-          "rgba(59, 130, 246, 1)",
-          "rgba(34, 197, 94, 1)",
-        ],
+        backgroundColor: ["rgba(59, 130, 246, 0.8)", "rgba(34, 197, 94, 0.8)"],
+        borderColor: ["rgba(59, 130, 246, 1)", "rgba(34, 197, 94, 1)"],
         borderWidth: 1,
       },
     ],
@@ -99,7 +95,7 @@ export default function IncomeExpensesBreakdown({
       },
       tooltip: {
         callbacks: {
-          label({dataset, parsed, label}) {
+          label({ dataset, parsed, label }) {
             const total = dataset.data.reduce((a, b) => a + b, 0);
             const percentage = ((parsed / total) * 100).toFixed(1);
             return `${label}: $${parsed.toLocaleString()} CAD (${percentage}%)`;
@@ -124,7 +120,7 @@ export default function IncomeExpensesBreakdown({
       {/* Year Selector */}
       <div className="flex justify-center mb-8">
         <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
-          {data.map(({year}) => (
+          {data.map(({ year }) => (
             <button
               key={year}
               onClick={() => setSelectedYear(year)}
