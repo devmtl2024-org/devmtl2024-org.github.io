@@ -30,22 +30,22 @@
     },
     {
       "year": 2025,
-      "budget": 6990,
+      "budget": 8007,
       "income": {
-        "sponsors": 0,
-        "tickets": 0
+        "sponsors": 5250,
+        "tickets": 2757
       },
       "expenses": {
-        "venue": 0,
-        "speakers": 0,
-        "catering": 0,
+        "venue": 977,
+        "speakers": 965,
+        "catering": 1716,
         "marketing": 0,
-        "equipment": 0,
+        "equipment": 1390,
         "other": 0
       },
       "notes": {
-        "en": "Planned budget for 2025, will be updated after the event",
-        "fr": "Budget prévisionnel pour 2025, sera mis à jour après l'événement"
+        "en": "Second edition of /dev/mtl, with sponsors, hosted by ETS Formation",
+        "fr": "Seconde édition de /dev/mtl, avec commanditaire, hébergée à l'ÉTS Formation"
       }
     }
   ]
