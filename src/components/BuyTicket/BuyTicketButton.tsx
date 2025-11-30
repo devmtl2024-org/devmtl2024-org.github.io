@@ -1,7 +1,5 @@
-// Could be an env variable, but it's good enough for now
-const ARE_TICKETS_AVAILABLE = true;
-
 import { useTranslation } from "@/hooks/useTranslation";
+import { ARE_TICKETS_AVAILABLE } from "./BuyTicket";
 
 export default function BuyTicketButton() {
   const { t } = useTranslation();

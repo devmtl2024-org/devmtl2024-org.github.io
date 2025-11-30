@@ -2,10 +2,13 @@ import { useTranslation } from "@/hooks/useTranslation";
 import backgroundImage from "../../assets/background-2.jpg";
 import BuyTicketButton from "./BuyTicketButton";
 
+// Could be an env variable, but it's good enough for now
+export const ARE_TICKETS_AVAILABLE = false;
+
 function BuyTicket() {
   const { t } = useTranslation();
 
-  return (
+  return ARE_TICKETS_AVAILABLE ? (
     <section
       className="relative bg-cover bg-center flex items-center justify-center text-center w-full py-24"
       style={{
@@ -29,7 +32,7 @@ function BuyTicket() {
         <BuyTicketButton />
       </div>
     </section>
-  );
+  ) : null;
 }
 
 export default BuyTicket;
