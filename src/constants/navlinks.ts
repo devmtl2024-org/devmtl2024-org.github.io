@@ -2,7 +2,6 @@ const base = import.meta.env.BASE_URL;
 
 export const navLinks = [
   {
-    inHeader: true,
     name: { fr: "À propos", en: "About" },
     href: `${base}about`,
   },
@@ -23,6 +22,7 @@ export const navLinks = [
     href: `${base}sponsors`,
   },
   {
+    inHeader: true,
     name: { fr: "Transparence", en: "Transparency" },
     href: `${base}transparency`,
   },
