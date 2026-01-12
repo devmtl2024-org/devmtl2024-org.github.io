@@ -43,7 +43,7 @@ function Organizers() {
           {organizers.map((organizer, index) => (
             <div
               key={index}
-              className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 lg:w-1/5"
+              className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4"
             >
               <img
                 src={`${import.meta.env.BASE_URL}${organizer.image}`}

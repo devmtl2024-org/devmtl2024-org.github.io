@@ -21,12 +21,12 @@ function Overview() {
         {/* Title */}
         <h1 className="text-xl lg:text-xl mb-4">
           {t({
-            fr: "28 novembre 2025 - ETS Formation, Montréal, QC",
-            en: "November 28th, 2025 - ETS Formation, Montréal, QC",
+            fr: "Date et lieu à venir",
+            en: "Date and place coming soon",
           })}
         </h1>
         <h1 className="text-4xl lg:text-6xl font-bold mb-4">
-          {t({ fr: "/dev/mtl 2025", en: "/dev/mtl 2025" })}
+          {t({ fr: "/dev/mtl 2026", en: "/dev/mtl 2026" })}
         </h1>
         <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
 

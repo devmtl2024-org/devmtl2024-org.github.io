@@ -12,12 +12,6 @@ export const navLinks = [
   },
   {
     inHeader: true,
-    name: { fr: "Programme", en: "Schedule" },
-    href: `${base}schedule`,
-  },
-  { name: { fr: "Lieu", en: "Venue" }, href: `${base}venue` },
-  {
-    inHeader: true,
     name: { fr: "Commanditaires", en: "Sponsors" },
     href: `${base}sponsors`,
   },
@@ -29,9 +23,5 @@ export const navLinks = [
   {
     name: { fr: "Code de conduite", en: "Code of Conduct" },
     href: `${base}conduct`,
-  },
-  {
-    name: { fr: "Présentez (CFP)", en: "Call For Papers" },
-    href: "https://www.papercall.io/dev-mtl-2025",
   },
 ];
