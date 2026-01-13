@@ -44,7 +44,7 @@ function Sponsors() {
           })}
         </p>
         <a
-          href="mailto:devmontreal.conf@gmail.com&subject=We%20want%20to%20sponsor%20/dev/mtl%202025"
+          href="mailto:devmontreal.conf@gmail.com&subject=We%20want%20to%20sponsor%20/dev/mtl%202026"
           className="px-10 py-4 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase inline-block text-center mt-12"
         >
           {t({ fr: "Devenez commanditaire", en: "Become a Sponsor" })}
