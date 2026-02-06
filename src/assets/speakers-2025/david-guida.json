@@ -9,5 +9,6 @@
   "description": "From decoding opcodes to rendering sprites, this talk shows how to build a CHIP-8 emulator in C#—and run it anywhere from Blazor to MonoGame. Nerdy? Yes. Fun? Absolutely.",
   "github": null,
   "linkedin": "https://www.linkedin.com/in/davideguida",
-  "website": "https://www.davidguida.net"
+  "website": "https://www.davidguida.net",
+  "videoLink": "https://youtu.be/CHwpvNlfxS0?si=vkyoKLYzPelLW0WJ"
 }

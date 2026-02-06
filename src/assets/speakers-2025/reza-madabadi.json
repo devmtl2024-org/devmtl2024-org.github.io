@@ -9,5 +9,6 @@
   "description": "Ever faced a surge in CPU usage and an avalanche of database queries during nightly imports? It saves $$$ In this talk, I will talk about N+1 issue: - What is it ? - What are the impacts ? - How to detect it ? - How to perform fixes. Temporary & permanent. Backed with data and some code :)",
   "github": null,
   "linkedin": null,
-  "website": null
+  "website": null,
+  "videoLink": "https://youtu.be/_Bmek2dxkIw?si=O1_NmGsWpYW_VN_9"
 }

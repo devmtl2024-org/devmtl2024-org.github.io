@@ -9,5 +9,6 @@
   "description": "Dans un monde JVM back-end pleinement dominé par Spring, on voit depuis quelques années apparaître de nouveaux venus qui tentent d’apporter des visions différentes sur les frameworks web.\nA travers une courte session de live-coding, je vous emmène découvrir Ktor & la librairie Exposed, des solutions 100% Kotlin proposées par Jetbrains pour construire un micro-service simple et performant pour attraper tout plein de pokémons.\nOn en profitera aussi pour fêter la sortie de Kotlin 2.0 et découvrir les principales nouveautés de cette version.",
   "github": null,
   "linkedin": "https://www.linkedin.com/in/arthur-veys/",
-  "website": null
+  "website": null,
+  "videoLink": "https://youtu.be/JE6NtohaajY?si=0hrvqLgnk9fxKxnE"
 }

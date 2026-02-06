@@ -1,5 +1,6 @@
 import { Speaker } from "@/type/speakers";
 import { formatTime } from "./formatTime";
+import { getYouTubeEmbedUrl } from "./getYoutubeEmbedUrl";
 
 export default function TalkSession({
   speaker,
@@ -8,6 +9,8 @@ export default function TalkSession({
   speaker: Speaker;
   index: number;
 }) {
+  const embedUrl = getYouTubeEmbedUrl(speaker.videoLink);
+
   return (
     <div className="flex flex-col md:flex-row self-start w-full">
       {/* Left section: Time and Track */}
@@ -28,6 +31,17 @@ export default function TalkSession({
             {speaker.title}
           </div>
           <p className="text-sm mt-2 text-gray-600">{speaker.description}</p>
+          {embedUrl && (
+            <div className="mt-4 aspect-video w-full">
+              <iframe
+                className="w-full h-full rounded-lg"
+                src={embedUrl}
+                title={`Video of ${speaker.title}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

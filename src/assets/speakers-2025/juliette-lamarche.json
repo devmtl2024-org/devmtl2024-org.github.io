@@ -9,5 +9,6 @@
   "description": "La gestion des erreurs est souvent le maillon manquant dans la conception des applications. Nous plongerons en profondeur dans les différents concepts qui peuvent se cacher derrière la notion d’erreur et leurs implémentations les plus courantes. Des exemples concrets seront tirés de Node, React et Tanstack Query.",
   "github": null,
   "linkedin": "https://www.linkedin.com/in/juliette-lamarche-2295a4248/",
-  "website": "https://prncss-xyz.github.io/portefolio/about"
+  "website": "https://prncss-xyz.github.io/portefolio/about",
+  "videoLink": "https://youtu.be/IF4CS6AtvDU?si=tJeO82f_cjWeyUe9"
 }

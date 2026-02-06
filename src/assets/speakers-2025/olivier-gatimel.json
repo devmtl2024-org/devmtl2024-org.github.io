@@ -9,5 +9,6 @@
   "description": "L'observabilité est essentielle pour créer des systèmes fiables, mais comment la mettre en œuvre efficacement ? Cette session présente OpenTelemetry, son histoire, le soutien d'acteurs, les SDKs dans différents langages et des cas concrets sur la collecte des traces, métriques et logs.",
   "github": null,
   "linkedin": null,
-  "website": null
+  "website": null,
+  "videoLink": "https://youtu.be/g5QyjxIf2i4?si=owoq_87Fvwhme829"
 }

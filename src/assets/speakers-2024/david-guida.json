@@ -9,5 +9,6 @@
   "description": "What is “Resiliency” and why do we need to account for it when building software? In this talk we will discuss some of the considerations and tradeoffs to make when designing resilient applications and how to make sure that our systems are available for our customers.",
   "github": null,
   "linkedin": null,
-  "website": "https://www.linkedin.com/in/davideguida"
+  "website": "https://www.linkedin.com/in/davideguida",
+  "videoLink": "https://youtu.be/pHYW6sOv9Yo?si=7yntRJ1PWtEYLc-J"
 }

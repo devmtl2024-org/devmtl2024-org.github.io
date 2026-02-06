@@ -9,5 +9,6 @@
   "description": "Using feature flags is a popular way of developing new software features, but it presents problems for the integration and end-to-end tests. In my talk I will show principles for dealing with feature flags from E2E web tests.",
   "github": null,
   "linkedin": null,
-  "website": "https://glebbahmutov.com/blog/"
+  "website": "https://glebbahmutov.com/blog/",
+  "videoLink": "https://youtu.be/gJFgPbbHrgU?si=vYtzwTt_SPwvNCq1"
 }

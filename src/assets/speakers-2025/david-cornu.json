@@ -9,5 +9,6 @@
   "description": "Many applications will eventually get to the point where some form of text search becomes a necessity to let users find what they need in large datasets. In this talk we’ll build a mental model of the techniques and technologies at our disposal, ranging from `LIKE` queries to vector embeddings.",
   "github": null,
   "linkedin": null,
-  "website": "https://cosocial.ca/@dc"
+  "website": "https://cosocial.ca/@dc",
+  "videoLink": "https://youtu.be/Yf8gHHWEeeg?si=eoG9lBP7MIHUchjy"
 }

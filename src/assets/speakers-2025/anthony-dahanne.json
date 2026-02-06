@@ -9,5 +9,6 @@
   "description": "Démystifiez le cycle de vie des CVE pour les développeurs Java ! Découvrez comment les vulnérabilités sont trouvées, évaluées et corrigées, ainsi que des outils pratiques pour automatiser la remédiation, résoudre les conflits de dépendances et gérer la fin de vie des frameworks.",
   "github": null,
   "linkedin": null,
-  "website": "https://blog.dahanne.net/"
+  "website": "https://blog.dahanne.net/",
+  "videoLink": "https://youtu.be/ej2oPw_yoS8?si=b_Ds2q0GdqaYtxKm"
 }

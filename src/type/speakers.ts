@@ -10,4 +10,5 @@ export interface Speaker {
   github: string | null;
   linkedin: string | null;
   website: string | null;
+  videoLink?: string;
 }
