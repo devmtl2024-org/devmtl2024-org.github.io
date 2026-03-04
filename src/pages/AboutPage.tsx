@@ -2,6 +2,7 @@ import Social from "@/components/Social/Social";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Organizer } from "@/type/organizers";
 import { loadData } from "@/utils/loadData";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 interface Meetup {
@@ -10,7 +11,7 @@ interface Meetup {
 }
 
 const meetups: Meetup[] = [
-  { name: "Jug Montréal", url: "https://www.montreal-jug.org/" },
+  { name: "JUG Montréal", url: "https://www.montreal-jug.org/" },
   { name: "Montréal Python", url: "https://montrealpython.org/" },
   {
     name: "Software Crafters Montréal",
@@ -38,7 +39,7 @@ const meetups: Meetup[] = [
     url: "https://guild.host/software-crafters-quebec",
   },
   { name: "Women in AI", url: "https://www.womeninai.co/canada" },
-  { name: "Elixir Montréal", url: "https://www.montrealelixir.ca/" },
+  { name: "Elixir Montréal", url: "https://guild.host/elixir-montreal/events" },
   { name: "Ruby Montréal", url: "https://www.meetup.com/montrealrb/" },
   {
     name: "AWS Montréal",
@@ -73,31 +74,32 @@ export default function AboutPage() {
             en: "/dev/mtl is an event that was born from the local tech communities. It would not be possible without the contribution of these people.",
           })}
         </p>
-        <div className="my-20 flex flex-wrap justify-center items-start gap-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="my-16 flex flex-wrap justify-center gap-4"
+        >
           {meetups.map((meetup, index) => (
-            <div
+            <motion.a
               key={index}
-              className="text-3xl font-bold text-gray-500 text-center font-mono flex flex-col bg-gray-100 px-8 py-4 rounded-md"
+              href={meetup.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="group flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-5 py-3 text-lg font-semibold text-gray-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-md"
             >
-              {meetup.name.split(" ").map((word, i) => (
-                <span key={i}>
-                  {meetup.url ? (
-                    <a
-                      href={meetup.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-gray-700 transition-colors"
-                    >
-                      {word}
-                    </a>
-                  ) : (
-                    word
-                  )}
-                </span>
-              ))}
-            </div>
+              {meetup.name}
+              <span className="text-gray-300 transition-colors duration-200 group-hover:text-secondary">
+                ↗
+              </span>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Organizers Section */}
