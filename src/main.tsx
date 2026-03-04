@@ -13,6 +13,7 @@ import SpeakersPage from "./pages/SpeakersPage";
 import SponsorsPage from "./pages/SponsorsPage";
 import TransparencyPage from "./pages/TransparencyPage";
 import VenuePage from "./pages/VenuePage";
+import VideosPage from "./pages/VideosPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/schedule" element={<SchedulePage />} />
             <Route path="/speakers/:year" element={<SpeakersPage />} />
             <Route path="/speaker/:name" element={<SpeakerPage />} />
+            <Route path="/videos" element={<VideosPage />} />
             <Route path="/sponsors" element={<SponsorsPage />} />
             <Route path="/transparency" element={<TransparencyPage />} />
             <Route path="/conduct" element={<ConductPage />} />

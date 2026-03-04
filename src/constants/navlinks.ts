@@ -12,6 +12,11 @@ export const navLinks = [
   },
   {
     inHeader: true,
+    name: { fr: "Vidéos", en: "Videos" },
+    href: `${base}videos`,
+  },
+  {
+    inHeader: true,
     name: { fr: "Commanditaires", en: "Sponsors" },
     href: `${base}sponsors`,
   },
