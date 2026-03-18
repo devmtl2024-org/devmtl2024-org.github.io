@@ -61,7 +61,7 @@ function Navbar() {
                 />
               </div>
 
-              <div className="hidden lg:flex gap-8 h-(100%)">
+              <div className="hidden lg:flex flex-1 items-center gap-8">
                 {headerNavLinks.map((link) => {
                   const isActive = window.location.pathname === link.href;
 
@@ -118,7 +118,7 @@ function Navbar() {
                 })}
 
                 <LanguageSwitcher />
-                <BuyTicketButton />
+                <BuyTicketButton className="ml-auto" />
               </div>
             </div>
 
