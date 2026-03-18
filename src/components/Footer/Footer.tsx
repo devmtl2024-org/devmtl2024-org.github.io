@@ -6,23 +6,33 @@ import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 
 export function Footer() {
   const { t } = useTranslation();
+  const primaryLinks = navLinks.filter((link) => !link.secondary);
+  const secondaryLinks = navLinks.filter((link) => link.secondary);
 
   return (
     <div>
       <BuyTicket />
       <div className="bg-primary-dark">
         <footer className="max-w-4xl mx-auto px-4 py-12 text-center text-gray-400">
-          <div className="flex gap-8 h-(100%) justify-center mb-4 flex-wrap font-light">
-            {navLinks.map((link) => (
+          <nav className="flex gap-x-8 gap-y-2 justify-center mb-3 flex-wrap font-light">
+            {primaryLinks.map((link) => (
               <a
                 key={link.name.en}
                 href={link.href}
-                className={`text-md  hover:text-secondary`}
+                className="hover:text-secondary"
               >
                 {t(link.name)}
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[2px] bg-transparent transition-all duration-200`}
-                ></span>
+              </a>
+            ))}
+          </nav>
+          <div className="flex gap-x-6 gap-y-2 justify-center mb-6 flex-wrap text-sm text-gray-500">
+            {secondaryLinks.map((link) => (
+              <a
+                key={link.name.en}
+                href={link.href}
+                className="hover:text-secondary"
+              >
+                {t(link.name)}
               </a>
             ))}
             <LanguageSwitcher />
