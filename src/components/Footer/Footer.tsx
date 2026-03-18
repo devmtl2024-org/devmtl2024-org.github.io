@@ -1,5 +1,6 @@
 import { navLinks } from "@/constants/navlinks";
 import { useTranslation } from "@/hooks/useTranslation";
+import { FaLinkedin, FaYoutube } from "react-icons/fa";
 import BuyTicket from "../BuyTicket/BuyTicket";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 
@@ -25,6 +26,26 @@ export function Footer() {
               </a>
             ))}
             <LanguageSwitcher />
+          </div>
+          <div className="flex gap-6 justify-center mb-4 text-xl">
+            <a
+              href="https://www.linkedin.com/company/dev-mtl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-secondary"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://www.youtube.com/@dev-mtl-conf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-secondary"
+              aria-label="YouTube"
+            >
+              <FaYoutube />
+            </a>
           </div>
           <p>
             &copy; {new Date().getFullYear()} /dev/mtl -{" "}
