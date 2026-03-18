@@ -152,12 +152,12 @@ function Navbar() {
               {headerNavLinks.map((link) => {
                 if (link.name.en === "Speakers") {
                   return (
-                    <div key={link.name.en} className="flex flex-col gap-2">
+                    <div key={link.name.en} className="flex flex-col">
                       <button
                         onClick={() => setShowSpeakersDropdown((prev) => !prev)}
                         className="flex justify-between items-center hover:text-secondary w-full"
                       >
-                        Conférenciers
+                        {t(link.name)}
                         <svg
                           className={`w-4 h-4 transition-transform duration-300 ${
                             showSpeakersDropdown ? "rotate-180" : "rotate-0"
@@ -176,8 +176,8 @@ function Navbar() {
                       </button>
 
                       <div
-                        className={`flex flex-col gap-2 pl-4 mt-2 overflow-hidden transition-all duration-300 ${
-                          showSpeakersDropdown ? "max-h-40" : "max-h-0"
+                        className={`flex flex-col gap-2 pl-4 overflow-hidden transition-all duration-300 ${
+                          showSpeakersDropdown ? "max-h-40 mt-4" : "max-h-0"
                         }`}
                       >
                         <a
