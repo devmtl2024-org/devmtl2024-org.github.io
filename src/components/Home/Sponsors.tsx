@@ -1,5 +1,6 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Sponsors() {
   const { t } = useTranslation();
@@ -43,12 +44,12 @@ function Sponsors() {
             en: "By becoming a sponsor for the 2026 edition, you directly support the local community while gaining visibility with engaged and talented developers.",
           })}
         </p>
-        <a
-          href="mailto:devmontreal.conf@gmail.com&subject=We%20want%20to%20sponsor%20/dev/mtl%202026"
+        <Link
+          to="/sponsorship"
           className="px-10 py-4 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase inline-block text-center mt-12"
         >
           {t({ fr: "Devenez commanditaire", en: "Become a Sponsor" })}
-        </a>
+        </Link>
       </section>
     </div>
   );

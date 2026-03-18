@@ -11,6 +11,7 @@ import ConductPage from "./pages/ConductPage";
 import SpeakerPage from "./pages/SpeakerPage";
 import SpeakersPage from "./pages/SpeakersPage";
 import SponsorsPage from "./pages/SponsorsPage";
+import SponsorshipPage from "./pages/SponsorshipPage";
 import TransparencyPage from "./pages/TransparencyPage";
 import VenuePage from "./pages/VenuePage";
 import VideosPage from "./pages/VideosPage";
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/speaker/:name" element={<SpeakerPage />} />
             <Route path="/videos" element={<VideosPage />} />
             <Route path="/sponsors" element={<SponsorsPage />} />
+            <Route path="/sponsorship" element={<SponsorshipPage />} />
             <Route path="/transparency" element={<TransparencyPage />} />
             <Route path="/conduct" element={<ConductPage />} />
           </Route>

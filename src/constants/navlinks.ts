@@ -26,6 +26,10 @@ export const navLinks = [
     href: `${base}transparency`,
   },
   {
+    name: { fr: "Devenir commanditaire", en: "Become a Sponsor" },
+    href: `${base}sponsorship`,
+  },
+  {
     name: { fr: "Code de conduite", en: "Code of Conduct" },
     href: `${base}conduct`,
   },
