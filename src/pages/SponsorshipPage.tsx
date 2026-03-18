@@ -208,7 +208,7 @@ export default function SponsorshipPage() {
                       {tier.perks[perkIndex] ? (
                         <span className="text-green-600">&#10003;</span>
                       ) : (
-                        "&mdash;"
+                        <span className="text-gray-300">&mdash;</span>
                       )}
                     </span>
                   </div>
@@ -266,13 +266,14 @@ export default function SponsorshipPage() {
               to="/transparency"
               className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg text-primary font-medium hover:bg-gray-50 transition-colors"
             >
-              {t({ fr: "Transparence", en: "Transparency" })} &rarr;
+              {t({ fr: "Transparence", en: "Transparency" })}
               <span className="text-gray-500 font-normal">
                 {t({
                   fr: "Nos chiffres des années précédentes",
                   en: "Our numbers from previous years",
                 })}
               </span>
+              &rarr;
             </Link>
           </div>
         </div>
