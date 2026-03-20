@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSponsors } from "@/hooks/useSponsors";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Sponsor } from "@/type/sponsors";
@@ -11,8 +12,8 @@ export default function SponsorsPage() {
     <div className="container mx-auto px-4 py-8">
       <p className="text-center text-gray-700 mb-12 text-lg">
         {t({
-          fr: "/dev/mtl 2025 est possible grâce à la générosité des organisations et entreprises de cette page. Leur soutien rend possible cet événement à un prix abordable. Merci à eux!",
-          en: "/dev/mtl 2025 is only possible through the generosity of the organizations and businesses on this page. Their support make this event possible at an affordable price. Thank you!",
+          fr: "/dev/mtl 2026 est possible grâce à la générosité des organisations et entreprises de cette page. Leur soutien rend possible cet événement à un prix abordable. Merci à eux!",
+          en: "/dev/mtl 2026 is only possible through the generosity of the organizations and businesses on this page. Their support makes this event possible at an affordable price. Thank you!",
         })}
       </p>
 
@@ -47,6 +48,30 @@ export default function SponsorsPage() {
           en: "Supporters",
         }}
       />
+
+      <div className="text-center mt-16 mb-8 p-8 bg-primary/5 rounded-2xl">
+        <h2 className="text-2xl font-bold text-primary mb-4">
+          {t({
+            fr: "Envie de soutenir /dev/mtl?",
+            en: "Want to support /dev/mtl?",
+          })}
+        </h2>
+        <p className="text-gray-700 mb-6 text-lg">
+          {t({
+            fr: "Devenez commanditaire et contribuez à rendre cet événement accessible à la communauté tech de Montréal.",
+            en: "Become a sponsor and help make this event accessible to Montreal's tech community.",
+          })}
+        </p>
+        <Link
+          to="/sponsorship"
+          className="inline-block text-white bg-secondary hover:bg-secondary-dark rounded-xl px-6 py-3 text-lg font-semibold transition-colors"
+        >
+          {t({
+            fr: "Devenir commanditaire",
+            en: "Become a Sponsor",
+          })}
+        </Link>
+      </div>
     </div>
   );
 }
