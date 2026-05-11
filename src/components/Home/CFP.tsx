@@ -20,10 +20,10 @@ function CFP() {
       >
         <div className="mb-12">
           <h3 className="text-xs text-gray-700 uppercase tracking-widest mb-4">
-            {t({ fr: "Écoutez les", en: "Listen to the" })}
+            {t({ fr: "Partagez votre passion", en: "Share your passion" })}
           </h3>
           <h3 className="text-4xl font-semibold text-primary leading-tight mb-4">
-            {t({ fr: "Conférenciers", en: "Event Speakers" })}
+            {t({ fr: "Devenez conférencier", en: "Become a speaker" })}
           </h3>
           <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
         </div>

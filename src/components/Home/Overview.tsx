@@ -21,8 +21,8 @@ function Overview() {
         {/* Title */}
         <h1 className="text-xl lg:text-xl mb-4">
           {t({
-            fr: "Date et lieu à venir",
-            en: "Date and place coming soon",
+            fr: "27 novembre · Centre de Conférence de l'Université Concordia",
+            en: "November 27 · Concordia University Conference Centre",
           })}
         </h1>
         <h1 className="text-4xl lg:text-6xl font-bold mb-4">

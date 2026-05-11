@@ -6,7 +6,7 @@ export default function BuyTicketButton({ className }: { className?: string }) {
 
   return ARE_TICKETS_AVAILABLE ? (
     <a
-      href="https://www.eventbrite.com/e/1357369902919/"
+      href="https://www.eventbrite.com/e/devmtl-2026-tickets-1987111133893"
       target="_blank"
       rel="noopener noreferrer"
       className={className}

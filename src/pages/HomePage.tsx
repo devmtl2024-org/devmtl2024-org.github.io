@@ -6,6 +6,7 @@ import Numbers from "@/components/Home/Numbers";
 import Organizers from "@/components/Home/Organizers";
 import Overview from "@/components/Home/Overview";
 import Sponsors from "@/components/Home/Sponsors";
+import Venue from "@/components/Home/Venue";
 import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
         <Numbers />
         <CFP />
         <Meetups />
+        <Venue />
         <Sponsors />
         <Organizers />
       </div>
