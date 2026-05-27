@@ -4,8 +4,8 @@
   "url": "https://vasco.app",
   "isEnabled": false,
   "description": {
-    "fr": "Chez Vasco, nous construisons une plateforme RevOps tout-en-un qui combine un logiciel puissant, une communauté dirigée par les pairs et des insights actionnables. Notre objectif est de permettre aux startups et scale-ups de croître plus rapidement, plus intelligemment et de manière prévisible.",
-    "en": "At Vasco, we’re building an all-in-one RevOps platform that combines powerful software, peer-driven community, and actionable insights. Our goal is to empower startups and scale-ups to grow faster, smarter, and predictably."
+    "fr": "La couche de données de revenus pensée pour l'ère de l'IA.\nVasco unifie vos données CRM, de facturation, d'appels et de support au sein d'une couche sémantique où chaque métrique est sourcée, chaque définition est verrouillée et chaque réponse est déterministe.",
+    "en": "The revenue data layer purpose-built for AI agents.\nVasco structures your CRM, billing, calls, and support data into a semantic layer where every metric is sourced, every definition is locked, and every answer is deterministic."
   },
   "level": "argent"
 }
