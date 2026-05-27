@@ -1,9 +1,13 @@
+import { useSponsors } from "@/hooks/useSponsors";
 import { useTranslation } from "@/hooks/useTranslation";
+import { Sponsor } from "@/type/sponsors";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function Sponsors() {
   const { t } = useTranslation();
+  const { orSponsors, argentSponsors, bronzeSponsors, supporterSponsors } =
+    useSponsors();
 
   return (
     <div className="bg-gradient-to-b from-primary-dark to-primary/80">
@@ -24,6 +28,14 @@ function Sponsors() {
           </h3>
           <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
         </motion.div>
+
+        <div className="flex flex-col gap-6 mb-12">
+          <SponsorTier sponsors={orSponsors} size="size-52" />
+          <SponsorTier sponsors={argentSponsors} size="size-44" />
+          <SponsorTier sponsors={bronzeSponsors} size="size-36" />
+          <SponsorTier sponsors={supporterSponsors} size="size-36" />
+        </div>
+
         <h3 className="text-3xl font-semibold text-white mb-6 text-center">
           {t({
             fr: "Soutenez la communauté tech montréalaise",
@@ -56,3 +68,42 @@ function Sponsors() {
 }
 
 export default Sponsors;
+
+function SponsorTier({ sponsors, size }: { sponsors: Sponsor[]; size: string }) {
+  if (sponsors.length === 0) {
+    return null;
+  }
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="flex flex-wrap gap-8 justify-center items-end"
+    >
+      {sponsors.map((sponsor) => (
+        <motion.div
+          key={sponsor.name}
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <a
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
+              alt={sponsor.name}
+              className={`${size} object-contain bg-white p-4 transition duration-300 group-hover:scale-110`}
+            />
+          </a>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+}
