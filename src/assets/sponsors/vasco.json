@@ -2,7 +2,7 @@
   "name": "Vasco",
   "logo": "sponsors/vasco.png",
   "url": "https://vasco.app",
-  "isEnabled": false,
+  "isEnabled": true,
   "description": {
     "fr": "La couche de données de revenus pensée pour l'ère de l'IA.\nVasco unifie vos données CRM, de facturation, d'appels et de support au sein d'une couche sémantique où chaque métrique est sourcée, chaque définition est verrouillée et chaque réponse est déterministe.",
     "en": "The revenue data layer purpose-built for AI agents.\nVasco structures your CRM, billing, calls, and support data into a semantic layer where every metric is sourced, every definition is locked, and every answer is deterministic."
