@@ -46,6 +46,10 @@ const meetups: Meetup[] = [
     url: "https://www.meetup.com/Montreal-AWS-Users-United/",
   },
   { name: "Flutter Montréal", url: "https://www.meetup.com/Flutter-Montreal/" },
+  {
+      name: "AI Agents Montréal",
+      url: "https://nicolasrosado.github.io/aiagents-montreal/"
+  },
 ];
 
 export default function AboutPage() {
