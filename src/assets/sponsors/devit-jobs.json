@@ -1,0 +1,11 @@
+{
+  "name": "DevITJobs.com",
+  "logo": "sponsors/devit-jobs.png",
+  "url": "https://devitjobs.com/jobs/all/Canada/all",
+  "isEnabled": true,
+  "description": {
+    "fr": "DevITJobs est un site d'emplois pensé pour les développeur·euse·s : chaque offre affiche le salaire et la pile technologique, sans intermédiaire. La plateforme met en relation les talents tech et les entreprises qui recrutent au Canada et ailleurs, en misant sur la transparence.",
+    "en": "DevITJobs is a job board built for developers: every posting shows the salary and tech stack, with no middlemen. The platform connects tech talent with companies hiring across Canada and beyond, with transparency at its core."
+  },
+  "level": "media"
+}

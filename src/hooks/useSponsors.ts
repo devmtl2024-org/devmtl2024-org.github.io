@@ -17,5 +17,6 @@ export function useSponsors() {
     argentSponsors: sponsors.filter((s) => s.level === "argent"),
     bronzeSponsors: sponsors.filter((s) => s.level === "bronze"),
     supporterSponsors: sponsors.filter((s) => s.level === "supporter"),
+    mediaPartners: sponsors.filter((s) => s.level === "media"),
   };
 }

@@ -4,5 +4,5 @@ export interface Sponsor {
   url: string;
   isEnabled: boolean;
   description: { fr: string; en: string };
-  level: "or" | "argent" | "bronze" | "supporter";
+  level: "or" | "argent" | "bronze" | "supporter" | "media";
 }

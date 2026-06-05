@@ -122,7 +122,7 @@ Speakers with `title === "Intro"` are filtered out from the speakers grid.
   "url": "https://...",
   "isEnabled": true,
   "description": { "fr": "...", "en": "..." },
-  "level": "or" | "argent" | "bronze" | "supporter"
+  "level": "or" | "argent" | "bronze" | "supporter" | "media"
 }
 ```
 

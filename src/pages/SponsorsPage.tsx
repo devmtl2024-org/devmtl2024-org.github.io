@@ -5,8 +5,13 @@ import { Sponsor } from "@/type/sponsors";
 
 export default function SponsorsPage() {
   const { t } = useTranslation();
-  const { orSponsors, argentSponsors, bronzeSponsors, supporterSponsors } =
-    useSponsors();
+  const {
+    orSponsors,
+    argentSponsors,
+    bronzeSponsors,
+    supporterSponsors,
+    mediaPartners,
+  } = useSponsors();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -46,6 +51,14 @@ export default function SponsorsPage() {
         title={{
           fr: "Supporteurs",
           en: "Supporters",
+        }}
+      />
+
+      <SponsorSection
+        sponsors={mediaPartners}
+        title={{
+          fr: "Partenaire média",
+          en: "Media partner",
         }}
       />
 
