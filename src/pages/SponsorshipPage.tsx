@@ -1,10 +1,13 @@
+import { useSponsors } from "@/hooks/useSponsors";
 import { useTranslation } from "@/hooks/useTranslation";
+import { remainingSponsorships } from "@/utils/remainingSponsorships";
 import { FaLinkedin, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const TIERS = [
   {
     name: { fr: "Or", en: "Gold" },
+    level: "or",
     color: "bg-yellow-500",
     price: "3 000",
     available: 3,
@@ -13,6 +16,7 @@ const TIERS = [
   },
   {
     name: { fr: "Argent", en: "Silver" },
+    level: "argent",
     color: "bg-gray-400",
     price: "2 000",
     available: 4,
@@ -21,6 +25,7 @@ const TIERS = [
   },
   {
     name: { fr: "Bronze", en: "Bronze" },
+    level: "bronze",
     color: "bg-amber-700",
     price: "750",
     available: 5,
@@ -61,6 +66,15 @@ const PERKS = [
 
 export default function SponsorshipPage() {
   const { t } = useTranslation();
+  const { allSponsors } = useSponsors();
+
+  const tiers = TIERS.map((tier) => ({
+    ...tier,
+    remaining: remainingSponsorships(
+      tier.available,
+      allSponsors.filter((sponsor) => sponsor.level === tier.level).length,
+    ),
+  }));
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -90,7 +104,7 @@ export default function SponsorshipPage() {
             <thead>
               <tr>
                 <th className="p-4 text-left" />
-                {TIERS.map((tier) => (
+                {tiers.map((tier) => (
                   <th key={t(tier.name)} className="p-4 text-center">
                     <span
                       className={`inline-block px-6 py-2 rounded-full text-white font-bold text-lg ${tier.color}`}
@@ -106,12 +120,15 @@ export default function SponsorshipPage() {
                 <td className="p-4 font-medium text-gray-700">
                   {t({ fr: "Disponibles", en: "Available" })}
                 </td>
-                {TIERS.map((tier) => (
+                {tiers.map((tier) => (
                   <td
                     key={t(tier.name)}
                     className="p-4 text-center text-gray-600"
                   >
-                    {tier.available}
+                    <AvailabilityLabel
+                      total={tier.available}
+                      remaining={tier.remaining}
+                    />
                   </td>
                 ))}
               </tr>
@@ -119,7 +136,7 @@ export default function SponsorshipPage() {
                 <td className="p-4 font-medium text-gray-700">
                   {t({ fr: "Prix ($ CAD)", en: "Price ($ CAD)" })}
                 </td>
-                {TIERS.map((tier) => (
+                {tiers.map((tier) => (
                   <td
                     key={t(tier.name)}
                     className="p-4 text-center font-bold text-xl text-primary"
@@ -135,7 +152,7 @@ export default function SponsorshipPage() {
                     en: "Conference tickets included",
                   })}
                 </td>
-                {TIERS.map((tier) => (
+                {tiers.map((tier) => (
                   <td
                     key={t(tier.name)}
                     className="p-4 text-center text-gray-600"
@@ -150,11 +167,8 @@ export default function SponsorshipPage() {
                   className={`border-t border-gray-200 ${perkIndex % 2 === 0 ? "bg-gray-50" : ""}`}
                 >
                   <td className="p-4 font-medium text-gray-700">{t(perk)}</td>
-                  {TIERS.map((tier) => (
-                    <td
-                      key={t(tier.name)}
-                      className="p-4 text-center text-xl"
-                    >
+                  {tiers.map((tier) => (
+                    <td key={t(tier.name)} className="p-4 text-center text-xl">
                       {tier.perks[perkIndex] ? (
                         <span className="text-green-600">&#10003;</span>
                       ) : (
@@ -170,14 +184,12 @@ export default function SponsorshipPage() {
 
         {/* Mobile cards */}
         <div className="md:hidden space-y-8">
-          {TIERS.map((tier) => (
+          {tiers.map((tier) => (
             <div
               key={t(tier.name)}
               className="border rounded-lg shadow-md overflow-hidden"
             >
-              <div
-                className={`${tier.color} text-white text-center py-4 px-6`}
-              >
+              <div className={`${tier.color} text-white text-center py-4 px-6`}>
                 <h3 className="text-2xl font-bold">{t(tier.name)}</h3>
                 <p className="text-3xl font-bold mt-1">${tier.price}</p>
                 <p className="text-sm opacity-90">CAD</p>
@@ -185,7 +197,12 @@ export default function SponsorshipPage() {
               <div className="p-6 space-y-3">
                 <div className="flex justify-between text-gray-700 pb-3 border-b border-gray-200">
                   <span>{t({ fr: "Disponibles", en: "Available" })}</span>
-                  <span className="font-medium">{tier.available}</span>
+                  <span className="font-medium">
+                    <AvailabilityLabel
+                      total={tier.available}
+                      remaining={tier.remaining}
+                    />
+                  </span>
                 </div>
                 <div className="flex justify-between text-gray-700 pb-3 border-b border-gray-200">
                   <span>
@@ -299,5 +316,46 @@ export default function SponsorshipPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+function AvailabilityLabel({
+  total,
+  remaining,
+}: {
+  total: number;
+  remaining: number;
+}) {
+  const { t } = useTranslation();
+
+  if (remaining <= 0) {
+    return (
+      <span className="text-gray-500">
+        {t({ fr: "Complet", en: "Sold out" })}
+      </span>
+    );
+  }
+
+  // No sponsor at this tier yet: a struck-through total would just be noise.
+  if (remaining >= total) {
+    return <span className="font-semibold text-gray-700">{remaining}</span>;
+  }
+
+  return (
+    <span
+      className="inline-flex items-baseline gap-1.5"
+      aria-label={t({
+        fr: `${remaining} sur ${total} disponibles`,
+        en: `${remaining} of ${total} available`,
+      })}
+    >
+      <span aria-hidden className="relative inline-block text-gray-500">
+        {total}
+        <span className="absolute left-1/2 top-1/2 h-[1.5px] w-[130%] -translate-x-1/2 -translate-y-1/2 -rotate-12 bg-red-500" />
+      </span>
+      <span aria-hidden className="font-semibold text-gray-700">
+        {remaining}
+      </span>
+    </span>
   );
 }
