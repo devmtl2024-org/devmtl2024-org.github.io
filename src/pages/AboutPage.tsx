@@ -12,7 +12,6 @@ interface Meetup {
 
 const meetups: Meetup[] = [
   { name: "JUG Montréal", url: "https://www.montreal-jug.org/" },
-  { name: "Montréal Python", url: "https://montrealpython.org/" },
   {
     name: "Software Crafters Montréal",
     url: "https://guild.host/software-crafters-montreal",
