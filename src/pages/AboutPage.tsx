@@ -30,6 +30,10 @@ const meetups: Meetup[] = [
     url: "https://montreal.aitinkerers.org/",
   },
   {
+    name: "Woman Techmakers Montréal",
+    url: "https://wtmmontreal.com/",
+  },
+  {
     name: "Generative AI Montréal",
     url: "https://luma.com/calendar/cal-ugymCoObncHE8Ph",
   },
