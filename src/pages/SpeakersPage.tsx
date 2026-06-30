@@ -32,12 +32,14 @@ export default function SpeakersPage() {
           })}
         </h2>
 
-        <h3 className="text-lg text-gray-500 mb-12">
-          {t({
-            fr: "Plus d'infos à venir",
-            en: "More info coming soon",
-          })}
-        </h3>
+        {year === "2026" && (
+          <h3 className="text-lg text-gray-500 mb-12">
+            {t({
+              fr: "Plus d'infos à venir",
+              en: "More info coming soon",
+            })}
+          </h3>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {speakers
