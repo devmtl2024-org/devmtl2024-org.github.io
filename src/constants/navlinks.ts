@@ -8,7 +8,7 @@ export const navLinks = [
   {
     inHeader: true,
     name: { fr: "Conférenciers", en: "Speakers" },
-    href: `${base}speakers/2025`,
+    href: `${base}speakers/2026`,
   },
   {
     inHeader: true,

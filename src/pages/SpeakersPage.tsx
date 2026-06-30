@@ -1,6 +1,6 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import type { Speaker } from "@/type/speakers";
-import { loadData } from "@/utils/loadData";
+import { loadSpeakers } from "@/utils/loadData";
 import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,21 +17,9 @@ export default function SpeakersPage() {
       return;
     }
 
-    if (numericYear === 2024) {
-      loadData<Speaker>("speakers2024")
-        .then(setSpeakers)
-        .catch((err) => console.error("Error loading speakers:", err));
-
-      return;
-    }
-
-    if (numericYear === 2025) {
-      loadData<Speaker>("speakers2025")
-        .then(setSpeakers)
-        .catch((err) => console.error("Error loading speakers:", err));
-
-      return;
-    }
+    loadSpeakers<Speaker>(numericYear)
+      .then(setSpeakers)
+      .catch((err) => console.error("Error loading speakers:", err));
   }, [year]);
 
   return (
@@ -43,6 +31,13 @@ export default function SpeakersPage() {
             en: "Our Presenters are ✨ Amazing ✨",
           })}
         </h2>
+
+        <h3 className="text-lg text-gray-500 mb-12">
+          {t({
+            fr: "Plus d'infos à venir",
+            en: "More info coming soon",
+          })}
+        </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {speakers

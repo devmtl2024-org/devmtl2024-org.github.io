@@ -1,6 +1,6 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import { Speaker } from "@/type/speakers";
-import { loadData } from "@/utils/loadData";
+import { loadSpeakers } from "@/utils/loadData";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
@@ -13,7 +13,7 @@ function Speakers() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadData<Speaker>("speakers2025", 4, true).then((speakers) => {
+    loadSpeakers<Speaker>(2025, 4, true).then((speakers) => {
       setSpeakers(speakers);
     });
   }, []);

@@ -6,7 +6,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { ScheduleSession } from "@/type/schedule.ts";
 import { Speaker } from "@/type/speakers.ts";
 import { groupSpeakersByTime } from "@/utils/groupSpeakers.ts";
-import { loadData } from "@/utils/loadData.ts";
+import { loadSpeakers } from "@/utils/loadData.ts";
 import { useEffect, useState } from "react";
 
 // export default function SchedulePage() {
@@ -30,7 +30,7 @@ export default function SchedulePage() {
 
   useEffect(() => {
     async function fetchSchedule() {
-      const [speakers] = await Promise.all([loadData<Speaker>("speakers2025")]);
+      const [speakers] = await Promise.all([loadSpeakers<Speaker>(2025)]);
 
       const speakerSchedule = groupSpeakersByTime(speakers, pauses);
 
