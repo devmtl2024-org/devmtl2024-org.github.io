@@ -1,0 +1,11 @@
+{
+  "name": "Shopify",
+  "logo": "sponsors/shopify.png",
+  "url": "https://www.shopify.com",
+  "isEnabled": true,
+  "description": {
+    "fr": "Shopify est une plateforme de commerce complète qui permet à des millions d'entreprises, du projet lancé en solo aux plus grandes marques mondiales, de vendre en ligne comme en personne dans environ 175 pays. Derrière cette infrastructure se cache une solide culture d'ingénierie : du Ruby on Rails à très grande échelle, des API et un écosystème ouverts aux développeur·euse·s, et de nombreuses contributions à l'open source.",
+    "en": "Shopify is a complete commerce platform that lets millions of businesses, from solo side projects to the world's biggest brands, sell online and in person across roughly 175 countries. Behind that infrastructure sits a strong engineering culture: Ruby on Rails at massive scale, open APIs and a developer ecosystem, and plenty of code given back to open source."
+  },
+  "level": "bronze"
+}
