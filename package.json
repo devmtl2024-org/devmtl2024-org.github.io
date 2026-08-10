@@ -19,10 +19,6 @@
     "*": "prettier --ignore-unknown --write"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.2.4",
-    "@chakra-ui/react": "^3.34.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
     "@heroicons/react": "^2.2.0",
     "@vitejs/plugin-react": "^4.3.4",
     "chart.js": "^4.5.1",

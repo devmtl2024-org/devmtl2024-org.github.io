@@ -21,7 +21,6 @@ Always run `yarn typecheck` and `yarn lint` before committing.
 
 - **React 18** + **TypeScript** (strict mode) + **Vite 5**
 - **Tailwind CSS v3** for styling — no CSS modules, no inline styles (except dynamic backgrounds)
-- **Chakra UI v3** for some UI primitives
 - **Framer Motion** for scroll-triggered animations
 - **React Router DOM v7** with `BrowserRouter` (SPA, hash-based 404 fallback)
 - **Vitest** + **happy-dom** for testing
