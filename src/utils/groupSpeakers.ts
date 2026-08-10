@@ -1,38 +1,33 @@
+import { Pause } from "@/assets/pauses";
 import { ScheduleSession } from "@/type/schedule";
 import { Speaker } from "@/type/speakers";
 
 export function groupSpeakersByTime(
   speakers: Speaker[],
-  pauses: string[],
+  pauses: Pause[],
 ): ScheduleSession[] {
-  const grouped: Record<string, ScheduleSession> = {};
+  const talksByTime: Record<string, Speaker[][]> = {};
 
   speakers.forEach((speaker) => {
-    const time = speaker.time;
+    const tracks = (talksByTime[speaker.time] ??= []);
     const trackIndex = speaker.track - 1;
 
-    if (!grouped[time]) {
-      grouped[time] = { time, tracks: [] };
+    while (tracks.length <= trackIndex) {
+      tracks.push([]);
     }
 
-    const session = grouped[time];
-
-    while (session.tracks.length <= trackIndex) {
-      session.tracks.push(null);
-    }
-
-    session.tracks[trackIndex] = speaker;
+    // Co-speakers of a same talk share a track, hence the list
+    tracks[trackIndex].push(speaker);
   });
 
-  pauses.forEach((pauseTime) => {
-    const time = pauseTime;
+  const sessions: ScheduleSession[] = [
+    ...Object.entries(talksByTime).map(
+      ([time, tracks]): ScheduleSession => ({ kind: "talks", time, tracks }),
+    ),
+    ...pauses.map((pause): ScheduleSession => ({ kind: "pause", ...pause })),
+  ];
 
-    if (!grouped[time]) {
-      grouped[time] = { time, tracks: [], isPause: true };
-    }
-  });
-
-  return Object.values(grouped).sort(
+  return sessions.sort(
     (a, b) => new Date(a.time).getTime() - new Date(b.time).getTime(),
   );
 }

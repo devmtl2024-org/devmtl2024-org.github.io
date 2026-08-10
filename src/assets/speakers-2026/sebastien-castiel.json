@@ -1,0 +1,13 @@
+{
+  "name": "Sebastien Castiel",
+  "bio": "Sébastien is a developer based in Montreal. Long focused on frontend, he shifted a year ago toward agentic AI systems. Even though Claude Code has largely replaced manual coding in his daily work, software engineering — architecture, quality, rigor — remains at the heart of what he does.",
+  "position": "Software Developer, Building AI-Driven Experiences",
+  "image": "speakers-2026/sebastien-castiel.png",
+  "time": "2026-11-27T13:15:00",
+  "track": 1,
+  "title": "Si Claude écrit le code, qu'est-ce qui fait encore de moi un développeur?",
+  "description": "Ça fait plusieurs mois que je n'ai pas écrit une ligne de code. Je livre toujours des fonctionnalités, je résous des problèmes d'architecture, je revois des PRs. Je ne suis pas devenu PM, je ne pilote pas une flotte d'agents. Je suis toujours développeur — mais ce n'est plus le même métier qu'il y a un an.\n\nCe que je n'avais pas vu venir : développer avec l'IA, ce n'est pas seulement apprendre de nouvelles pratiques. C'est aussi désapprendre. Et c'est souvent la partie désapprendre qui est la plus dure — surtout pour un développeur senior dont les meilleurs réflexes deviennent partiellement nuisibles quand le coût d'essayer s'effondre.\n\nJe raconte cette trajectoire honnêtement, étape par étape : de Tab autocomplete au mode agent, du mode agent au développement piloté par un plan, du plan aux workflows partagés en équipe. À chaque étape, ce que j'ai appris et ce qu'il a fallu désapprendre. Et ce qui reste vraiment difficile aujourd'hui: debug, revue de code, qualité long terme.\n\nPas de hype. Vous êtes quelque part sur cette pente. La question, c'est de savoir quel est votre prochain palier — et ce que vous êtes prêt à désapprendre pour y arriver.",
+  "github": null,
+  "linkedin": "https://linkedin.com/in/scastiel",
+  "website": "https://scastiel.dev"
+}

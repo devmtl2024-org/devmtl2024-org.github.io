@@ -1,0 +1,13 @@
+{
+  "name": "Imad-eddine Charchar",
+  "bio": "Imad-eddine Charchar is an AI Consultant at CGI, specialized in the design, architecture, and implementation of applied artificial intelligence solutions, with a particular focus on generative AI, LLMs, RAG systems, and agentic AI systems.\n\nHe leads and contributes to AI projects at the intersection of artificial intelligence, data, and cloud, with a clear objective: turning ideas and prototypes into concrete, reliable, and usable solutions for real business environments.\n\nHis work focuses especially on AI system architecture and the challenges that emerge when AI moves beyond the demo stage: quality, reliability, evaluation, integration with existing systems, scalability, and production readiness. Through his talks, he aims to make these challenges accessible, practical, and useful for developers.",
+  "position": "CGI - AI Solution Architect",
+  "image": "speakers-2026/imad-eddine-charchar.png",
+  "time": "2026-11-27T14:15:00",
+  "track": 2,
+  "title": "Latency, Cost, Quality in AI Systems: Pick Your Victim",
+  "description": "AI systems are never optimized for everything at once. Faster responses can reduce reasoning depth. Higher quality can increase latency and cost. Lower costs can limit accuracy, robustness, or user experience.\n\nThis presentation explores the tradeoff triangle between latency, cost, and quality in AI systems. It helps developers think beyond “which model is best?” and reason about what really matters in production: what we optimize, what we sacrifice, and who pays the price.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/imad-eddine-charchar-417293233/",
+  "website": null
+}

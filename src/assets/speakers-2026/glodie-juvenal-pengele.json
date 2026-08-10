@@ -1,0 +1,14 @@
+{
+  "name": "Glodie Juvenal Pengele",
+  "bio": "Glodie Juvenal Pengele is a Software Engineer with 10 years of experience, working with React, .NET, Go, Microsoft Azure and he is passionnate about the design of reliable and scalable backend systems. \nHe currently builds real-time platforms in the financial sector, working across the full stack with React, .NET Core.\n\nA Microsoft Certified Azure Solutions Architect Expert (AZ-305), Glodie is passionate about system design, distributed systems, and building software that holds up in production. He shares his knowledge in software engineering, where he shares technical content on backend engineering, cloud, and software design, and had presented this year two talks at the React Montréal meetup (OpenTelemetry in React applications and handling race conditions with async-mutex in React).",
+  "position": "Audensiel Canada, Full-stack Developer.",
+  "community": "React Montréal",
+  "image": "speakers-2026/glodie-juvenal-pengele.jpg",
+  "time": "2026-11-27T16:15:00",
+  "track": 3,
+  "title": "Full-stack Observability with React & OpenTelemetry",
+  "description": "",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/juvenal-pengele/",
+  "website": "https://www.youtube.com/@ivoiredevacademy"
+}

@@ -1,6 +1,7 @@
 import Social from "@/components/Social/Social";
 import TalkSession from "@/components/Talks/TalkSession";
 import { Speaker } from "@/type/speakers";
+import { toSpeakerSlug } from "@/utils/speakerSlug";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -10,13 +11,6 @@ export default function SpeakerPage() {
   const { name } = useParams<{ name: string }>();
   const [talks, setTalks] = useState<SpeakerWithYear[]>([]);
   const [speakerInfo, setSpeakerInfo] = useState<SpeakerWithYear | null>(null);
-
-  const normalize = (str: string) =>
-    str
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/ /g, "-");
 
   useEffect(() => {
     if (!name) {
@@ -29,7 +23,7 @@ export default function SpeakerPage() {
 
     const promises = Object.entries(modules).map(async ([path, loader]) => {
       const { default: speaker } = (await loader()) as { default: Speaker };
-      if (normalize(speaker.name) === normalize(name)) {
+      if (toSpeakerSlug(speaker.name) === toSpeakerSlug(name)) {
         const yearMatch = path.match(/speakers-(\d{4})/);
         matchedTalks.push({
           ...speaker,
@@ -72,7 +66,9 @@ export default function SpeakerPage() {
         <p className="mt-4 text-gray-600 text-center font-semibold">
           {speakerInfo.position}
         </p>
-        <p className="mt-4 text-gray-600 text-center">{speakerInfo.bio}</p>
+        <p className="mt-4 text-gray-600 text-center whitespace-pre-line">
+          {speakerInfo.bio}
+        </p>
       </div>
 
       <div className="flex-1">

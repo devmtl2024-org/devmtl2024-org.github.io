@@ -1,0 +1,13 @@
+{
+  "name": "Margaret Gu",
+  "bio": "Margaret is a software engineer at Elastic, where she co-maintains the JS Elasticsearch client and works on developer experience, AI integrations, and codegen tooling. She cares about open source and the communities that form around it - good architecture, the details that make software fast at scale, and what it takes to build things developers actually want to use.",
+  "position": "Software Engineer @ Elastic",
+  "image": "speakers-2026/margaret-gu.jpg",
+  "time": "2026-11-27T16:15:00",
+  "track": 2,
+  "title": "Your CLI has a new user: the LLM",
+  "description": "CLIs were built for humans - colourful output, forgiving argument parsing, helpful error messages. Then LLM agents became users too, and the mismatch is immediate. Agents can't parse color codes, they need to know what commands exist before deciding what to do, and ambiguous output is one hallucinated flag away from a broken workflow.\n\nWe ran into this building the Elastic CLI as part of an agentic interface program. The changes we made - structured JSON output, a runtime extension system for discoverability, predictable schema and error design - turned out to improve the tool for human users too. This talk walks through those decisions concretely and leaves you with a checklist you can apply to any CLI today.",
+  "github": "margaretjgu",
+  "linkedin": "https://www.linkedin.com/in/margaretgyou",
+  "website": null
+}

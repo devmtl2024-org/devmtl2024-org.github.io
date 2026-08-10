@@ -30,7 +30,9 @@ export default function TalkSession({
           <div className="text-xl font-semibold whitespace-normal">
             {speaker.title}
           </div>
-          <p className="text-sm mt-2 text-gray-600">{speaker.description}</p>
+          <p className="text-sm mt-2 text-gray-600 whitespace-pre-line">
+            {speaker.description}
+          </p>
           {embedUrl && (
             <div className="mt-4 aspect-video w-full">
               <iframe

@@ -1,0 +1,13 @@
+{
+  "name": "Thomas Salmon",
+  "bio": "Développeur passionné, artisan du logiciel et grand fan de l’architecture bien pensée.\nFort de plus de 10 ans d’expérience, j’ai eu l’opportunité de contribuer à des projets aussi variés qu’ambitieux : du site vitrine jusqu'au cœur d’une banque en ligne.\nCe qui m’anime au quotidien ? Concevoir des logiciels élégants, évolutifs et résilients, mais surtout, les construire en équipe !\n\nJe crois profondément que le partage d’expériences, qu’elles soient réussites ou échecs, est la clé pour faire grandir nos pratiques et bâtir, ensemble, des solutions plus simples et plus durables.",
+  "position": "Osedea - Senior Full Stack Software Developer",
+  "image": "speakers-2026/thomas-salmon.jpg",
+  "time": "2026-11-27T10:00:00",
+  "track": 1,
+  "title": "Le Context Engineering commence bien avant le prompt",
+  "description": "On parle beaucoup de prompt engineering. Pourtant, dans un projet réel, le problème est rarement le prompt.\n\nPourquoi une IA invente-t-elle des règles métier ? Pourquoi propose-t-elle une architecture qui ne correspond pas à votre contexte ? Pourquoi semble-t-elle \"halluciner\" ?\n\nCertainement pas parce que le modèle est mauvais.\nIl lui manque souvent ce que nous avons dans nos esprits: un langage commun, des décisions explicites et une compréhension partagée du métier.\n\nDans ce talk, nous verrons comment des pratiques comme l'Event Storming, l'Example Mapping, les ADR ou le Domain-Driven Design peuvent devenir de véritables outils de Context Engineering et enfin permettre de générer du code fiable reflétant véritablement le métier.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/thomas-salmon-7087a943",
+  "website": null
+}

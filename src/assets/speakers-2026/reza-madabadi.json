@@ -1,0 +1,13 @@
+{
+  "name": "Reza Madabadi",
+  "bio": "Dev that likes to thinker. Now I got an AI assistant !~\nI'll update this bio if I get picked.",
+  "position": "Ai or not, your system will break.",
+  "image": "speakers-2026/reza-madabadi.jpg",
+  "time": "2026-11-27T15:15:00",
+  "track": 2,
+  "title": "Your system will break. It just depends when.",
+  "description": "Every system you build will fail. Not if but when and how badly.\nIn this session, I want to go over with the public a few I have seen and discuss them (5 min each). \nI still have to plan this but I am thinking of the following:\n- N+1 database & distributed services\n- Thundering herd\n- fan-out explosions\n- retry storms\n- Dual Write Problem. \n- Some other ones. \n\nI would like to try to get the audience involved in solutions. With every solution planting the seed of the next problem. \n\nIn the end, walk with a mental map of failures modes, the vocabulary and the wisdom to choose which problems you'd rather have.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/rezamadabadi/",
+  "website": null
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Carl Lapierre",
+  "bio": "Carl is a Lead AI Engineer driving innovation through intelligent systems across healthcare, manufacturing, and mining. With over a decade of experience in software development, he leads high-impact AI initiatives focused on agentic systems, context engineering architectures, and large language model (LLM) integration, building solutions that enhance decision-making, automation, and adaptability in complex environments.\n\nEarlier in his career, Carl played a key role in transforming the education and online learning space by developing recommendation engines, predictive analytics tools, and content management platforms. Now at Osedea, he spearheads next-generation AI projects, including the integration of autonomous agents into manufacturing ERPs.",
+  "position": "Tech Lead and AI Engineer at Osedea",
+  "image": "speakers-2026/carl-lapierre.jpg",
+  "time": "2026-11-27T16:15:00",
+  "track": 1,
+  "title": "7 Principes d'Ingénierie Agentique",
+  "description": "Codex, Claude, OpenCode et le reste de la boîte à outils agentique donnent beaucoup plus de puissance aux équipes de développement. Le premier réflexe est souvent de faire du token-maxxing : plus de contexte, plus de prompts, plus de fichiers, plus d'instructions. Mais plus n'est pas toujours mieux. Parfois, c'est juste de la confusion plus coûteuse.\n\nL'ingénierie agentique, c'est trouver le bon équilibre entre le jugement humain et l'exécution par l'IA. Ce juste milieu où les humains mènent avec une intention claire, où les agents aident à l'exécution, et où l'équipe comprend toujours ce qui se passe.\n\nNous avons creusé la question sur de vrais projets, chacun avec sa base de code, ses contraintes, ses habitudes et ses difficultés propres. Aucun contexte ne ressemble à un autre, mais les mêmes thèmes revenaient : intention claire, contexte utile, boucles de rétroaction, identité, confiance, compagnonnage avec les experts et espaces de travail reproductibles.\n\nAu début, nous avons essayé de standardiser l'ingénierie agentique sous la forme d'un cadre transposable d'un projet à l'autre. Ça n'a pas tenu. La réalité était plus désordonnée, et plus intéressante. L'ingénierie agentique n'est pas un cadre à installer. C'est une culture à bâtir.\n\nCe talk partage les sept principes issus de ce parcours. Ce sont des repères pratiques pour les équipes qui veulent utiliser les agents efficacement, sans perdre en clarté, en contrôle, ni le jugement humain qui fait la valeur de notre métier.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/carllapierre/",
+  "website": null
+}

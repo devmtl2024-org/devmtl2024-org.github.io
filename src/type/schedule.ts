@@ -1,7 +1,6 @@
+import { Pause } from "@/assets/pauses";
 import { Speaker } from "./speakers";
 
-export type ScheduleSession = {
-  time: string;
-  tracks: (Speaker | null)[];
-  isPause?: boolean;
-};
+export type ScheduleSession =
+  | { kind: "talks"; time: string; tracks: Speaker[][] }
+  | ({ kind: "pause" } & Pause);

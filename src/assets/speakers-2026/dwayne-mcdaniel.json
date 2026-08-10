@@ -1,0 +1,13 @@
+{
+  "name": "Dwayne McDaniel",
+  "bio": "Dwayne has been working as a Developer Relations professional since 2015 and has been involved in tech communities since 2005. He loves sharing his knowledge, and he has done so by giving talks at over a hundred events worldwide. Dwayne currently lives in Chicago. Outside of tech, he loves karaoke, live music, and performing improv.",
+  "position": "Developer Advocate at GitGuardian and huge fan of open source",
+  "image": "speakers-2026/dwayne-mcdaniel.png",
+  "time": "2026-11-27T13:15:00",
+  "track": 2,
+  "title": "The Laptop Is the Perimeter: How Attackers Target Developers to Breach the Software Supply Chain",
+  "description": "Attackers have always targeted developers because developers sit closest to the systems that build, ship, and operate software. Unlike most employees, a single developer's laptop can expose cloud credentials, CI tokens, SSH keys, and package publishing rights. And access to those systems is exactly what attackers are after.\n\nSupply chain attacks have evolved recently. Now, agentic AI ecosystems and skill marketplaces pose a new supply chain threat, in which malicious skills and prompt-based payloads turn “helpful automation” into credential theft and code execution.\n\nThis talk explains why the developer workstation is now one of the most important control points in software supply chain security. We will walk through recent attacks and go over practical defenses developers can adopt immediately to keep everyone safe.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/dwaynemcdaniel/",
+  "website": "https://blog.gitguardian.com/author/dwayne/"
+}

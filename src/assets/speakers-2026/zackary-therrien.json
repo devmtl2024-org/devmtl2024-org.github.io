@@ -1,0 +1,13 @@
+{
+  "name": "Zackary Therrien",
+  "bio": "I started programming 15 years ago, with Minecraft plugins, and for the past 8 years I've been building a real-time digital twin for copper mines. With the changes that AI is bringing I feel like writing code has become a bit moot. \n\nI now strive to see the code living in the digital world.",
+  "position": "Software builder",
+  "image": "speakers-2026/zackary-therrien.jpg",
+  "time": "2026-11-27T10:00:00",
+  "track": 2,
+  "title": "Software is not text -- it's a living hypergraph",
+  "description": "Software is evolving—we’re barely even writing it anymore. We’re letting LLMs vibe-code everything on autopilot. It’s time for our tools to evolve, too.\n\nFor the past 50 years, we’ve tried to visualize code with static diagrams—UML, flowcharts, Mermaid—only to watch them go obsolete the moment we hit save.\n\nWhat if the diagrams were the code?\n\nThis talk is a deep dive into what happens when you combine compile-time structure, runtime execution state, and documentation into a single, living hypergraph. It’s not just a picture of the system—it is the system.\n\nImagine your code as living creatures performing operations, building payloads, and communicating with one another. Imagine creatures building other creatures. The hypergraph visualizes the difference between composition and inheritance ... in an almost biological way.\n\nAnd there's something truly unique and beautiful about seeing your code come alive before your eyes. This talk isn't about visualizing code, it's about watching it live and evolve, and to intervene with an editor.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/zackarytherrien/",
+  "website": "https://zackary.dev"
+}

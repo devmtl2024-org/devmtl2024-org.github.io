@@ -1,0 +1,13 @@
+{
+  "name": "Dina Kada",
+  "bio": "I’m Dina, a junior software and BI developer working at Bell, focusing mainly on backend and data systems. I’m currently exploring AI tools and LLMs and how they are reshaping the way we build software and think about product development.\nOutside of work, you’ll usually find me bouldering, learning languages, or experimenting in the kitchen.",
+  "position": "Developer at Bell Mobility",
+  "image": "speakers-2026/dina-kada.png",
+  "time": "2026-11-27T15:15:00",
+  "track": 1,
+  "title": "Au-delà du code : Comment j’ai appris à réfléchir comme une développeuse orientée produit",
+  "description": "Quand j'ai commencé ma carrière, je croyais que mon travail consistait à résoudre des problèmes techniques. Avec le temps, j'ai réalisé que les développeurs qui ont le plus d'impact sont souvent ceux qui comprennent les problèmes produit et métier derrière ce sur quoi ils travaillent.\n\nDans ce talk, je partage les leçons tirées de mon propre cheminement vers un état d'esprit plus orienté produit : poser de meilleures questions, découvrir les vrais besoins des utilisateurs, mieux collaborer entre les équipes, et prendre des décisions techniques qui créent de la valeur. À travers des exemples concrets tirés de projets réels, nous verrons comment ce changement transforme notre façon d'aborder les problèmes, d'écrire du code et de mesurer notre impact.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/dina-kada-8b8a311a0/",
+  "website": null
+}

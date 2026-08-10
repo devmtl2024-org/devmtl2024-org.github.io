@@ -1,0 +1,13 @@
+{
+  "name": "Arnaud Oltra",
+  "bio": "Développeur PHP/Symfony, j'ai grandi avec des boîtes de toutes tailles : de la startup early-stage à la quasi-licorne, en passant par la PME. De ce parcours, j'ai gardé une conviction : le craftsmanship n'est pas un luxe, c'est ce qui fait tenir le code quand l'entreprise, elle, change d'échelle.",
+  "position": "Penser la tech pour durer",
+  "image": "speakers-2026/arnaud-oltra.jpg",
+  "time": "2026-11-27T11:00:00",
+  "track": 1,
+  "title": "De la mise en place au coup de feu",
+  "description": "La gestion d'un projet dev et un service en cuisine ont plus en commun qu'on ne croit : un objectif sous contrainte, une équipe aux rôles définis, des process qui tiennent sous pression, et l'imprévu comme seule certitude.\n\nAncien chef devenu développeur, je déroule le cycle de vie d'un projet à travers celui d'un service : de la mise en place au coup de feu, chaque étape éclaire une pratique du dev, de l'architecture en bounded contexts à la doc et aux tests, du clean code à l'UX, du post-mortem à l'amélioration continue.\n\nUn fil rouge, et une conviction : bien livrer, c'est le même métier des deux côtés du piano.",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/arnaud-oltra/",
+  "website": "https://arkonium.tech/"
+}

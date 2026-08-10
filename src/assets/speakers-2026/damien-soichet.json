@@ -1,0 +1,13 @@
+{
+  "name": "Damien Soichet",
+  "bio": "Damien is a Data & AI Engineer based in Montréal and founder of Soich Inc. He has spent over 15 years building data platforms and AI solutions, with a strong focus on Databricks, data engineering, and intelligent agents.\n\nPassionate about the future of AI, he enjoys experimenting with robotics, graph databases, and long-term memory for AI agents. His current personal project combines Reachy Mini, Neo4j, and multi-agent systems to explore how AI can better understand and remember the world.\n\nWhen he's not building data platforms, you'll probably find him teaching a robot something new.",
+  "position": "Soich Inc",
+  "image": "speakers-2026/damien-soichet.png",
+  "time": "2026-11-27T14:15:00",
+  "track": 1,
+  "title": "Donner une mémoire à un robot grâce aux graphes",
+  "description": "Et si une IA pouvait se souvenir des personnes, des lieux, des projets et des relations pendant des mois?\n\nDans cette session, nous allons vous présenter un vrai robot fonctionnant avec une mémoire à base de graphes, construite avec Neo4j et tout un écosystème d'agents IA.\n\nNous verrons pourquoi les bases de données vectorielles ne suffisent pas pour la mémoire à long terme, comment les relations d'un graphe changent la façon dont un agent raisonne, et comment un robot physique peut apprendre en continu de ses interactions.\n\nUn talk pratique, avec des démos en direct, des schémas d'architecture et les leçons tirées de la construction de tout ça à partir de zéro.\n\n• Découvrir Reachy\n• Connecter les souvenirs entre eux\n• Interroger le graphe",
+  "github": null,
+  "linkedin": "https://www.linkedin.com/in/damiensoichet/",
+  "website": null
+}
