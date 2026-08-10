@@ -22,22 +22,22 @@ function BuyTicket() {
       <div className="relative z-10 max-w-3xl px-4 text-white">
         <h3 className="text-xs text-secondary uppercase tracking-widest mb-4 font-semibold">
           {t({
-            fr: "Offre Early Bird — Quantité limitée",
-            en: "Early Bird offer — Limited quantity",
+            fr: "27 novembre 2026 — Montréal",
+            en: "November 27, 2026 — Montreal",
           })}
         </h3>
         <h3 className="text-4xl font-semibold text-white leading-tight mb-4">
           {t({
-            fr: "55$ au lieu de 70$",
-            en: "$55 instead of $70",
+            fr: "Réservez votre place — 70$",
+            en: "Get your ticket — $70",
           })}
         </h3>
         <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
 
         <p className="text-lg mb-8">
           {t({
-            fr: "Seulement 40 billets disponibles, jusqu'au 7 juin 2026.",
-            en: "Only 40 tickets available, until June 7, 2026.",
+            fr: "Une journée de conférences, de networking et d'inspiration pour les devs de Montréal.",
+            en: "A full day of talks, networking, and inspiration for Montreal's dev community.",
           })}
         </p>
 
