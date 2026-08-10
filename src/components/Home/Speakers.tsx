@@ -1,6 +1,9 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import { Speaker } from "@/type/speakers";
 import { loadSpeakers } from "@/utils/loadData";
+import { pickRandom } from "@/utils/pickRandom";
+import { hasAnnouncedTalk, hasPhoto } from "@/utils/speakerFilters";
+import { toSpeakerSlug } from "@/utils/speakerSlug";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
@@ -13,8 +16,10 @@ function Speakers() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadSpeakers<Speaker>(2025, 4, true).then((speakers) => {
-      setSpeakers(speakers);
+    loadSpeakers<Speaker>(2026).then((speakers) => {
+      setSpeakers(
+        pickRandom(speakers.filter(hasAnnouncedTalk).filter(hasPhoto), 4),
+      );
     });
   }, []);
 
@@ -57,13 +62,7 @@ function Speakers() {
                 <div
                   className="absolute inset-0 bg-primary/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
                   onClick={() =>
-                    navigate(
-                      `/speaker/${speaker.name
-                        .toLowerCase()
-                        .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, "")
-                        .replace(/ /g, "-")}`,
-                    )
+                    navigate(`/speaker/${toSpeakerSlug(speaker.name)}`)
                   }
                 >
                   <FiPlus className="text-white text-3xl" />
@@ -78,7 +77,7 @@ function Speakers() {
 
         <div className="mt-20">
           <a
-            href="/speakers/2025"
+            href="/speakers/2026"
             className="px-12 py-5 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition duration-200 uppercase"
           >
             {t({ fr: "Les voir tous", en: "View all speakers" })}

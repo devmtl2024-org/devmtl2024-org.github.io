@@ -1,6 +1,8 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import { Speaker } from "@/type/speakers";
 import { loadSpeakers } from "@/utils/loadData";
+import { pickRandom } from "@/utils/pickRandom";
+import { hasAnnouncedTalk, hasPhoto } from "@/utils/speakerFilters";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,8 +13,12 @@ export function Schedule() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
 
   useEffect(() => {
-    loadSpeakers<Speaker>(2025, 3, true).then((speakers) => {
-      setSpeakers(speakers);
+    loadSpeakers<Speaker>(2026).then((speakers) => {
+      setSpeakers(
+        pickRandom(speakers.filter(hasAnnouncedTalk).filter(hasPhoto), 3)
+          // Each card shows its time, so the teaser should read chronologically
+          .sort((a, b) => a.time.localeCompare(b.time)),
+      );
     });
   }, []);
 
@@ -29,7 +35,7 @@ export function Schedule() {
             {t({ fr: "Détails du programme", en: "Schedule details" })}
           </h3>
           <h3 className="text-4xl font-semibold text-primary leading-tight mb-4">
-            {t({ fr: "Agenda (2025)", en: "Agenda (2025)" })}
+            {t({ fr: "Agenda (2026)", en: "Agenda (2026)" })}
           </h3>
           <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
         </motion.div>
@@ -37,7 +43,7 @@ export function Schedule() {
         {/* Date Card */}
         <div className="bg-secondary text-white rounded-lg p-8 shadow-md w-64 text-center">
           <h4 className="text-2xl font-semibold mb-2">
-            {t({ fr: "28 Novembre", en: "November 28th" })}
+            {t({ fr: "27 Novembre", en: "November 27th" })}
           </h4>
           <p className="text-xl">{t({ fr: "Vendredi", en: "Friday" })}</p>
         </div>

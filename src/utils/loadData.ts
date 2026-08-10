@@ -8,46 +8,29 @@ const paths = {
 
 const speakerPaths = import.meta.glob("/src/assets/speakers-*/**/*.json");
 
-export async function loadData<T>(
-  folder: DataFolders,
-  limit?: number,
-  random?: boolean,
-): Promise<T[]> {
+export async function loadData<T>(folder: DataFolders): Promise<T[]> {
   const modules = Object.entries(paths)
     .filter(([key]) => key === folder)
     .flatMap(([, value]) => Object.entries(value))
     .map(([, loader]) => loader);
 
-  const loadedData = await Promise.all(
-    modules.map(async (load) => {
-      const mod = await (load as () => Promise<{ default: T }>)();
-      return mod.default;
-    }),
-  );
-
-  const data = random ? loadedData.sort(() => Math.random() - 0.5) : loadedData;
-
-  return limit ? data.slice(0, limit) : data;
+  return loadAll<T>(modules);
 }
 
-export async function loadSpeakers<T>(
-  year: number,
-  limit?: number,
-  random?: boolean,
-): Promise<T[]> {
+export async function loadSpeakers<T>(year: number): Promise<T[]> {
   const prefix = `/src/assets/speakers-${year}/`;
   const modules = Object.entries(speakerPaths)
     .filter(([path]) => path.startsWith(prefix))
     .map(([, loader]) => loader);
 
-  const loadedData = await Promise.all(
+  return loadAll<T>(modules);
+}
+
+function loadAll<T>(modules: (() => Promise<unknown>)[]) {
+  return Promise.all(
     modules.map(async (load) => {
-      const mod = await (load as () => Promise<{ default: T }>)();
+      const mod = (await load()) as { default: T };
       return mod.default;
     }),
   );
-
-  const data = random ? loadedData.sort(() => Math.random() - 0.5) : loadedData;
-
-  return limit ? data.slice(0, limit) : data;
 }

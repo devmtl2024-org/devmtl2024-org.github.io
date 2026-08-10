@@ -1,6 +1,7 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import type { Speaker } from "@/type/speakers";
 import { loadSpeakers } from "@/utils/loadData";
+import { hasAnnouncedTalk } from "@/utils/speakerFilters";
 import { toSpeakerSlug } from "@/utils/speakerSlug";
 import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
@@ -63,12 +64,5 @@ export default function SpeakersPage() {
         </div>
       </div>
     </div>
-  );
-}
-
-// Sessions still waiting for a speaker or a title only belong to the schedule
-function hasAnnouncedTalk(speaker: Speaker) {
-  return (
-    speaker.name !== "" && speaker.title !== "" && speaker.title !== "Intro"
   );
 }
