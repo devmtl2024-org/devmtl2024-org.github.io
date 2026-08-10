@@ -50,7 +50,7 @@ async function main() {
 
     // Aligning the table columns is nice to have, not worth failing the export
     try {
-      await execAsync(`npx prettier --write ${JSON.stringify(outputPath)}`);
+      await execAsync(`yarn prettier --write ${JSON.stringify(outputPath)}`);
     } catch (error) {
       console.warn(`⚠️  Prettier could not format the table: ${error.message}`);
     }
