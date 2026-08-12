@@ -1,14 +1,14 @@
 {
   "name": "Nurul Islam",
-  "bio": null,
+  "bio": "Nurul Islam is a developer passionate about building software and exploring new technologies. He loves throwing programming and tools at his problems until they are not there anymore. In the journey of learning and producing optimized solutions to his problems (because over/reverse engineering is his mantra) he came across Elixir and fell in love with the simplicity of the language. When he is not coding, he is trying to finish his ever growing backlog of projects with an arsenal of tools hoping to finish them someday to make his life just a little bit better.",
   "position": null,
   "community": "Elixir Montréal",
-  "image": "speakers-2026/user.png",
+  "image": "speakers-2026/nurul-islam.jpg",
   "time": "2026-11-27T11:00:00",
   "track": 3,
-  "title": "Introduction to GenServers with Elixir",
-  "description": "",
+  "title": "GenServers: To serve or not to serve that is the question",
+  "description": "Are you having trouble keeping track of your state between processes? Are you losing your messages in the void? Have you ever opened the fridge and forgotten why you were there? Just like everything else, Elixir has a solution for you: GenServers (well maybe not the last one). In this talk we’ll take a brief introduction to one of the core concepts of Elixir and show how it fits into the Elixir ecosystem.",
   "github": null,
-  "linkedin": null,
+  "linkedin": "https://www.linkedin.com/in/nishojib/",
   "website": null
 }
