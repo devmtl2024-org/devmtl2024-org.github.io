@@ -1,0 +1,14 @@
+{
+  "name": "Pavel Makhov",
+  "bio": "Pavel is a Staff Software Developer and open-source enthusiast with over a decade of experience, primarily in Java. Beginning his career at the birthplace of the World Wide Web, CERN in Switzerland, Pavel has since worked in various companies, gaining expertise across a wide range of technologies. His interests span Linux, macOS/iOS development, and open source, reflecting his passion for exploring and mastering diverse technological landscapes.",
+  "position": "Staff Software Developer",
+  "community": "Montréal JUG",
+  "image": "speakers-2026/pavel-makhov.jpg",
+  "time": "2026-11-27T14:15:00",
+  "track": 3,
+  "title": "API Development: Shifting from Code-First to Design-First",
+  "description": "Migrating from code-first to design-first API development dramatically improved our team's workflow and API quality across dozens of microservices. We'll explore collaborative OpenAPI workflows, automated validation pipelines, and automated governance strategies that eliminated API inconsistencies and breaking changes. You'll learn practical migration steps, proven tooling, and adoption frameworks that work across languages and team sizes.",
+  "github": null,
+  "linkedin": null,
+  "website": null
+}
