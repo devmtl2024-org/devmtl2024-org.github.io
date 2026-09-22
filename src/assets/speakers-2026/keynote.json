@@ -1,13 +1,13 @@
 {
-  "name": "",
-  "bio": null,
-  "position": "",
-  "image": "speakers-2026/user.png",
+  "name": "Fabien Antoine",
+  "bio": "Ancien ingénieur de l’Armement, Fabien Antoine s’est très tôt orienté vers l’intelligence artificielle et les grands modèles de langage. Installé à Montréal, il a accompagné le secteur manufacturier en tant que vice-président expert IA chez CGI, avant de s’établir comme conseiller en stratégie indépendant dans ces mêmes domaines.",
+  "position": "Président de SENT",
+  "image": "speakers-2026/fabien-antoine.jpeg",
   "time": "2026-11-27T08:30:00",
   "track": 1,
   "title": "Keynote",
   "description": "",
   "github": null,
-  "linkedin": null,
+  "linkedin": "https://www.linkedin.com/in/fabien-antoine-ia/",
   "website": null
 }
