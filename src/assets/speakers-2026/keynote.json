@@ -1,13 +1,13 @@
 {
   "name": "Fabien Antoine",
-  "bio": "Ancien ingénieur de l’Armement, Fabien Antoine s’est très tôt orienté vers l’intelligence artificielle et les grands modèles de langage. Installé à Montréal, il a accompagné le secteur manufacturier en tant que vice-président expert IA chez CGI, avant de s’établir comme conseiller en stratégie indépendant dans ces mêmes domaines.",
-  "position": "Président de SENT",
+  "bio": "J'ai commencé dans l'IA - et les LLMs - il y a 25 ans, ma passion initiale. Apres avoir travaillé avec les grandes oreilles, les barbouzes, les marins, les flics, les pompiers, les préfets, les magistrats autour de challenges d'innovation en data et IA\n\nJ'ai décidé de m'installer a Montréal en 2022, dans le conseil - d'abord VP Expert IA chez CGI puis président de ma société, j'accompagne aussi bien les grandes entreprise dans leur stratégie et challenges agentiques que des micro société dans le développement de leur produits innovants.\n\nJ'aime tester les systèmes aux limites, pour ça j'ai créé h2a, harnais agentique centré sur la décision humaine et la coordination inter-agents multi-cli, ou encore engram, une mémoire graph bi-temporelle, et un design system multi langages (Svelte/Vue/React/Angular) a plus de 200 composants et 130 thèmes. Tous mes codes sont libres et disponibles sur github.",
+  "position": "President, Sent Tech - AI strategy architect, former VP at CGI",
   "image": "speakers-2026/fabien-antoine.jpeg",
   "time": "2026-11-27T08:30:00",
   "track": 1,
   "title": "Keynote",
   "description": "",
-  "github": null,
+  "github": "rhanka",
   "linkedin": "https://www.linkedin.com/in/fabien-antoine-ia/",
-  "website": null
+  "website": "https://www.sent-tech.ca/"
 }
