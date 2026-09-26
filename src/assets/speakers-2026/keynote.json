@@ -5,7 +5,7 @@
   "image": "speakers-2026/fabien-antoine.jpeg",
   "time": "2026-11-27T08:30:00",
   "track": 1,
-  "title": "Keynote - Software engineers, scouts of decision-making with AI?",
+  "title": "Keynote - Du code à la décision : les développeurs, éclaireurs de l'IA ?",
   "description": "2026 aura été l'année la plus riche depuis l'arrivée de ChatGPT, il y a presque jour pour jour quatre ans. Entre l'emballement autour des nouveaux modèles et le yoyo des prix, l'IA a franchi des seuils d'autonomie qui transforment réellement la productivité, et déplacent les rôles comme les patterns.\n\nLes développeurs l'ont vu venir en premier. Assistés par des outils qui architecturent, génèrent et testent à leur place mais sous leur contrôle, ils ont déjà basculé d'un métier de production de code vers un métier de gestion d'actifs numériques et d'agents : organiser, gérer la connaissance, évaluer les risques, décider.\n\nPendant ce temps, l'IA du quotidien et le low-code se multiplient dans les équipes métier, en concurrence permanente avec le sur-mesure, un cycle qui crée plus de besoins de gouvernance qu'il n'en règle. Identités non humaines,  harnais, gateways MCP, GraphRAG, évaluation d'agents, FinOps : ces chantiers relèvent pas de la filière IA historique, mais de ceux qui savent concevoir des systèmes et raisonner sur le risque.\n\nCette keynote propose une lecture de ce déplacement et une question pour la journée : et si le prochain grand chantier du développement, c'était l'ingénierie de la connaissance et de la délégation ?",
   "github": "rhanka",
   "linkedin": "https://www.linkedin.com/in/fabien-antoine-ia/",
