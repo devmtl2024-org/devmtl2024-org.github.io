@@ -1,0 +1,11 @@
+{
+  "name": "Formulize",
+  "logo": "sponsors/formulize.png",
+  "url": "https://formulize.org",
+  "isEnabled": true,
+  "description": {
+    "fr": "Formulize est une plateforme libre et open source (GPL-2.0) pour créer des formulaires, des applications et des sites web sans écrire de code. Développée en public depuis 2005, elle aide les organisations à gérer leurs membres, demandes, approbations ou inscriptions, avec rapports, flux de travail, API publique et intégration avec les assistants IA. L'équipe derrière le projet offre aussi l'hébergement au Canada, la formation et l'accompagnement.",
+    "en": "Formulize is a free, open source (GPL-2.0) platform for building forms, apps and websites without writing code. Built in the open since 2005, it helps organizations manage memberships, applications, approvals and registrations, with reports, workflows, a public API and AI assistant integration. The team behind the project also offers hosting in Canada, training and support."
+  },
+  "level": "bronze"
+}
