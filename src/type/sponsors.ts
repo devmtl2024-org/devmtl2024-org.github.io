@@ -5,4 +5,5 @@ export interface Sponsor {
   isEnabled: boolean;
   description: { fr: string; en: string };
   level: "or" | "argent" | "bronze" | "supporter" | "media";
+  joinedAt: string;
 }

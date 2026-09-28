@@ -168,9 +168,13 @@ unannounced slots (keynote, partner meetups) are placeholdered.
   "url": "https://...",
   "isEnabled": true,
   "description": { "fr": "...", "en": "..." },
-  "level": "or" | "argent" | "bronze" | "supporter" | "media"
+  "level": "or" | "argent" | "bronze" | "supporter" | "media",
+  "joinedAt": "2026-09-28"
 }
 ```
+
+Sponsors display in order of arrival within their tier, so earlier sponsors get the top spot. Set `joinedAt`
+to the day the sponsor confirmed — and update it when a past sponsor comes back for a new edition.
 
 ### Organizer (`src/assets/organizers/{name}.json`)
 

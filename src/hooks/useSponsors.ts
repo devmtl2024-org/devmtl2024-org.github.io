@@ -1,13 +1,14 @@
 import { Sponsor } from "@/type/sponsors";
 import { useEffect, useState } from "react";
 import { loadData } from "../utils/loadData";
+import { sortByArrival } from "../utils/sortByArrival";
 
 export function useSponsors() {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
 
   useEffect(() => {
     loadData<Sponsor>("sponsors").then((sponsors) => {
-      setSponsors(sponsors.filter((s) => s.isEnabled));
+      setSponsors(sortByArrival(sponsors.filter((s) => s.isEnabled)));
     });
   }, []);
 
