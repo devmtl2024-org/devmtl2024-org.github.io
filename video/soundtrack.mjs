@@ -16,6 +16,8 @@ const SR = 48000,
   N = Math.round(SR * DUR),
   B = 60 / TL.bpm;
 // Sections on the music grid: sponsors (if any) then the 16-beat finale.
+// The drop into the speakers, after the build-up over the community wall.
+const D = TL.dropAt;
 const SP = TL.sponsorsAt,
   F = TL.finaleAt,
   HAS_SPONSORS = SP < F;
@@ -258,12 +260,12 @@ const CHORDS = [
   [12, 16, DB, 37],
   [16, 20, AB, 44],
   [20, 24, EB, 39],
-  [24, 28, DB, 37],
-  [28, 32, EB, 39],
+  [24, D - 4, DB, 37],
+  [D - 4, D, EB, 39],
   // speakers: one Fm-Db-Ab-Eb turn every four bars
-  ...[...Array((SP - 32) / 4)].map((_, i) => [
-    32 + 4 * i,
-    36 + 4 * i,
+  ...[...Array((SP - D) / 4)].map((_, i) => [
+    D + 4 * i,
+    D + 4 + 4 * i,
     ...[
       [FM, 41],
       [DB, 37],
@@ -305,7 +307,7 @@ function padLevel(t) {
   if (t < b(8)) {
     return 0.25 + 0.45 * (t / b(8));
   }
-  if (t >= b(31.5) && t < b(32)) {
+  if (t >= b(D - 0.5) && t < b(D)) {
     return 0.35;
   }
   if (t >= b(F + 12)) {
@@ -328,8 +330,8 @@ function pad() {
         const cut =
           T < b(8)
             ? 350 + 1400 * (T / b(8)) ** 2
-            : T >= b(28) && T < b(32)
-              ? 900 + 3500 * ((T - b(28)) / b(4)) ** 2
+            : T >= b(D - 4) && T < b(D)
+              ? 900 + 3500 * ((T - b(D - 4)) / b(4)) ** 2
               : T >= b(F + 12)
                 ? 2600 * Math.exp(-(T - b(F + 12)) * 0.9) + 500
                 : 2200;
@@ -382,12 +384,12 @@ function bassNote(t0, len, m, g = 1) {
 }
 function bass() {
   // bar 2: offbeat 8ths; from the drop: rolling 16ths that skip the kick
-  for (let x = 8; x < 31.5; x += 0.5) {
+  for (let x = 8; x < D - 0.5; x += 0.5) {
     if (x % 1 === 0.5) {
       bassNote(b(x), b(0.45), chordAt(b(x))[3]);
     }
   }
-  for (let x = 32; x < F + 12; x += 0.25) {
+  for (let x = D; x < F + 12; x += 0.25) {
     if (x % 1 === 0) {
       continue;
     }
@@ -423,7 +425,7 @@ function pluck(t0, m, g = 1, pan = 0) {
 }
 function arp() {
   const pattern = [0, 2, 1, 3, 2, 4, 3, 1];
-  for (let x = 32, k = 0; x < F + 12; x += 0.25, k++) {
+  for (let x = D, k = 0; x < F + 12; x += 0.25, k++) {
     const notes = chordAt(b(x))[2];
     const m = notes[pattern[k % 8] % notes.length] + 12;
     pluck(b(x), m, x < F ? 0.85 : 1, Math.sin(k * 0.7) * 0.5);
@@ -720,7 +722,7 @@ function unitsRollSteps(from, to) {
   const steps = (((to.cols[3] - from.cols[3]) % 11) + 11) % 11;
   return steps ? steps + 11 : 0;
 }
-// bars 7-8: communities
+// communities: the wall, a flash per name, then the band and the build-up to the drop
 whoosh(ob(12) - 0.18, ob(12) + 0.08, 0.7, { f0: 600, f1: 5000, peak: 0.7 });
 whoosh(ob(12) - 0.05, ob(12) + 0.5, 0.9, {
   f0: 3000,
@@ -738,11 +740,22 @@ whoosh(ob(13.75) - 0.05, ob(14.25), 0.6, {
 });
 stab(ob(14), chordAt(ob(14))[2], 1);
 stab(ob(15), chordAt(ob(15))[2], 1.1);
-for (let x = 29; x < 31.5; x += x < 30.5 ? 0.5 : 0.25) {
-  snare(b(x), 0.3 + (0.5 * (x - 29)) / 2.5, 1 + (x - 29) * 0.2);
+const spotStart = ob(12) + 0.15,
+  spotStep = Math.min(B / 2, (ob(13.75) - spotStart) / REEL.communities.length);
+REEL.communities.forEach((_, i) =>
+  blip(
+    spotStart + i * spotStep,
+    mtof(84 + [0, 3, 5, 7, 10][i % 5]),
+    0.12,
+    Math.sin(i) * 0.6,
+    0.12,
+  ),
+);
+for (let x = D - 3; x < D - 0.5; x += x < D - 1.5 ? 0.5 : 0.25) {
+  snare(b(x), 0.3 + (0.5 * (x - D + 3)) / 2.5, 1 + (x - D + 3) * 0.2);
 }
-riser(b(28), b(31.95), 1);
-revCymbal(b(32), b(1.5), 1);
+riser(b(D - 4), b(D - 0.05), 1);
+revCymbal(b(D), b(1.5), 1);
 whoosh(ob(15.72), ob(16.1), 1.2, {
   f0: 300,
   f1: 8000,
@@ -752,9 +765,9 @@ whoosh(ob(15.72), ob(16.1), 1.2, {
   q: 1,
 });
 // bars 9-12: drop, speakers
-kick(b(32), 1.3);
-boom(b(32), 1.1);
-crash(b(32), 1);
+kick(b(D), 1.3);
+boom(b(D), 1.1);
+crash(b(D), 1);
 for (let k = 0; k < 22; k++) {
   blip(
     ob(15.85) + R() * 0.45,
@@ -782,8 +795,8 @@ TL.focusAt.forEach((x, k) => {
     click(b(x) - 0.12 + 0.1 + c * 0.0045, 0.3, 3600, 0.3 * side);
   }
 });
-const midSpeakers = 32 + 4 * Math.floor((SP - 32) / 8);
-if (midSpeakers > 32) {
+const midSpeakers = D + 4 * Math.floor((SP - D) / 8);
+if (midSpeakers > D) {
   crash(b(midSpeakers), 0.45);
 }
 whoosh(b(TL.pullback), b(TL.pullback) + 0.45, 0.9, {
@@ -863,19 +876,19 @@ crash(b(F + 12), 1.1, 1);
 stab(b(F + 12), FM_END, 1.4, 0.35);
 [F + 13, F + 14, F + 15].forEach((x, k) => blip(b(x), 1760, 0.3 - k * 0.08));
 // groove
-const SPECIAL = [8, 32, ...(HAS_SPONSORS ? [SP] : []), F, F + 12].map(b);
+const SPECIAL = [8, D, ...(HAS_SPONSORS ? [SP] : []), F, F + 12].map(b);
 KICKS.filter((t) => !SPECIAL.includes(t)).forEach((t) => kick(t, 1));
 for (let x = 9; x < F + 12; x += 2) {
-  if (![15, 29, 31].includes(x)) {
+  if (![15, D - 3, D - 1].includes(x)) {
     clap(b(x), 1);
   }
 }
 for (let x = 8.5; x < F + 12; x += 1) {
-  if (x !== 31.5) {
+  if (x !== D - 0.5) {
     hat(b(x), 0.9, true);
   }
 }
-for (let x = 32; x < F + 12; x += 0.25) {
+for (let x = D; x < F + 12; x += 0.25) {
   if (x % 1 !== 0.5) {
     hat(b(x), (x * 4) % 2 ? 0.45 : 0.7);
   }

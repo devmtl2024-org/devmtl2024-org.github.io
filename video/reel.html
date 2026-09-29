@@ -1055,34 +1055,108 @@
         ctx.fill();
         ctx.restore();
       }
-      // Font size that fits the longest community name, computed once fonts are loaded.
-      let COMM_PX = 100;
+      // Community wall, laid out once fonts are loaded. Each name appears once and always fits the
+      // width. A long list makes a wall taller than the frame that scrolls up, so it reads as
+      // continuing beyond the screen while every name still gets fully on screen.
+      const COMM_ROW_W = 1600,
+        COMM_VIEW_H = 860;
+      let COMM = { px: 100, rowH: 130, rows: [], scroll: 0 };
+      function buildCommunityWall(ctx) {
+        const names = REEL.communities,
+          oneRowEach = names.length <= 7,
+          sepText = "   /   ";
+        let best;
+        for (let px = 110; px >= 40; px -= 2) {
+          font(ctx, 850, px, "Archivo", "expanded");
+          const sep = ctx.measureText(sepText).width;
+          // first-fit decreasing: long names get their own row, short ones share
+          const rows = [];
+          names
+            .map((name, order) => ({
+              name,
+              order,
+              w: ctx.measureText(name).width,
+            }))
+            .sort((a, c) => c.w - a.w)
+            .forEach((item) => {
+              const row = oneRowEach
+                ? null
+                : rows.find((r) => r.w + sep + item.w <= COMM_ROW_W);
+              if (row) {
+                row.items.push({ ...item, x: row.w + sep });
+                row.w += sep + item.w;
+              } else {
+                rows.push({ items: [{ ...item, x: 0 }], w: item.w });
+              }
+            });
+          if (Math.max(...rows.map((r) => r.w)) > COMM_ROW_W) {
+            continue;
+          }
+          // keep the site's order as much as the packing allows
+          rows.sort((a, c) => a.items[0].order - c.items[0].order);
+          const rowH = Math.min(150, px * 1.3),
+            height = rows.length * rowH,
+            target = oneRowEach ? COMM_VIEW_H : 1050;
+          if (oneRowEach && height > COMM_VIEW_H) {
+            continue;
+          }
+          const score = Math.abs(height - target);
+          if (!best || score < best.score) {
+            best = {
+              score,
+              px,
+              rowH,
+              sepText,
+              rows,
+              scroll: Math.max(0, height - COMM_VIEW_H),
+            };
+          }
+        }
+        COMM = best;
+      }
       function drawComm(ctx, t) {
         bgFill(ctx, C.navyD, "rgba(26,31,122,0.5)");
         const t0 = b(12),
-          names = REEL.communities,
-          n = names.length;
+          rows = COMM.rows,
+          n = REEL.communities.length;
         const dim = lerp(1, 0.3, E.outCubic(prog(t, b(13.8), b(14.3))));
-        const rowH = Math.min(150, 880 / Math.max(n, 1));
-        // One name per row, all alike; an orange flash visits each one in turn so no name steals the show.
+        // the wall scrolls up so the bottom rows are revealed by the time the band arrives
+        const scrollY = lerp(
+          COMM.scroll / 2,
+          -COMM.scroll / 2,
+          E.inOutSine(prog(t, t0, b(13.75))),
+        );
+        // All names alike; an orange flash ripples through them in reading order so none steals the show.
         const spotStart = t0 + 0.15,
           spotStep = Math.min(B / 2, (b(13.75) - spotStart) / Math.max(n, 1));
         ctx.save();
         ctx.translate(W / 2, H / 2);
         ctx.rotate(-8 * DEG);
-        font(ctx, 850, COMM_PX, "Archivo", "expanded");
+        font(ctx, 850, COMM.px, "Archivo", "expanded");
         ctx.textBaseline = "middle";
-        ctx.textAlign = "center";
+        ctx.textAlign = "left";
         ctx.globalAlpha = dim;
-        names.forEach((name, i) => {
-          const y = (i - (n - 1) / 2) * rowH;
+        let order = 0;
+        rows.forEach((row, i) => {
+          const y = (i - (rows.length - 1) / 2) * COMM.rowH + scrollY;
           const dir = i % 2 ? 1 : -1;
           const st = t0 + i * 0.04;
           const ent = 1 - E.outExpo(prog(t, st - 0.05, st + 0.6));
-          const x = dir * 70 + dir * 45 * (t - t0) - dir * 2600 * ent;
-          const heat = decay(t - (spotStart + i * spotStep), 4.5);
-          ctx.fillStyle = `rgb(255,${lerp(255, 155, heat)},${lerp(255, 98, heat)})`;
-          ctx.fillText(name, x, y);
+          const x0 =
+            -row.w / 2 + dir * 40 + dir * 20 * (t - t0) - dir * 2600 * ent;
+          row.items.forEach((item, k) => {
+            if (k > 0) {
+              ctx.fillStyle = "rgba(255,255,255,0.25)";
+              ctx.fillText(
+                COMM.sepText,
+                x0 + item.x - ctx.measureText(COMM.sepText).width,
+                y,
+              );
+            }
+            const heat = decay(t - (spotStart + order++ * spotStep), 4.5);
+            ctx.fillStyle = `rgb(255,${lerp(255, 155, heat)},${lerp(255, 98, heat)})`;
+            ctx.fillText(item.name, x0 + item.x, y);
+          });
         });
         ctx.restore();
         ctx.globalAlpha = 1;
@@ -2212,18 +2286,7 @@
         );
         buildPost();
         buildCells();
-        font(sctx, 850, 100, "Archivo", "expanded");
-        const widest = Math.max(
-          1,
-          ...REEL.communities.map((c) => sctx.measureText(c).width),
-        );
-        COMM_PX = Math.floor(
-          Math.min(
-            118,
-            (100 * 1650) / widest,
-            (880 / Math.max(REEL.communities.length, 1)) * 0.75,
-          ),
-        );
+        buildCommunityWall(sctx);
         font(sctx, 800, 100, MONO);
         const m = sctx.measureText("/dev/mtl");
         WM_OFF =

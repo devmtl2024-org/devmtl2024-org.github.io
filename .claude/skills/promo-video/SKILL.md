@@ -12,7 +12,7 @@ and the soundtrack is synthesized from the same timeline.
 | File                   | Role                                                                                |
 | ---------------------- | ----------------------------------------------------------------------------------- |
 | `video/config.mjs`     | Editorial choices: year, date, venue, attendee count, featured speakers, copy       |
-| `video/data.mjs`       | Reads speakers, sponsors, photos; derives talk count, tracks, communities, timeline |
+| `video/data.mjs`       | Reads speakers, sponsors, communities, photos; derives talk count, tracks, timeline |
 | `video/reel.html`      | The scenes, drawn on a canvas, deterministic in time (`renderFrame(i)`)             |
 | `video/soundtrack.mjs` | The music and sound effects, generated from the same timeline                       |
 | `video/render.mjs`     | Headless Chromium → frames → ffmpeg, plus the stills/QA and mux commands            |
@@ -50,7 +50,7 @@ Rendering loads Archivo and JetBrains Mono from Google Fonts, so it needs networ
    ffprobe -v error -count_frames -select_streams v -show_entries stream=nb_read_frames -show_entries format=duration -of compact video/out/devmtl-2026.mp4
    ffmpeg -hide_banner -i video/out/devmtl-2026.mp4 -af ebur128=peak=true -f null - 2>&1 | grep -A14 Summary
    ```
-   Expect `duration × 60` frames, around -14 LUFS, and a true peak below 0 dBFS.
+   Expect `⌊duration × 60⌋` frames, around -14 LUFS, and a true peak below 0 dBFS.
 7. **Deliver** `video/out/devmtl-{year}.mp4` (master, ~150 MB) and `-share.mp4` (~20 MB, same
    picture to the eye). `video/out/` is git-ignored.
 
@@ -59,8 +59,10 @@ Rendering loads Archivo and JetBrains Mono from Google Fonts, so it needs networ
 - **Numbers:** talks = distinct time + track slots (co-presented talks and unannounced slots count
   once). Cross-check with the home page counter in `src/components/Home/Numbers.tsx`, which is
   hardcoded and has drifted before (21 shown, 19 real).
-- **Communities:** each name appears once, all white, and an orange flash visits each one in turn.
-  The names come from the speakers' `community` field.
+- **Communities:** every name fully readable at some point, each appearing once, with an orange
+  flash rippling through them in reading order. A long list scrolls up past the frame, so it reads
+  as bigger than the screen. The names come from `src/assets/communities.json`, the list the About
+  page shows: add a partner community there, not in the video.
 - **Close-ups:** the face reads, the name fits (long names shrink), and the title finishes typing before the whip.
 - **Sponsors:** gold cards bigger than silver, silver bigger than bronze, logos legible. Logos are
   trimmed to their visible pixels and set on white cards, because most are dark art on transparency.
@@ -73,7 +75,8 @@ Rendering loads Archivo and JetBrains Mono from Google Fonts, so it needs networ
 - **Two beat grids.** Scenes in `reel.html` were authored on a 32-beat grid, the original 15s cut:
   `b(n)` maps those beats through `timeline.warp`, which keeps motion at full speed and stretches
   the holds. Speakers and sponsors are scheduled on the real grid directly: `nb(n) = n × 60/128`.
-- **Speakers and sponsors section.** `data.mjs` lays it out:
+- **Speakers and sponsors section.** `data.mjs` lays it out, from the drop (`dropAt`, which comes
+  after the community wall's extra bar):
   - an overview bar;
   - one bar per featured speaker, whips on downbeats;
   - a bar back on the full wall;

@@ -19,7 +19,8 @@ const SEGMENTS = path.join(OUT, "segments");
 const FPS = 60;
 const CHUNK_FRAMES = 113;
 const REEL = buildReelData({ siteRoot: SITE_ROOT, config: CONFIG });
-const FRAMES = Math.round(REEL.timeline.dur * FPS);
+// an odd number of beats ends mid-frame: that half frame would be cut by the mux anyway
+const FRAMES = Math.floor(REEL.timeline.dur * FPS);
 const CHUNKS = Math.ceil(FRAMES / CHUNK_FRAMES);
 
 const [command = "all", ...args] = process.argv.slice(2);

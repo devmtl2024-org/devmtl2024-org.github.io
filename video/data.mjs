@@ -33,17 +33,17 @@ export function buildReelData({ siteRoot, config }) {
     photos: [
       ...new Set(speakers.filter(hasPhoto).map((s) => `public/${s.image}`)),
     ],
-    communities: [
-      ...new Set(
-        speakers
-          .map((s) => s.community)
-          .filter(Boolean)
-          .map((c) => c.toUpperCase()),
-      ),
-    ],
+    // the About page's list: every partner community, not only this year's hosts
+    communities: readJson(
+      path.join(siteRoot, "src/assets/communities.json"),
+    ).map((c) => c.name.toUpperCase()),
     sponsorTiers,
     timeline: timeline(config.featured.length, sponsorTiers.length > 0),
   };
+}
+
+function readJson(file) {
+  return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
 function readJsonDir(dir) {
@@ -120,17 +120,22 @@ function hasPhoto(speaker) {
 }
 
 // The scenes are authored on a 32-beat grid (the original 15s cut). `warp` maps those beats onto the
-// real edit: slope 1 during motion, stretched during holds. Speakers and sponsors are scheduled on
-// the real grid directly: an overview bar, one bar per featured speaker, a bar back on the wall,
-// then two bars of sponsors (if any) and the 16-beat finale.
+// real edit: slope 1 during motion, stretched during holds. The community wall gets an extra bar so
+// its long list can be read. From the drop, speakers and sponsors are scheduled on the real grid
+// directly: an overview bar, one bar per featured speaker, a bar back on the wall, then two bars of
+// sponsors (if any) and the 16-beat finale.
+const COMMUNITY_HOLD = 4;
 function timeline(featuredCount, hasSponsors) {
-  const focusAt = [...Array(featuredCount)].map((_, k) => 36 + 4 * k);
-  const sponsorsAt = 36 + 4 * featuredCount + 4;
+  const h = COMMUNITY_HOLD;
+  const dropAt = 32 + h;
+  const focusAt = [...Array(featuredCount)].map((_, k) => dropAt + 4 + 4 * k);
+  const sponsorsAt = dropAt + 4 + 4 * featuredCount + 4;
   const finaleAt = sponsorsAt + (hasSponsors ? 8 : 0);
   const beats = finaleAt + 16;
   const f = finaleAt;
   return {
     bpm: BPM,
+    dropAt,
     focusAt,
     pullback: sponsorsAt - 4.5,
     sponsorsAt,
@@ -150,13 +155,13 @@ function timeline(featuredCount, hasSponsors) {
       [10, 20],
       [11, 22],
       [12, 24],
-      [13.75, 26.75],
-      [14, 27],
-      [15, 29],
-      [15.5, 31.5],
-      [16, 32],
-      [16.5, 32.5],
-      [18.75, 35.4],
+      [13.75, 26.75 + h],
+      [14, 27 + h],
+      [15, 29 + h],
+      [15.5, 31.5 + h],
+      [16, 32 + h],
+      [16.5, 32.5 + h],
+      [18.75, 35.4 + h],
       [24, f],
       [25, f + 2],
       [25.75, f + 2.75],

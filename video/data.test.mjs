@@ -92,19 +92,18 @@ describe("buildReelData", () => {
     ]);
   });
 
-  it("lists each partner community once", () => {
+  it("lists every partner community from the site's list, in its order", () => {
     givenSite({
-      speakers: [
-        aSpeaker({ name: "Ada", community: "Montréal Ruby" }),
-        aSpeaker({ name: "Grace", community: "CNCF" }),
-        aSpeaker({ name: "Alan", community: "CNCF" }),
-        aSpeaker({ name: "Joan" }),
+      speakers: [aSpeaker({ name: "Ada", community: "Some Meetup" })],
+      communities: [
+        { name: "Ruby Montréal", url: "https://ruby.example" },
+        { name: "CNCF Montréal", url: "https://cncf.example" },
       ],
     });
 
     const data = buildReelData({ siteRoot, config: aConfig() });
 
-    expect(data.communities).toEqual(["MONTRÉAL RUBY", "CNCF"]);
+    expect(data.communities).toEqual(["RUBY MONTRÉAL", "CNCF MONTRÉAL"]);
   });
 
   it("shows the enabled gold, silver and bronze sponsors, by tier then by arrival", () => {
@@ -150,12 +149,13 @@ describe("buildReelData", () => {
     });
 
     expect(data.timeline).toMatchObject({
-      focusAt: [36, 40],
-      pullback: 43.5,
-      sponsorsAt: 48,
-      finaleAt: 56,
-      beats: 72,
-      dur: 72 * BEAT,
+      dropAt: 36,
+      focusAt: [40, 44],
+      pullback: 47.5,
+      sponsorsAt: 52,
+      finaleAt: 60,
+      beats: 76,
+      dur: 76 * BEAT,
     });
   });
 
@@ -168,9 +168,9 @@ describe("buildReelData", () => {
     });
 
     expect(data.timeline).toMatchObject({
-      sponsorsAt: 44,
-      finaleAt: 44,
-      beats: 60,
+      sponsorsAt: 48,
+      finaleAt: 48,
+      beats: 64,
     });
   });
 
@@ -206,7 +206,7 @@ describe("buildReelData", () => {
   });
 });
 
-function givenSite({ speakers = [], sponsors = [] }) {
+function givenSite({ speakers = [], sponsors = [], communities = [] }) {
   siteRoot = fs.mkdtempSync(path.join(os.tmpdir(), "reel-site-"));
   const speakersDir = path.join(siteRoot, "src/assets/speakers-2099");
   const sponsorsDir = path.join(siteRoot, "src/assets/sponsors");
@@ -217,6 +217,10 @@ function givenSite({ speakers = [], sponsors = [] }) {
   );
   sponsors.forEach((s, i) =>
     fs.writeFileSync(path.join(sponsorsDir, `${i}.json`), JSON.stringify(s)),
+  );
+  fs.writeFileSync(
+    path.join(siteRoot, "src/assets/communities.json"),
+    JSON.stringify(communities),
   );
 }
 
