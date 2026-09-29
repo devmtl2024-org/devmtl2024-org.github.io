@@ -2433,6 +2433,7 @@ __metadata:
     happy-dom: ^15.11.7
     husky: ^9.1.7
     lint-staged: ^15.5.1
+    playwright: 1.63.0
     postcss: ^8.5.8
     prettier: ^3.8.1
     prettier-plugin-curly: ^0.3.2
@@ -5103,6 +5104,26 @@ __metadata:
     mlly: ^1.7.4
     pathe: ^2.0.1
   checksum: 4fa4edb2bb845646cdbd04c5c6bc43cdbc8f02ed4d1c28bfcafb6e65928aece789bcf1335e4cac5f65dfdc376e4bd7435bd509a35e9ec73ef2c076a1b88e289c
+  languageName: node
+  linkType: hard
+
+"playwright-core@npm:1.63.0":
+  version: 1.63.0
+  resolution: "playwright-core@npm:1.63.0"
+  bin:
+    playwright-core: cli.js
+  checksum: b4c190c4099d0620a9ba22a0e826194ad511c3149153a79c44dc632ac2058da7da01cf66f011ee3ee0f360bbd83aa2f67f04519eb3c7c2bea257c4f598537937
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.63.0":
+  version: 1.63.0
+  resolution: "playwright@npm:1.63.0"
+  dependencies:
+    playwright-core: 1.63.0
+  bin:
+    playwright: cli.js
+  checksum: 6f90bca3d61f509667b9fdc4ef9c845833e4cb3cbb1c0d4e26672efb66b97b7f7db47d6a947a66772a23c191859639a6db0211c7753e6a1a5bc42293fd226c5a
   languageName: node
   linkType: hard
 

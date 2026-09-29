@@ -12,6 +12,7 @@ yarn lint         # ESLint, zero warnings allowed (--max-warnings=0)
 yarn format       # Prettier --write
 yarn format-check # Prettier --list-different
 yarn test         # Vitest (happy-dom environment)
+yarn video        # Promo reel → video/out/ (~25 min; recipe in .claude/skills/promo-video)
 ```
 
 **CI runs on every push to main:** typecheck → lint → build → deploy to GitHub Pages.

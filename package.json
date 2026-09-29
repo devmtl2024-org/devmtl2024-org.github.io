@@ -13,7 +13,9 @@
     "serve": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "typecheck": "tsc --project tsconfig.json --noEmit"
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "video": "node video/render.mjs",
+    "video:stills": "node video/render.mjs stills"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"
@@ -49,6 +51,7 @@
     "happy-dom": "^15.11.7",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
+    "playwright": "1.63.0",
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
     "prettier-plugin-curly": "^0.3.2",

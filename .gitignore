@@ -180,3 +180,5 @@ dist
 
 # Intellij
 *.iml
+# Promo reel renders
+video/out/
