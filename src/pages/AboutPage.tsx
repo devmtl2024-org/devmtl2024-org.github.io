@@ -1,59 +1,10 @@
+import communities from "@/assets/communities.json";
 import Social from "@/components/Social/Social";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Organizer } from "@/type/organizers";
 import { loadData } from "@/utils/loadData";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
-interface Meetup {
-  name: string;
-  url?: string;
-}
-
-const meetups: Meetup[] = [
-  { name: "JUG Montréal", url: "https://www.montreal-jug.org/" },
-  {
-    name: "Software Crafters Montréal",
-    url: "https://guild.host/software-crafters-montreal",
-  },
-  { name: "React Montréal", url: "https://guild.host/react-montreal" },
-  {
-    name: "TypeScript Montréal",
-    url: "https://guild.host/typescript-montreal/",
-  },
-  {
-    name: "CNCF Montréal",
-    url: "https://community.cncf.io/cloud-native-montreal/",
-  },
-  {
-    name: "AI Tinkerers Montréal",
-    url: "https://montreal.aitinkerers.org/",
-  },
-  {
-    name: "Woman Techmakers Montréal",
-    url: "https://wtmmontreal.com/",
-  },
-  {
-    name: "Generative AI Montréal",
-    url: "https://luma.com/calendar/cal-ugymCoObncHE8Ph",
-  },
-  {
-    name: "Software Crafters Québec",
-    url: "https://guild.host/software-crafters-quebec",
-  },
-  { name: "Women in AI", url: "https://www.womeninai.co/canada" },
-  { name: "Elixir Montréal", url: "https://guild.host/elixir-montreal/events" },
-  { name: "Ruby Montréal", url: "https://www.meetup.com/montrealrb/" },
-  {
-    name: "AWS Montréal",
-    url: "https://www.meetup.com/Montreal-AWS-Users-United/",
-  },
-  { name: "Flutter Montréal", url: "https://www.meetup.com/Flutter-Montreal/" },
-  {
-      name: "AI Agents Montréal",
-      url: "https://nicolasrosado.github.io/aiagents-montreal/"
-  },
-];
 
 export default function AboutPage() {
   const { t } = useTranslation();
@@ -87,7 +38,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="my-16 flex flex-wrap justify-center gap-4"
         >
-          {meetups.map((meetup, index) => (
+          {communities.map((meetup, index) => (
             <motion.a
               key={index}
               href={meetup.url}

@@ -1,0 +1,47 @@
+[
+  { "name": "JUG Montréal", "url": "https://www.montreal-jug.org/" },
+  {
+    "name": "Software Crafters Montréal",
+    "url": "https://guild.host/software-crafters-montreal"
+  },
+  { "name": "React Montréal", "url": "https://guild.host/react-montreal" },
+  {
+    "name": "TypeScript Montréal",
+    "url": "https://guild.host/typescript-montreal/"
+  },
+  {
+    "name": "CNCF Montréal",
+    "url": "https://community.cncf.io/cloud-native-montreal/"
+  },
+  {
+    "name": "AI Tinkerers Montréal",
+    "url": "https://montreal.aitinkerers.org/"
+  },
+  { "name": "Women Techmakers Montréal", "url": "https://wtmmontreal.com/" },
+  {
+    "name": "Generative AI Montréal",
+    "url": "https://luma.com/calendar/cal-ugymCoObncHE8Ph"
+  },
+  {
+    "name": "Software Crafters Québec",
+    "url": "https://guild.host/software-crafters-quebec"
+  },
+  { "name": "Women in AI", "url": "https://www.womeninai.co/canada" },
+  {
+    "name": "Elixir Montréal",
+    "url": "https://guild.host/elixir-montreal/events"
+  },
+  { "name": "Ruby Montréal", "url": "https://www.meetup.com/montrealrb/" },
+  {
+    "name": "AWS Montréal",
+    "url": "https://www.meetup.com/Montreal-AWS-Users-United/"
+  },
+  {
+    "name": "Flutter Montréal",
+    "url": "https://www.meetup.com/Flutter-Montreal/"
+  },
+  {
+    "name": "AI Agents Montréal",
+    "url": "https://nicolasrosado.github.io/aiagents-montreal/"
+  }
+]
