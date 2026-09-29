@@ -58,7 +58,7 @@ function Numbers() {
   const stats = [
     { label: t({ fr: "Jour", en: "Day" }), value: 1 },
     { label: t({ fr: "Tracks", en: "Tracks" }), value: 3 },
-    { label: t({ fr: "Présentations", en: "Talks" }), value: 21, startFrom: 0 },
+    { label: t({ fr: "Présentations", en: "Talks" }), value: 19, startFrom: 0 },
     {
       label: t({ fr: "Participant(e)s", en: "Attendees" }),
       value: 150,
