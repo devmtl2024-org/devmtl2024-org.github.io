@@ -1,0 +1,12 @@
+{
+  "name": "Extia Canada",
+  "logo": "sponsors/extia.png",
+  "url": "https://www.extia-group.com/ca-fr",
+  "isEnabled": true,
+  "description": {
+    "fr": "Extia Canada est une firme de service conseil spécialisée en technologies de l'information, membre du groupe Extia de plus de 3000 collaborateurs. Convaincus que le bien-être au travail est la clé de la performance, nous appliquons un principe fondamental : « D'abord qui, ensuite quoi ». Nos consultant·e·s accompagnent les organisations dans la réalisation de leurs projets TI majeurs, du développement logiciel à l'architecture Cloud, en passant par la Data et la Cybersécurité, au sein d'une culture qui allie épanouissement humain, convivialité et excellence technique.",
+    "en": "Extia Canada is an IT consulting firm, part of the Extia group and its more than 3,000 employees. Convinced that well-being at work is the key to performance, we follow one core principle: \"First who, then what\". Our consultants support organizations in delivering their major IT projects, from software development to cloud architecture, data and cybersecurity, within a culture that combines personal fulfillment, conviviality and technical excellence."
+  },
+  "level": "or",
+  "joinedAt": "2026-09-29"
+}
