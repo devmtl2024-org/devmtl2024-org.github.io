@@ -111,9 +111,9 @@ function SponsorSection({
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className="flex items-center space-x-4 mt-8 p-6 pb-8 border rounded-lg shadow-md gap-6"
+            className="mt-8 flex flex-col items-center gap-6 rounded-lg border p-6 pb-8 shadow-md md:flex-row"
           >
-            <div className="size-32">
+            <div className="size-32 shrink-0">
               <img
                 src={`${import.meta.env.BASE_URL}${sponsor.logo}`}
                 alt={sponsor.name}
@@ -121,7 +121,7 @@ function SponsorSection({
               />
             </div>
 
-            <div className="flex-1">
+            <div className="w-full min-w-0 md:flex-1">
               <h3 className="text-xl font-semibold text-secondary mb-4">
                 {sponsor.name}
               </h3>
