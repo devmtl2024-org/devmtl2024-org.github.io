@@ -19,7 +19,7 @@ const TIERS = [
     level: "argent",
     color: "bg-gray-400",
     price: "2 000",
-    available: 4,
+    available: 3,
     tickets: 4,
     perks: [true, true, true, true, true, true, true, false, false],
   },
