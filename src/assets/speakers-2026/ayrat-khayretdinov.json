@@ -7,7 +7,7 @@
   "time": "2026-11-27T15:15:00",
   "track": 3,
   "title": "When Agents Write the Code, Who Runs the Platform? Setting a High Score from Docker to K8s with CNCF Score",
-  "description": "",
+  "description": "AI agents can crank out full applications in seconds, but when it's time to ship to production, teams freeze up, blocked by the fear of touching Kubernetes manifests and breaking cluster configurations. In this session, we introduce CNCF Score, the developer-centric workload spec that lets you define your intent once, run it in Docker, and promote it straight to Kubernetes using Agent Skills.\nThink you know the CNCF landscape? Come beat the High Score. Walk away with a repeatable, battle-tested golden path that turns vibe-coded prototypes and their dependencies into verified, running production workloads; safely, cheaply, and at scale.",
   "github": null,
   "linkedin": "https://www.linkedin.com/in/ayrat-khayretdinov-8503b6b/",
   "website": null
