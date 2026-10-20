@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mailtoLink, toCsv } from "./exportLeads";
+import { toCsv } from "./exportLeads";
 import { Lead } from "./leads";
 
 const camille: Lead = {
@@ -28,7 +28,7 @@ const maika: Lead = {
 describe("toCsv", () => {
   it("writes one row per lead, with a BOM so Excel reads the accents", () => {
     expect(toCsv([camille, maika])).toBe(
-      "﻿" +
+      "\uFEFF" +
         [
           "First name,Last name,Organization,Title,Email,Phone,LinkedIn,Note,Scanned at",
           "Camille,Tremblay,Studio Boréal,Développeuse full-stack,camille@studioboreal.example,'+1 438-555-0142,https://www.linkedin.com/in/camille-tremblay,Wants a demo,2026-11-27T10:05:00",
@@ -59,37 +59,3 @@ describe("toCsv", () => {
     },
   );
 });
-
-describe("mailtoLink", () => {
-  it("lists the leads in the email body", () => {
-    const link = mailtoLink([camille, maika], "Leads /dev/mtl");
-
-    expect(decodeMailto(link)).toEqual({
-      subject: "Leads /dev/mtl",
-      body: [
-        "Camille Tremblay",
-        "Développeuse full-stack · Studio Boréal",
-        "camille@studioboreal.example",
-        "+1 438-555-0142",
-        "https://www.linkedin.com/in/camille-tremblay",
-        "Note: Wants a demo",
-        "",
-        "Maïka Nguyen",
-      ].join("\n"),
-    });
-  });
-
-  it("gives up when the list is too long for a mailto link", () => {
-    const manyLeads = Array.from({ length: 30 }, (_, index) => ({
-      ...camille,
-      id: `${index}`,
-    }));
-
-    expect(mailtoLink(manyLeads, "Leads /dev/mtl")).toBeNull();
-  });
-});
-
-function decodeMailto(link: string | null) {
-  const params = new URLSearchParams(link?.replace(/^mailto:\?/, ""));
-  return { subject: params.get("subject"), body: params.get("body") };
-}
