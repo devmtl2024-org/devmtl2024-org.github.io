@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout/Layout";
 import HomePage from "@/pages/HomePage";
 import SchedulePage from "@/pages/SchedulePage";
-import { StrictMode } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext.Provider";
@@ -15,12 +15,23 @@ import SponsorshipPage from "./pages/SponsorshipPage";
 import TransparencyPage from "./pages/TransparencyPage";
 import VideosPage from "./pages/VideosPage";
 
+// Only sponsors use it, and the QR decoder is heavy
+const ScanPage = lazy(() => import("./pages/ScanPage"));
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <LanguageProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route
+            path="/scan"
+            element={
+              <Suspense>
+                <ScanPage />
+              </Suspense>
+            }
+          />
           <Route element={<Layout />}>
             <Route path="/about" element={<AboutPage />} />
             <Route path="/schedule" element={<SchedulePage />} />
