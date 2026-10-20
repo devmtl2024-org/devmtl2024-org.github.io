@@ -114,8 +114,8 @@ export default function ScanPage() {
           </h1>
           <p className="mt-1 text-sm text-gray-600">
             {t({
-              fr: "Scannez le QR code sur le badge des participants pour garder leurs coordonnées. Les contacts restent sur cet appareil : rien n'est envoyé.",
-              en: "Scan the QR code on attendees' badges to keep their contact details. Contacts stay on this device: nothing is sent anywhere.",
+              fr: "Scannez le QR code sur le badge des participants. Les contacts sont gardés sur cet appareil, même si vous fermez la page : envoyez le CSV à la fin de la journée.",
+              en: "Scan the QR code on attendees' badges. Contacts are kept on this device, even if you close the page: send the CSV at the end of the day.",
             })}
           </p>
         </div>
