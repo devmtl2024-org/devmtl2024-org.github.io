@@ -203,6 +203,10 @@ to the day the sponsor confirmed — and update it when a past sponsor comes bac
 | `/sponsors`       | SponsorsPage     | Shared Layout       |
 | `/transparency`   | TransparencyPage | Shared Layout       |
 | `/conduct`        | ConductPage      | Shared Layout       |
+| `/scan`           | ScanPage         | Own header, lazy    |
+
+`/scan` is the sponsors' lead scanner: not in `navLinks`, shared with sponsors by URL. It reads the vCard
+in the badge QR code and keeps leads in `localStorage` only.
 
 `Layout` uses `<Outlet />` and derives the page title from `navLinks` based on the current path.
 
