@@ -2,7 +2,7 @@ import Logo from "@/assets/logo.svg?react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
 import { LeadList } from "@/components/Scan/LeadList";
 import { QrScanner } from "@/components/Scan/QrScanner";
-import { mailtoLink, toCsv } from "@/components/Scan/exportLeads";
+import { toCsv } from "@/components/Scan/exportLeads";
 import {
   Lead,
   addLead,
@@ -13,7 +13,7 @@ import {
 } from "@/components/Scan/leads";
 import { parseVCard } from "@/components/Scan/vcard";
 import { useTranslation } from "@/hooks/useTranslation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 type Feedback =
@@ -73,17 +73,16 @@ export default function ScanPage() {
     }
   }
 
-  function handleRemove(lead: Lead) {
-    const confirmed = window.confirm(
-      t({
-        fr: `Supprimer ${lead.fullName} de la liste?`,
-        en: `Remove ${lead.fullName} from the list?`,
-      }),
-    );
-    if (confirmed) {
-      setLeads(removeLead(leads, lead.id));
-    }
-  }
+  // Stable callbacks so typing a note doesn't re-render every card
+  const handleNoteChange = useCallback(
+    (id: string, note: string) =>
+      setLeads((current) => updateNote(current, id, note)),
+    [],
+  );
+  const handleRemove = useCallback(
+    (id: string) => setLeads((current) => removeLead(current, id)),
+    [],
+  );
 
   function handleClearAll() {
     const confirmed = window.confirm(
@@ -97,12 +96,6 @@ export default function ScanPage() {
     }
   }
 
-  const emailSubject = t({
-    fr: "Contacts /dev/mtl 2026",
-    en: "/dev/mtl 2026 contacts",
-  });
-  const emailLink = mailtoLink(leads, emailSubject);
-
   return (
     <div className="min-h-screen bg-white">
       <header className="flex items-center justify-between bg-primary px-4 py-3 text-white">
@@ -112,7 +105,9 @@ export default function ScanPage() {
         <LanguageSwitcher />
       </header>
 
-      <main className="mx-auto flex max-w-md flex-col gap-6 px-4 py-6">
+      <main
+        className={`mx-auto flex max-w-md flex-col gap-6 px-4 py-6 ${leads.length > 0 ? "pb-28" : ""}`}
+      >
         <div>
           <h1 className="text-2xl font-bold text-primary">
             {t({ fr: "Scan de contacts", en: "Lead scanning" })}
@@ -146,46 +141,33 @@ export default function ScanPage() {
           </h2>
           <LeadList
             leads={leads}
-            onNoteChange={(id, note) => setLeads(updateNote(leads, id, note))}
+            onNoteChange={handleNoteChange}
             onRemove={handleRemove}
           />
-        </section>
-
-        {leads.length > 0 && (
-          <section className="flex flex-col gap-3">
-            <h2 className="text-xl font-bold text-primary">
-              {t({ fr: "Exporter", en: "Export" })}
-            </h2>
-            <button
-              onClick={() => exportCsv(leads)}
-              className="rounded-full bg-primary px-6 py-3 font-bold text-white"
-            >
-              {t({ fr: "Exporter en CSV", en: "Export as CSV" })}
-            </button>
-            {emailLink ? (
-              <a
-                href={emailLink}
-                className="rounded-full border-2 border-primary px-6 py-3 text-center font-bold text-primary"
-              >
-                {t({ fr: "Envoyer par courriel", en: "Send by email" })}
-              </a>
-            ) : (
-              <p className="text-sm text-gray-600">
-                {t({
-                  fr: "La liste est trop longue pour un courriel : utilisez l'export CSV.",
-                  en: "The list is too long for an email: use the CSV export.",
-                })}
-              </p>
-            )}
+          {leads.length > 0 && (
             <button
               onClick={handleClearAll}
               className="mt-4 text-sm text-red-700 underline"
             >
               {t({ fr: "Tout effacer", en: "Erase everything" })}
             </button>
-          </section>
-        )}
+          )}
+        </section>
       </main>
+
+      {leads.length > 0 && (
+        <div className="fixed inset-x-0 bottom-0 border-t border-gray-200 bg-white px-4 py-3">
+          <button
+            onClick={() => shareCsv(leads)}
+            className="mx-auto block w-full max-w-md rounded-full bg-primary px-6 py-3 font-bold text-white"
+          >
+            {t({
+              fr: `Envoyer le CSV (${leads.length})`,
+              en: `Send the CSV (${leads.length})`,
+            })}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -220,7 +202,7 @@ function FeedbackBanner({ feedback }: { feedback: Feedback }) {
   }
 }
 
-async function exportCsv(leads: Lead[]) {
+async function shareCsv(leads: Lead[]) {
   const file = new File([toCsv(leads)], "contacts-devmtl-2026.csv", {
     type: "text/csv",
   });
