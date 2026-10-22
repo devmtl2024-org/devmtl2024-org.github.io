@@ -1,0 +1,12 @@
+{
+  "name": "Elastic",
+  "logo": "sponsors/elastic.png",
+  "url": "https://www.elastic.co",
+  "isEnabled": false,
+  "description": {
+    "fr": "Elastic allie son expertise pointue en recherche à l’intelligence artificielle. Bâties sur Elasticsearch, ses solutions de recherche, d’observabilité et de sécurité sont utilisées par des milliers d’entreprises, dont plus de 75 % du Fortune 100.",
+    "en": "Elastic combines its deep expertise in search with artificial intelligence. Built on Elasticsearch, its solutions for search, observability, and security are used by thousands of companies, including more than 75% of the Fortune 100."
+  },
+  "level": "argent",
+  "joinedAt": "2026-10-22"
+}
