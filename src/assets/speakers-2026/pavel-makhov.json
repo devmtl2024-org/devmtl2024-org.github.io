@@ -5,7 +5,7 @@
   "community": "Montréal JUG",
   "image": "speakers-2026/pavel-makhov.jpg",
   "time": "2026-11-27T14:15:00",
-  "track": 3,
+  "track": 2,
   "title": "API Development: Shifting from Code-First to Design-First",
   "description": "Migrating from code-first to design-first API development dramatically improved our team's workflow and API quality across dozens of microservices. We'll explore collaborative OpenAPI workflows, automated validation pipelines, and automated governance strategies that eliminated API inconsistencies and breaking changes. You'll learn practical migration steps, proven tooling, and adoption frameworks that work across languages and team sizes.",
   "github": null,

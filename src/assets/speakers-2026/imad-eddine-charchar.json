@@ -4,7 +4,7 @@
   "position": "CGI - AI Solution Architect",
   "image": "speakers-2026/imad-eddine-charchar.png",
   "time": "2026-11-27T14:15:00",
-  "track": 2,
+  "track": 3,
   "title": "Latency, Cost, Quality in AI Systems: Pick Your Victim",
   "description": "AI systems are never optimized for everything at once. Faster responses can reduce reasoning depth. Higher quality can increase latency and cost. Lower costs can limit accuracy, robustness, or user experience.\n\nThis presentation explores the tradeoff triangle between latency, cost, and quality in AI systems. It helps developers think beyond “which model is best?” and reason about what really matters in production: what we optimize, what we sacrifice, and who pays the price.",
   "github": null,
