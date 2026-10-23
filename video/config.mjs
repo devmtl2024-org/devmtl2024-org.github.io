@@ -13,9 +13,9 @@ export const CONFIG = {
   featured: [
     "Fabien Antoine",
     "Hugues Lamy",
+    "Carl Lapierre",
     "Imad-eddine Charchar",
     "Reza Madabadi",
-    "Carl Lapierre",
     "Margaret Gu",
   ],
   copy: {
