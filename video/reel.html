@@ -1892,7 +1892,12 @@
             ctx.stroke();
           }
           const img = SPONSOR_IMGS[c.s.logo];
-          const k = Math.min((c.w * 0.8) / img.width, (c.h * 0.6) / img.height);
+          // a vertical lockup can only grow in height, so it gets the card's full height
+          const maxH = img.height > img.width ? 0.86 : 0.6;
+          const k = Math.min(
+            (c.w * 0.8) / img.width,
+            (c.h * maxH) / img.height,
+          );
           ctx.drawImage(
             img,
             (-img.width * k) / 2,
