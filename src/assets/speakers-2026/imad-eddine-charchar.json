@@ -5,8 +5,8 @@
   "image": "speakers-2026/imad-eddine-charchar.png",
   "time": "2026-11-27T14:15:00",
   "track": 3,
-  "title": "Latency, Cost, Quality in AI Systems: Pick Your Victim",
-  "description": "AI systems are never optimized for everything at once. Faster responses can reduce reasoning depth. Higher quality can increase latency and cost. Lower costs can limit accuracy, robustness, or user experience.\n\nThis presentation explores the tradeoff triangle between latency, cost, and quality in AI systems. It helps developers think beyond “which model is best?” and reason about what really matters in production: what we optimize, what we sacrifice, and who pays the price.",
+  "title": "Latence, coût et qualité des systèmes d’IA : que sacrifier ?",
+  "description": "Les systèmes d’IA ne peuvent pas être optimisés sur tous les plans à la fois. Des réponses plus rapides peuvent limiter la profondeur du raisonnement. Une meilleure qualité peut accroître la latence et les coûts. Réduire les coûts peut compromettre l’exactitude, la robustesse ou l’expérience utilisateur.\n\nCette présentation explore les compromis entre latence, coût et qualité dans les systèmes d’IA. Elle invite les développeurs à dépasser la question « Quel est le meilleur modèle ? » pour réfléchir aux véritables enjeux de la mise en production : ce que l’on optimise, ce que l’on sacrifie et qui en paie le prix.",
   "github": null,
   "linkedin": "https://www.linkedin.com/in/imad-eddine-charchar-417293233/",
   "website": null
