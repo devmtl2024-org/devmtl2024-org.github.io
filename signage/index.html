@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>/dev/mtl signage</title>
+  </head>
+  <body>
+    <!-- Only Vite's dev server serves this page: the site's build has a single entry, index.html -->
+    <div id="root"></div>
+    <script type="module">
+      import { createElement } from "react";
+      import { createRoot } from "react-dom/client";
+      import { SignageSlides } from "/src/components/Signage/SignageSlides.tsx";
+      import "/src/index.css";
+
+      createRoot(document.getElementById("root")).render(
+        createElement(SignageSlides),
+      );
+    </script>
+  </body>
+</html>

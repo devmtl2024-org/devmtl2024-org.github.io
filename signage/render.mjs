@@ -1,4 +1,4 @@
-// Renders the /signage page to what Concordia's TVs play: one .jpg per slide, and one muted .mp4 per reel.
+// Renders signage/index.html (served by Vite in dev, never built for the site) to what Concordia's TVs play: one .jpg per slide, and one muted .mp4 per reel.
 //   node signage/render.mjs → signage/out/
 // A sponsor's own slide replaces the default one: drop a 1920×1080 overrides/sponsor-<logo name>.jpg
 import { spawn } from "node:child_process";
@@ -36,7 +36,7 @@ async function screenshotSlides() {
     const page = await browser.newPage({
       viewport: { width: 2000, height: 1200 },
     });
-    await page.goto("http://localhost:5199/signage");
+    await page.goto("http://localhost:5199/signage/index.html");
     await page.waitForSelector("[data-signage-ready]", { timeout: 60000 });
     await page.evaluate(() =>
       Promise.all([

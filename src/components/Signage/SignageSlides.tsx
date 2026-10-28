@@ -1,22 +1,18 @@
 import { pauses } from "@/assets/pauses";
-import { FloorPlanSlide } from "@/components/Signage/FloorPlanSlide";
-import { QrSlide } from "@/components/Signage/QrSlide";
-import { ScheduleSlide } from "@/components/Signage/ScheduleSlide";
-import { splitAtLunch } from "@/components/Signage/splitAtLunch";
-import {
-  SponsorSlide,
-  SponsorsSlide,
-} from "@/components/Signage/SponsorSlides";
-import { WelcomeSlide } from "@/components/Signage/WelcomeSlide";
 import { useSponsors } from "@/hooks/useSponsors";
 import { ScheduleSession } from "@/type/schedule";
 import { Speaker } from "@/type/speakers";
 import { groupSpeakersByTime } from "@/utils/groupSpeakers";
 import { loadSpeakers } from "@/utils/loadData";
 import { useCallback, useEffect, useState } from "react";
+import { FloorPlanSlide } from "./FloorPlanSlide";
+import { QrSlide } from "./QrSlide";
+import { ScheduleSlide } from "./ScheduleSlide";
+import { splitAtLunch } from "./splitAtLunch";
+import { SponsorSlide, SponsorsSlide } from "./SponsorSlides";
+import { WelcomeSlide } from "./WelcomeSlide";
 
-// Default export: React.lazy only loads default exports
-export default function SignagePage() {
+export function SignageSlides() {
   const [schedule, setSchedule] = useState<ScheduleSession[]>([]);
   const [isQrReady, setIsQrReady] = useState(false);
   const onQrReady = useCallback(() => setIsQrReady(true), []);

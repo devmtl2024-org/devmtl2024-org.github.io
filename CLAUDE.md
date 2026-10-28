@@ -13,7 +13,7 @@ yarn format       # Prettier --write
 yarn format-check # Prettier --list-different
 yarn test         # Vitest (happy-dom environment)
 yarn video        # Promo reel → video/out/ (~25 min; recipe in .claude/skills/promo-video)
-yarn signage      # Venue TV slides (/signage page) → signage/out/ (.jpg per slide + 2 muted .mp4)
+yarn signage      # Venue TV slides (signage/index.html, not on the site) → signage/out/ (.jpg per slide + 2 muted .mp4)
 ```
 
 **CI runs on every push to main:** typecheck → lint → build → deploy to GitHub Pages.
