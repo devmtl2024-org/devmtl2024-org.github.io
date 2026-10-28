@@ -17,6 +17,8 @@ import VideosPage from "./pages/VideosPage";
 
 // Only sponsors use it, and the QR decoder is heavy
 const ScanPage = lazy(() => import("./pages/ScanPage"));
+// Only rendered to images for the venue's TVs, see signage/render.mjs
+const SignagePage = lazy(() => import("./pages/SignagePage"));
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -29,6 +31,14 @@ createRoot(document.getElementById("root")!).render(
             element={
               <Suspense>
                 <ScanPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/signage"
+            element={
+              <Suspense>
+                <SignagePage />
               </Suspense>
             }
           />

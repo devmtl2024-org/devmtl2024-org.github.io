@@ -182,3 +182,6 @@ dist
 *.iml
 # Promo reel renders
 video/out/
+
+# Signage renders
+signage/out/
