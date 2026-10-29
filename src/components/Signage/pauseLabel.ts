@@ -1,8 +1,13 @@
 import { Pause } from "@/assets/pauses";
 
-export function pauseLabel(label: Pause["label"]) {
+export type Language = "fr" | "en" | "both";
+
+export function pauseLabel(label: Pause["label"], language: Language = "both") {
   const fr = withoutNotes(label.fr);
   const en = withoutNotes(label.en);
+  if (language !== "both") {
+    return language === "fr" ? fr : en;
+  }
   if (fr === en) {
     return fr;
   }

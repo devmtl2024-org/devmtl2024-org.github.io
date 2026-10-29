@@ -1,4 +1,5 @@
 import { pauses } from "@/assets/pauses";
+import { trackNames } from "@/constants/tracks";
 import { useSponsors } from "@/hooks/useSponsors";
 import { ScheduleSession } from "@/type/schedule";
 import { Speaker } from "@/type/speakers";
@@ -7,6 +8,7 @@ import { loadSpeakers } from "@/utils/loadData";
 import { useCallback, useEffect, useState } from "react";
 import { FloorPlanSlide } from "./FloorPlanSlide";
 import { QrSlide } from "./QrSlide";
+import { RoomPoster, RoomSlide } from "./RoomSignage";
 import { ScheduleSlide } from "./ScheduleSlide";
 import { splitAtLunch } from "./splitAtLunch";
 import { SponsorSlide, SponsorsSlide } from "./SponsorSlides";
@@ -37,10 +39,6 @@ export function SignageSlides() {
       data-signage-ready={isReady || undefined}
       className="flex flex-col items-start gap-10 bg-gray-300 p-10"
     >
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&family=JetBrains+Mono:wght@100..800&display=block"
-      />
       <h1 className="text-3xl font-bold">Vidéo infos</h1>
       <ScheduleSlide
         id="programme-matin"
@@ -62,6 +60,14 @@ export function SignageSlides() {
         <SponsorSlide key={sponsor.name} sponsor={sponsor} />
       ))}
       <SponsorsSlide id="merci-promo" reel="promo" tiers={allTiers} />
+
+      <h1 className="text-3xl font-bold">Salles</h1>
+      {trackNames.map((track, index) => (
+        <RoomSlide key={track.fr} trackIndex={index} schedule={schedule} />
+      ))}
+      {trackNames.map((track, index) => (
+        <RoomPoster key={track.fr} trackIndex={index} schedule={schedule} />
+      ))}
     </div>
   );
 }

@@ -3,12 +3,11 @@ import { ReactNode } from "react";
 
 export type Reel = "infos" | "promo";
 
+// Without a reel, a slide is only rendered to its .jpg
 type SlideProps = {
   id: string;
-  reel: Reel;
-  seconds: number;
   children: ReactNode;
-};
+} & ({ reel: Reel; seconds: number } | { reel?: never; seconds?: never });
 
 // Fixed TV size: signage/render.mjs screenshots each slide as is
 export function Slide({ id, reel, seconds, children }: SlideProps) {

@@ -14,6 +14,12 @@ describe("pauseLabel", () => {
     ).toBe("Repas  ·  Lunch 🍱");
   });
 
+  it("shows a single language when asked to", () => {
+    expect(
+      pauseLabel({ fr: "Repas (inclus) 🍱", en: "Lunch (included) 🍱" }, "en"),
+    ).toBe("Lunch 🍱");
+  });
+
   it("shows a label once when both languages say the same", () => {
     expect(pauseLabel({ fr: "Pause", en: "Pause" })).toBe("Pause");
   });
