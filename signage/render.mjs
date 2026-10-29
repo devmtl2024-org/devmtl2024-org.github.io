@@ -1,6 +1,6 @@
 // Renders signage/index.html (served by Vite in dev, never built for the site) to what Concordia's TVs play: one .jpg per slide, and one muted .mp4 per reel.
 // Also the 11x17 .pdf posters Concordia prints for the stands in front of the rooms.
-//   node signage/render.mjs → signage/out/
+//   node signage/render.mjs → signage/out/{infos,promo,affiches}/
 // A sponsor's own slide replaces the default one: drop a 1920×1080 overrides/sponsor-<logo name>.jpg
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -12,10 +12,12 @@ import { createServer } from "vite";
 const SIGNAGE_DIR = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(SIGNAGE_DIR, "out");
 const OVERRIDES = path.join(SIGNAGE_DIR, "overrides");
+// A slide without a reel is for the screen at a room's door: it goes with that room's poster
+const POSTERS = path.join(OUT, "affiches");
 const FPS = 30;
 
 fs.rmSync(OUT, { recursive: true, force: true });
-fs.mkdirSync(OUT, { recursive: true });
+fs.mkdirSync(POSTERS, { recursive: true });
 
 const slides = await renderSignage();
 const reels = new Set(slides.map((s) => s.reel).filter(Boolean));
@@ -69,12 +71,14 @@ async function screenshotSlides(page) {
   );
   const slides = [];
   for (const [index, slide] of found.entries()) {
-    const file = path.join(
-      OUT,
-      slide.reel
-        ? `${slide.reel}-${String(index + 1).padStart(2, "0")}-${slide.id}.jpg`
-        : `${slide.id}.jpg`,
-    );
+    const file = slide.reel
+      ? path.join(
+          OUT,
+          slide.reel,
+          `${slide.reel}-${String(index + 1).padStart(2, "0")}-${slide.id}.jpg`,
+        )
+      : path.join(POSTERS, `${slide.id}.jpg`);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
     const override = path.join(OVERRIDES, `${slide.id}.jpg`);
     if (fs.existsSync(override)) {
       fs.copyFileSync(override, file);
@@ -100,7 +104,7 @@ async function printPosters(page) {
         document.querySelector(`[data-poster="${id}"]`),
       );
     }, id);
-    const file = path.join(OUT, `${id}.pdf`);
+    const file = path.join(POSTERS, `${id}.pdf`);
     await page.pdf({
       path: file,
       width: "11in",
@@ -114,7 +118,7 @@ async function printPosters(page) {
 
 // Plain cuts: the TVs loop the file, so the last slide cuts back to the first
 async function encodeReel(reel, slides) {
-  const mp4 = path.join(OUT, `devmtl-2026-${reel}.mp4`);
+  const mp4 = path.join(OUT, reel, `devmtl-2026-${reel}.mp4`);
   await run("ffmpeg", [
     "-y",
     "-loglevel",
