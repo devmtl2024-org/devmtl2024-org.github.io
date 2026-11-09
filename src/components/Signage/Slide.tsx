@@ -1,20 +1,18 @@
 import Logo from "@/assets/logo.svg?react";
 import { ReactNode } from "react";
 
-export type Reel = "infos" | "promo";
-
-// Without a reel, a slide is only rendered to its .jpg
+// Without seconds, a slide stays out of the lobby video: it is only rendered to its .jpg
 type SlideProps = {
   id: string;
   children: ReactNode;
-} & ({ reel: Reel; seconds: number } | { reel?: never; seconds?: never });
+  seconds?: number;
+};
 
 // Fixed TV size: signage/render.mjs screenshots each slide as is
-export function Slide({ id, reel, seconds, children }: SlideProps) {
+export function Slide({ id, seconds, children }: SlideProps) {
   return (
     <section
       data-slide={id}
-      data-reel={reel}
       data-seconds={seconds}
       className="relative flex h-[1080px] w-[1920px] shrink-0 flex-col overflow-hidden bg-primary-dark font-['Archivo'] text-white"
     >

@@ -15,7 +15,7 @@ export function SponsorSlide({ sponsor }: { sponsor: Sponsor }) {
   const tier = TIER_NAMES[sponsor.level];
 
   return (
-    <Slide id={`sponsor-${sponsorSlug(sponsor)}`} reel="promo" seconds={8}>
+    <Slide id={`sponsor-${sponsorSlug(sponsor)}`} seconds={8}>
       <div className="flex flex-1 flex-col items-center justify-center gap-12">
         <p className="text-4xl font-semibold uppercase tracking-widest text-secondary-light">
           Merci à · Thank you
@@ -46,16 +46,14 @@ function sponsorSlug(sponsor: Sponsor) {
 }
 
 type SponsorsSlideProps = {
-  id: string;
-  reel: "infos" | "promo";
   tiers: Sponsor[][];
 };
 
 const LOGO_HEIGHTS = ["h-[170px]", "h-[130px]", "h-[100px]"];
 
-export function SponsorsSlide({ id, reel, tiers }: SponsorsSlideProps) {
+export function SponsorsSlide({ tiers }: SponsorsSlideProps) {
   return (
-    <Slide id={id} reel={reel} seconds={10}>
+    <Slide id="merci" seconds={10}>
       <div className="flex flex-1 flex-col items-center justify-center gap-10 px-16">
         <Logo fill="white" stroke="white" className="h-20 w-auto" />
         <div className="text-center">

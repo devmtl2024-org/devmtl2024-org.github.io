@@ -20,7 +20,7 @@ export function QrSlide({ onReady }: { onReady: () => void }) {
   }, [onReady]);
 
   return (
-    <Slide id="qr-code" reel="infos" seconds={10}>
+    <Slide id="qr-code" seconds={10}>
       <SlideHeader fr="Tout le programme" en="The full schedule" />
       <div className="flex flex-1 items-center justify-center gap-28 pb-16">
         <div className="max-w-[760px]">

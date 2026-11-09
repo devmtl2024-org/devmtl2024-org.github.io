@@ -20,7 +20,7 @@ const STROKE = 6;
 
 export function FloorPlanSlide() {
   return (
-    <Slide id="plan" reel="infos" seconds={15}>
+    <Slide id="plan" seconds={15}>
       <SlideHeader fr="Plan des lieux" en="Venue map" />
       <div className="flex flex-1 items-center justify-center px-16 pb-14">
         <svg

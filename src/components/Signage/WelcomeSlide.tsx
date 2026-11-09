@@ -3,7 +3,7 @@ import { Slide } from "./Slide";
 
 export function WelcomeSlide() {
   return (
-    <Slide id="bienvenue" reel="promo" seconds={10}>
+    <Slide id="bienvenue" seconds={10}>
       <div className="flex flex-1 flex-col items-center justify-center gap-14">
         <Logo fill="white" stroke="white" className="h-48 w-auto" />
         <div className="text-center">

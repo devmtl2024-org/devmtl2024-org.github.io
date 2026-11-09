@@ -39,7 +39,8 @@ export function SignageSlides() {
       data-signage-ready={isReady || undefined}
       className="flex flex-col items-start gap-10 bg-gray-300 p-10"
     >
-      <h1 className="text-3xl font-bold">Vidéo infos</h1>
+      <h1 className="text-3xl font-bold">Vidéo lobby</h1>
+      <WelcomeSlide />
       <ScheduleSlide
         id="programme-matin"
         title={{ fr: "Programme · Matin", en: "Schedule · Morning" }}
@@ -50,16 +51,12 @@ export function SignageSlides() {
         title={{ fr: "Programme · Après-midi", en: "Schedule · Afternoon" }}
         sessions={afternoon}
       />
-      <SponsorsSlide id="merci-infos" reel="infos" tiers={allTiers} />
       <FloorPlanSlide />
       <QrSlide onReady={onQrReady} />
-
-      <h1 className="text-3xl font-bold">Vidéo promo</h1>
-      <WelcomeSlide />
       {[...sponsors.orSponsors, ...sponsors.argentSponsors].map((sponsor) => (
         <SponsorSlide key={sponsor.name} sponsor={sponsor} />
       ))}
-      <SponsorsSlide id="merci-promo" reel="promo" tiers={allTiers} />
+      <SponsorsSlide tiers={allTiers} />
 
       <h1 className="text-3xl font-bold">Salles</h1>
       {trackNames.map((track, index) => (

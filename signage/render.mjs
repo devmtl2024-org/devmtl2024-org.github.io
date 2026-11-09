@@ -1,6 +1,6 @@
-// Renders signage/index.html (served by Vite in dev, never built for the site) to what Concordia's TVs play: one .jpg per slide, and one muted .mp4 per reel.
+// Renders signage/index.html (served by Vite in dev, never built for the site) to what Concordia's TVs play: one .jpg per slide, and the muted .mp4 looping in the main lobby.
 // Also the 11x17 .pdf posters Concordia prints for the stands in front of the rooms.
-//   node signage/render.mjs → signage/out/{infos,promo,affiches}/
+//   node signage/render.mjs → signage/out/{lobby,affiches}/
 // A sponsor's own slide replaces the default one: drop a 1920×1080 overrides/sponsor-<logo name>.jpg
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -12,7 +12,9 @@ import { createServer } from "vite";
 const SIGNAGE_DIR = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(SIGNAGE_DIR, "out");
 const OVERRIDES = path.join(SIGNAGE_DIR, "overrides");
-// A slide without a reel is for the screen at a room's door: it goes with that room's poster
+// Concordia's TVs play a single video, in the lobby
+const LOBBY = path.join(OUT, "lobby");
+// A slide without seconds is for the screen at a room's door: it goes with that room's poster
 const POSTERS = path.join(OUT, "affiches");
 const FPS = 30;
 
@@ -20,13 +22,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(POSTERS, { recursive: true });
 
 const slides = await renderSignage();
-const reels = new Set(slides.map((s) => s.reel).filter(Boolean));
-for (const reel of reels) {
-  await encodeReel(
-    reel,
-    slides.filter((s) => s.reel === reel),
-  );
-}
+await encodeLobbyVideo(slides.filter((s) => s.seconds));
 
 async function renderSignage() {
   const vite = await createServer({
@@ -65,17 +61,15 @@ async function screenshotSlides(page) {
   const found = await page.$$eval("[data-slide]", (sections) =>
     sections.map((s) => ({
       id: s.dataset.slide,
-      reel: s.dataset.reel,
-      seconds: Number(s.dataset.seconds),
+      seconds: Number(s.dataset.seconds || 0),
     })),
   );
   const slides = [];
   for (const [index, slide] of found.entries()) {
-    const file = slide.reel
+    const file = slide.seconds
       ? path.join(
-          OUT,
-          slide.reel,
-          `${slide.reel}-${String(index + 1).padStart(2, "0")}-${slide.id}.jpg`,
+          LOBBY,
+          `lobby-${String(index + 1).padStart(2, "0")}-${slide.id}.jpg`,
         )
       : path.join(POSTERS, `${slide.id}.jpg`);
     fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -117,8 +111,8 @@ async function printPosters(page) {
 }
 
 // Plain cuts: the TVs loop the file, so the last slide cuts back to the first
-async function encodeReel(reel, slides) {
-  const mp4 = path.join(OUT, reel, `devmtl-2026-${reel}.mp4`);
+async function encodeLobbyVideo(slides) {
+  const mp4 = path.join(LOBBY, "devmtl-2026-lobby.mp4");
   await run("ffmpeg", [
     "-y",
     "-loglevel",

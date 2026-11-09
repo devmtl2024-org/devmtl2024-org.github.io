@@ -13,7 +13,7 @@ type ScheduleSlideProps = {
 
 export function ScheduleSlide({ id, title, sessions }: ScheduleSlideProps) {
   return (
-    <Slide id={id} reel="infos" seconds={20}>
+    <Slide id={id} seconds={20}>
       <SlideHeader fr={title.fr} en={title.en} />
       <div className="grid grid-cols-[120px_repeat(3,1fr)] gap-x-6 px-[88px] pb-3">
         <div />
