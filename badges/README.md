@@ -8,6 +8,7 @@ that stands at the reception desk.
 python3 -m pip install --target badges/pylib -r badges/requirements.txt # once
 yarn badges                                                             # data.js → out/*.pdf → pour-imprimeur/ + pour-imprimeur-<date>.zip
 python3 badges/verify.py                                                # decodes every QR and checks the printed names (needs Xcode's swiftc)
+python3 badges/checkin.py                                               # participants' reception list → out/liste-accueil.pdf
 (cd badges && python3 -m unittest test_build)
 ```
 
@@ -28,11 +29,17 @@ python3 badges/verify.py                                                # decode
    « Sera présent(e) », export CSV (the page itself shows 25 rows only) into `DATA_DIR/eventbrite/`.
 4. **Corrections** in `DATA_DIR/reponses-multi-billets.csv`
    (`commande,billet,acheteur,prenom,nom,entreprise,poste,courriel,telephone,linkedin`). A row with
-   `billet` (attendee ID) replaces that ticket. Otherwise it fills the order's tickets in order. An empty
-   name prints a blank badge. Settle every case `build.py` reports before printing: duplicate names,
+   `billet` (attendee ID) replaces that ticket. Otherwise it fills the order's tickets in export order,
+   which changes between exports: once printed, pin every row to its `billet`. An empty name prints a
+   blank badge. Settle every case `build.py` reports before printing: duplicate names,
    particles to check by hand (all-caps names are recased), an email typed as a name (the build stops).
 5. `yarn badges`, `verify.py`, then fix `LISEZ-MOI-imprimeur.md` (counts per file) and run
-   `yarn badges` again so the zip carries it.
+   `yarn badges` again so the zip carries it. Keep a copy of the zip's `cocardes/sources/` lists in
+   `DATA_DIR/pour-imprimeur/`: `checkin.py` compares against what was printed.
+6. **Before the event**: put the corrected names in EventBrite (Gérer les commandes › Modifier les
+   informations sur les participants, untick « Envoyer un courriel de confirmation »), so a scanned
+   ticket shows the right person. Then take a fresh export and run `checkin.py`: one line per participant
+   ticket in badge order, with the name EventBrite still shows when it differs, and the blank badges.
 
 Speakers and organizers come from the site's JSON (`src/assets/speakers-<year>/`, `organizers/`). Their
 EventBrite answers override the site data in their vCard.

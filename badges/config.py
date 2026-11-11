@@ -9,6 +9,13 @@ YEAR = 2026
 DATA_DIR = Path(os.environ.get("BADGES_DATA", Path.home() / "Downloads" / "dev-mtl" / "cocardes" / str(YEAR)))
 EVENTBRITE_EXPORT = DATA_DIR / "eventbrite" / "participants-2026-11-10.csv"
 EMAIL_CORRECTIONS = DATA_DIR / "reponses-multi-billets.csv"
+# La liste d'accueil part de l'export le plus récent, pris après avoir corrigé les noms dans EventBrite
+CHECKIN_EXPORT = max((DATA_DIR / "eventbrite").glob("participants-*.csv"))
+# Copie des listes envoyées à l'imprimeur : un nom appris après l'impression aura une cocarde vierge
+PRINTED_LISTS = [
+    DATA_DIR / "pour-imprimeur" / "cocardes" / "sources" / name
+    for name in ("participants.csv", "conferenciers.csv", "organisateurs.csv")
+]
 
 # Order of arrival within each tier, same rule as the website. Logos are in assets/sponsors/, SVG preferred.
 SPONSORS = {

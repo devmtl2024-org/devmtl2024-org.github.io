@@ -17,6 +17,19 @@ yarn signage      # Venue TV slides + room posters (signage/index.html, not on t
 yarn badges       # Printer files: badges with vCard QR + roll-up → badges/pour-imprimeur-<date>.zip (recipe in badges/README.md; attendee data stays outside the repo)
 ```
 
+### Event tooling (not part of the site)
+
+Each folder has a README with the recipe for the next edition. None of them is built or deployed.
+
+| Folder / script                          | What it makes                                                                        |
+| ---------------------------------------- | ------------------------------------------------------------------------------------ |
+| `video/`                                 | Promo reel from the site's content (`yarn video`)                                    |
+| `signage/`                               | Venue TV slides and room posters (`yarn signage`)                                    |
+| `badges/`                                | Printer files: badges with vCard QR and roll-up (`yarn badges`), Python + Playwright |
+| `badges/verify.py`                       | Decodes every badge QR and checks the printed names                                  |
+| `badges/checkin.py`                      | Reception list of participant tickets, in badge order                                |
+| `scripts/export-schedule-to-markdown.js` | `schedule-export-<year>.md` (`yarn export-schedule`)                                 |
+
 **CI runs on every push to main:** typecheck → lint → build → deploy to GitHub Pages.
 There is no staging — pushing to `main` publishes to https://dev-mtl.ca. Always run `yarn typecheck`
 and `yarn lint` before committing.
