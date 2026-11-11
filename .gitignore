@@ -185,3 +185,11 @@ video/out/
 
 # Signage renders
 signage/out/
+
+# Badge renders and attendee data: names and vCards never go in the repo
+badges/data.js
+badges/out/
+badges/pour-imprimeur/
+badges/pour-imprimeur-*.zip
+badges/pylib/
+badges/__pycache__/

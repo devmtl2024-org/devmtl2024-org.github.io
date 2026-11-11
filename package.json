@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "badges": "python3 badges/build.py && node badges/render.mjs && python3 badges/package.py",
     "build": "vite build && cp dist/index.html dist/404.html",
     "dev": "vite",
     "export-schedule": "node scripts/export-schedule-to-markdown.js",

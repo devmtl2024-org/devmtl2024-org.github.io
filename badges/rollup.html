@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Roll-up /dev/mtl 2026</title>
+    <style>
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/inter-latin-wght-normal.woff2") format("woff2");
+        font-weight: 100 900;
+      }
+      /* Police du mot-symbole /dev/mtl, déjà utilisée pour les titres du roll-up 2025 */
+      @font-face {
+        font-family: "Roboto Slab";
+        src: url("assets/roboto-slab-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+
+      :root {
+        --navy: #01055e;
+        --orange: #ff9b62;
+
+        /* Gabarit imprimeur « template roll up mars.pdf » : fichier 33,875 × 81,25 po */
+        --file-w: 2439pt;
+        --file-h: 5850pt;
+        --hidden-top: 45pt;
+        --hidden-side: 18pt;
+        --hidden-bottom: 153pt;
+
+        /* 1 cm imprimé : toutes les zones se règlent en hauteur réelle */
+        --cm: 28.346pt;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #d9dbe3;
+      }
+
+      .stage {
+        display: flex;
+        align-items: flex-start;
+        gap: 200pt;
+        padding: 200pt;
+        width: max-content;
+        zoom: var(--zoom, 1);
+      }
+      body.print .stage {
+        padding: 0;
+      }
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        gap: 70pt;
+      }
+      figcaption {
+        font-size: 90pt;
+        font-weight: 600;
+        color: #4a4d68;
+      }
+      .reference {
+        display: block;
+        margin-top: var(--hidden-top);
+        height: 5652pt;
+      }
+
+      .rollup {
+        position: relative;
+        flex: none;
+        width: var(--file-w);
+        height: var(--file-h);
+        overflow: hidden;
+        background: #fff;
+        color: var(--navy);
+      }
+
+      /* Les bandes débordent dans les zones cachées pour ne laisser aucun liseré blanc */
+      .band {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background: var(--orange);
+      }
+      .band.top {
+        top: 0;
+        height: calc(var(--hidden-top) + 5 * var(--cm));
+      }
+      .band.bottom {
+        bottom: 0;
+        height: calc(var(--hidden-bottom) + 5 * var(--cm));
+      }
+
+      /* Rappel des cocardes, posé sur la bande du bas : très pâle pour habiller sans attirer l'œil */
+      .skyline {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc(var(--hidden-bottom) + 5 * var(--cm) - 1pt);
+        height: 633pt;
+        color: #ffe6d6;
+      }
+      .skyline svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Zone visible une fois le roll-up déroulé : tout le contenu s'y positionne */
+      .visible {
+        position: absolute;
+        left: var(--hidden-side);
+        right: var(--hidden-side);
+        top: var(--hidden-top);
+        bottom: var(--hidden-bottom);
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        top: calc(14 * var(--cm));
+        width: calc(68 * var(--cm));
+        transform: translateX(-50%);
+      }
+      .logo svg {
+        display: block;
+        width: 100%;
+      }
+
+      .sponsors {
+        position: absolute;
+        left: 150pt;
+        right: 150pt;
+        top: calc(39 * var(--cm));
+        height: calc(129 * var(--cm));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .thanks {
+        text-align: center;
+        font-size: 96pt;
+        line-height: 1;
+        font-weight: 700;
+      }
+      .tier-title {
+        display: flex;
+        align-items: center;
+        gap: 80pt;
+        font-family: "Roboto Slab", serif;
+        font-size: 130pt;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--orange);
+      }
+      .tier-title::before,
+      .tier-title::after {
+        content: "";
+        flex: 1;
+        height: 10pt;
+        background: var(--navy);
+      }
+      /* Même écart entre tous les logos d'une rangée, quelle que soit leur largeur */
+      .tier {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: calc(5.5 * var(--cm));
+      }
+      /* Argent plus grands, sur deux lignes (2 puis 1) ; même écart de 6 cm que dans le bloc des Or */
+      [data-rows="argent-2-1"] .tier:not([data-tier="or"]) {
+        column-gap: calc(6 * var(--cm));
+      }
+      [data-rows="argent-2-1"] .tier[data-tier="argent"] {
+        flex-wrap: wrap;
+        row-gap: calc(6 * var(--cm));
+      }
+      /* Les Or empilés. « contents » : chaque logo compte dans la répartition verticale,
+         donc l'écart est le même partout dans la colonne */
+      .tier[data-tier="or"] {
+        display: contents;
+      }
+      .tier[data-tier="or"] > * {
+        align-self: center;
+      }
+      /* En quinconce comme en 2025 : gauche, droite, gauche */
+      [data-gold="quinconce"] .tier[data-tier="or"] > :nth-child(odd),
+      [data-gold="escalier"] .tier[data-tier="or"] > :first-child {
+        align-self: flex-start;
+        margin-left: calc(7 * var(--cm));
+      }
+      [data-gold="quinconce"] .tier[data-tier="or"] > :nth-child(even),
+      [data-gold="escalier"] .tier[data-tier="or"] > :last-child {
+        align-self: flex-end;
+        margin-right: calc(7 * var(--cm));
+      }
+      /* Les trois Or sur une seule rangée, ALTEN vertical au milieu */
+      [data-gold="ligne"] .tier[data-tier="or"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: calc(5 * var(--cm));
+      }
+      /* Les deux logos horizontaux empilés, ALTEN vertical à côté sur toute leur hauteur */
+      [data-gold="bloc"] .tier[data-tier="or"] {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        gap: calc(6 * var(--cm));
+      }
+      .tier img {
+        display: block;
+      }
+      .tier .to-come {
+        display: grid;
+        place-items: center;
+        border: 6pt dashed #b3b6cc;
+        border-radius: 24pt;
+        font-size: 50pt;
+        font-weight: 600;
+        color: #8a8da6;
+      }
+
+      .url {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(187.7 * var(--cm));
+        text-align: center;
+        font-size: 120pt;
+        line-height: 1;
+        font-weight: 800;
+      }
+
+      /* Repères : uniquement sur la maquette */
+      .hidden-zone {
+        position: absolute;
+        background: repeating-linear-gradient(
+          45deg,
+          #ff2bd6aa 0 14pt,
+          #ff2bd633 14pt 28pt
+        );
+      }
+      .scale {
+        position: relative;
+        width: 560pt;
+        height: var(--file-h);
+        font-size: 90pt;
+        font-weight: 600;
+        color: #4a4d68;
+      }
+      .scale .tick {
+        position: absolute;
+        left: 0;
+        display: flex;
+        align-items: center;
+        gap: 30pt;
+        transform: translateY(-50%);
+        white-space: nowrap;
+      }
+      .scale .tick::before {
+        content: "";
+        width: 90pt;
+        height: 6pt;
+        background: currentColor;
+      }
+      .scale .tick.eye {
+        color: #d6336c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage" id="stage"></div>
+
+    <script src="data.js"></script>
+    <script>
+      const TIERS = [
+        { key: "or", label: "/or", area: 430000, maxW: 1077, maxH: 840 },
+        { key: "argent", label: "/argent", area: 100000, maxW: 595, maxH: 200 },
+        { key: "bronze", label: "/bronze", area: 61000, maxW: 482, maxH: 160 },
+      ];
+
+      // Hauteur visible du visuel, d'après le gabarit imprimeur
+      const VISIBLE_HEIGHT_CM = 199.4;
+      const VISIBLE_HEIGHT_PT = 5652;
+      const HIDDEN_TOP_PT = 45;
+      const PT_PER_CM = 72 / 2.54;
+
+      const GOLD_LAYOUTS = {
+        // Retenue le 26 octobre, une fois le logo d'ALTEN devenu vertical : les 3 Or se voient d'un coup
+        bloc: "en bloc, ALTEN à côté",
+        escalier: "en escalier, écarts optiques égalisés",
+        ligne: "sur une ligne",
+        quinconce: "en quinconce",
+        centre: "alignés au centre",
+      };
+      // Le logo vertical d'ALTEN (26 oct.) a relancé la question : on compare ces trois-là
+      const COMPARED_LAYOUTS = ["bloc", "escalier", "ligne"];
+
+      // Taille des Argent et des Bronze. « argent-2-1 », retenue le 26 octobre : Argent nettement plus
+      // grands que les Bronze, trop larges pour tenir à trois sur une ligne, donc 2 puis 1
+      const ROW_SIZING = {
+        actuel: {
+          argent: { area: 100000, maxW: 595, maxH: 200 },
+          bronze: { area: 61000, maxW: 482, maxH: 160 },
+        },
+        "argent-2-1": {
+          argent: { area: 170000, maxW: 1000, maxH: 300 },
+          bronze: { area: 73000, maxW: 553, maxH: 190 },
+        },
+      };
+      const ROW_LABELS = {
+        actuel: "Argent et Bronze actuels",
+        "argent-2-1":
+          "Argent en 2 + 1, plus grands ; Bronze un peu plus grands",
+      };
+      const STACKED_LAYOUTS = ["escalier", "quinconce", "centre"];
+
+      // Taille des Or selon la disposition ; en « bloc », ALTEN prend la hauteur de la colonne voisine
+      const GOLD_SIZING = {
+        stacked: { area: 430000, maxW: 1077, maxH: 840 },
+        ligne: { area: 192800, maxW: 850, maxH: 595 },
+        bloc: { area: 377650, maxW: 1200, maxH: 500, gapPt: 6 * PT_PER_CM },
+      };
+
+      const params = new URLSearchParams(location.search);
+      const isPrint = params.has("print");
+
+      main();
+
+      async function main() {
+        document.body.classList.toggle("print", isPrint);
+        if (params.has("zoom")) {
+          document.documentElement.style.setProperty(
+            "--zoom",
+            params.get("zoom"),
+          );
+        }
+
+        // ?gold=… et ?rows=… choisissent une disposition ; sans paramètre, la maquette compare les rangées
+        const variants =
+          params.has("gold") || params.has("rows")
+            ? [
+                {
+                  gold: params.get("gold") ?? "bloc",
+                  rows: params.get("rows") ?? "argent-2-1",
+                },
+              ]
+            : [
+                { gold: "bloc", rows: "actuel" },
+                { gold: "bloc", rows: "argent-2-1" },
+              ];
+
+        document.getElementById("stage").innerHTML = `
+          ${variants.map(rollup).join("")}
+          ${isPrint ? "" : scale()}`;
+
+        await document.fonts.ready;
+        await Promise.all(
+          [...document.images].map((image) => image.decode().catch(() => {})),
+        );
+        document.querySelectorAll(".rollup").forEach(equalizeGoldGaps);
+        document.body.dataset.ready = "true";
+      }
+
+      // Empilés, les Or sont espacés à la boîte, mais l'œil mesure d'encre à encre là où les logos
+      // se superposent : on décale celui du milieu pour que les deux écarts visibles soient égaux
+      function equalizeGoldGaps(rollup) {
+        if (!STACKED_LAYOUTS.includes(rollup.dataset.gold)) {
+          return;
+        }
+        const logos = [...rollup.querySelectorAll(".tier[data-tier=or] > img")];
+        if (logos.length !== 3) {
+          return;
+        }
+        const [upper, middle, lower] = logos;
+        const scale =
+          middle.getBoundingClientRect().height / middle.offsetHeight;
+        const shift =
+          (visibleGap(middle, lower) - visibleGap(upper, middle)) / 2;
+        middle.style.translate = `0 ${shift / scale}px`;
+        const toCm = (px) =>
+          Math.round((((px / scale) * 0.75) / PT_PER_CM) * 10) / 10;
+        console.log(
+          `Or ${rollup.dataset.gold} : écarts visibles ${toCm(visibleGap(upper, middle))} et ${toCm(visibleGap(middle, lower))} cm`,
+        );
+      }
+
+      function visibleGap(upper, lower) {
+        const edges = (image, side) => {
+          const box = image.getBoundingClientRect();
+          const { inkProfile } = DATA.sponsors.or.find(
+            ({ src }) => image.getAttribute("src") === src,
+          );
+          const slices = inkProfile[side];
+          return slices.map((fraction, index) => ({
+            left: box.left + (index * box.width) / slices.length,
+            right: box.left + ((index + 1) * box.width) / slices.length,
+            y: fraction === null ? null : box.top + fraction * box.height,
+          }));
+        };
+        const bottoms = edges(upper, "bottom").filter(({ y }) => y !== null);
+        const tops = edges(lower, "top").filter(({ y }) => y !== null);
+        const gaps = bottoms.flatMap((above) =>
+          tops
+            .filter(
+              (below) => below.left < above.right && below.right > above.left,
+            )
+            .map((below) => below.y - above.y),
+        );
+        return gaps.length
+          ? Math.min(...gaps)
+          : lower.getBoundingClientRect().top -
+              upper.getBoundingClientRect().bottom;
+      }
+
+      function rollup({ gold: goldLayout, rows }) {
+        return `
+          <figure>
+            <div class="rollup" data-gold="${goldLayout}" data-rows="${rows}">
+              <div class="band top"></div>
+              <div class="band bottom"></div>
+              <div class="skyline">${DATA.skylineSvg}</div>
+              <div class="visible">
+                <div class="logo">${DATA.officialColourLogoSvg}</div>
+                <div class="sponsors">
+                  <div class="thanks">Merci à nos commanditaires</div>
+                  ${TIERS.map((config) => tier(config, goldLayout, rows)).join("")}
+                </div>
+                <div class="url">dev-mtl.ca</div>
+              </div>
+              ${isPrint ? "" : hiddenZones()}
+            </div>
+            ${isPrint ? "" : `<figcaption>${ROW_LABELS[rows]}</figcaption>`}
+          </figure>`;
+      }
+
+      // Même surface visuelle pour chaque logo d'un palier, quel que soit son ratio
+      function tier(config, goldLayout, rows) {
+        const { key, label } = config;
+        const sponsors = DATA.sponsors[key];
+        const isGold = key === "or";
+        const sizing = !isGold
+          ? ROW_SIZING[rows][key]
+          : GOLD_SIZING[
+              STACKED_LAYOUTS.includes(goldLayout) ? "stacked" : goldLayout
+            ];
+        const sizes =
+          isGold && goldLayout === "bloc"
+            ? blocSizes(sponsors, sizing)
+            : sponsors.map((sponsor) => logoSize(sponsor, sizing));
+        // Aligne les logos d'une rangée sur leur masse visuelle, pas sur leur boîte
+        const alignsOnInk = !isGold || goldLayout === "ligne";
+        const logos = sponsors.map(({ src, inkCentre }, index) => {
+          const { width, height, placement = "" } = sizes[index];
+          const opticalShift = alignsOnInk ? (0.5 - inkCentre) * height : 0;
+          const size = `width: ${width}pt; height: ${height}pt; transform: translateY(${opticalShift}pt); ${placement}`;
+          return src
+            ? `<img src="${src}" style="${size}" />`
+            : `<div class="to-come" style="${size}">3ᵉ Argent</div>`;
+        });
+        return `
+          <div class="tier-title" data-tier="${key}">${label}</div>
+          <div class="tier" data-tier="${key}">${logos.join("")}</div>`;
+      }
+
+      function logoSize({ ratio }, { area, maxW, maxH }) {
+        const idealHeight = Math.min(maxH, Math.sqrt(area / ratio));
+        const width = Math.min(maxW, idealHeight * ratio);
+        return { width, height: width / ratio };
+      }
+
+      // Logos horizontaux empilés en colonne 1, le logo vertical en colonne 2 sur toute leur hauteur
+      function blocSizes(sponsors, sizing) {
+        const horizontal = sponsors.filter(({ ratio }) => ratio >= 1);
+        const columnHeight =
+          horizontal.reduce(
+            (sum, sponsor) => sum + logoSize(sponsor, sizing).height,
+            0,
+          ) +
+          (horizontal.length - 1) * sizing.gapPt;
+        let row = 0;
+        return sponsors.map((sponsor) => {
+          if (sponsor.ratio < 1) {
+            return {
+              width: columnHeight * sponsor.ratio,
+              height: columnHeight,
+              placement: `grid-column: 2; grid-row: 1 / span ${horizontal.length}`,
+            };
+          }
+          row += 1;
+          return {
+            ...logoSize(sponsor, sizing),
+            placement: `grid-column: 1; grid-row: ${row}`,
+          };
+        });
+      }
+
+      function reference() {
+        return `
+          <figure>
+            <img class="reference" src="assets/ref-rollup-2025.png" />
+            <figcaption>2025 — référence</figcaption>
+          </figure>`;
+      }
+
+      function hiddenZones() {
+        return `
+          <div class="hidden-zone" style="left: 0; right: 0; top: 0; height: var(--hidden-top)"></div>
+          <div class="hidden-zone" style="left: 0; right: 0; bottom: 0; height: var(--hidden-bottom)"></div>
+          <div class="hidden-zone" style="left: 0; top: 0; bottom: 0; width: var(--hidden-side)"></div>
+          <div class="hidden-zone" style="right: 0; top: 0; bottom: 0; width: var(--hidden-side)"></div>`;
+      }
+
+      function scale() {
+        const top = (cmFromFloor) =>
+          HIDDEN_TOP_PT +
+          VISIBLE_HEIGHT_PT * (1 - cmFromFloor / VISIBLE_HEIGHT_CM);
+        const ticks = [50, 100, 150].map(
+          (cm) => `<div class="tick" style="top: ${top(cm)}pt">${cm} cm</div>`,
+        );
+        return `
+          <div class="scale">
+            ${ticks.join("")}
+            <div class="tick eye" style="top: ${top(165)}pt">regard</div>
+          </div>`;
+      }
+    </script>
+  </body>
+</html>

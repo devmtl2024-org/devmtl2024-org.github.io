@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cocardes /dev/mtl 2026</title>
+    <style>
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/inter-latin-wght-normal.woff2") format("woff2");
+        font-weight: 100 900;
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+          U+FFFD;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/inter-latin-ext-wght-normal.woff2") format("woff2");
+        font-weight: 100 900;
+        unicode-range:
+          U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      :root {
+        --navy: #01055e;
+        --navy-dark: #0b0d32;
+        --navy-light: #2f338c;
+        --orange: #ff9b62;
+        --cream: #fbfaf5;
+
+        /* 4 × 6 po, fond perdu 0,125 po : même gabarit que 2025 */
+        --trim-w: 288pt;
+        --trim-h: 432pt;
+        --bleed: 9pt;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #d9dbe3;
+        color: var(--navy-dark);
+      }
+
+      .sheet {
+        display: flex;
+        gap: 28pt;
+        padding: 28pt;
+        width: max-content;
+      }
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        gap: 8pt;
+      }
+
+      figcaption {
+        font-size: 8pt;
+        font-weight: 600;
+        color: #4a4d68;
+      }
+
+      /* Le .badge couvre le fond perdu ; .trim est la zone finie, dans laquelle tout est positionné */
+      .badge {
+        position: relative;
+        width: calc(var(--trim-w) + 2 * var(--bleed));
+        height: calc(var(--trim-h) + 2 * var(--bleed));
+        overflow: hidden;
+        background: var(--navy);
+        --role: var(--orange);
+      }
+      .badge[data-role="speaker"] {
+        --role: #ff6f9c;
+      }
+      .badge[data-role="equipe"] {
+        --role: #37d6b5;
+      }
+      .badge[data-role="commanditaire"] {
+        --role: #ffd447;
+      }
+
+      /* Cocarde de kiosque, non nominative : le logo du commanditaire tient lieu de nom */
+      .booth {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .booth img {
+        display: block;
+      }
+
+      .trim {
+        position: absolute;
+        inset: var(--bleed);
+      }
+
+      .sky {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(var(--bleed) + 290pt);
+        bottom: 0;
+        background: var(--role);
+      }
+      .skyline {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 79.4pt;
+        top: calc(var(--bleed) + 328.6pt);
+        background: var(--navy);
+        -webkit-mask: var(--skyline-mask) center / 100% 100% no-repeat;
+        mask: var(--skyline-mask) center / 100% 100% no-repeat;
+      }
+      .ground {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(var(--bleed) + 407.5pt);
+        bottom: 0;
+        background: var(--navy);
+      }
+      .ground-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 411pt;
+        text-align: center;
+        font-size: 7.5pt;
+        line-height: 12pt;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--role);
+      }
+
+      .logo {
+        position: absolute;
+        top: 40pt;
+        left: 58pt;
+        width: 172pt;
+        color: #fff;
+      }
+      .logo svg {
+        display: block;
+        width: 100%;
+      }
+
+      .card {
+        position: absolute;
+        left: 14pt;
+        right: 14pt;
+        top: 92pt;
+        height: 234pt;
+        border-radius: 12pt;
+        background: var(--cream);
+        padding: 16pt;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Recto */
+      .identity {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 0;
+      }
+      .first-name {
+        font-size: 54pt;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+        color: var(--navy);
+      }
+      .card.with-contact .first-name {
+        font-size: 48pt;
+      }
+      .last-name {
+        margin-top: 4pt;
+        font-size: 22pt;
+        line-height: 1.1;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+      .accent {
+        flex: none;
+        width: 26pt;
+        height: 4pt;
+        margin: 9pt 0 7pt;
+        border-radius: 2pt;
+        background: var(--role);
+      }
+      .company {
+        font-size: 10pt;
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--navy-light);
+      }
+
+      .contact {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 10pt;
+        margin-top: 8pt;
+      }
+      .contact-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+      }
+      .contact .accent {
+        margin-top: 2pt;
+      }
+      .contact-label {
+        font-size: 7pt;
+        line-height: 1.35;
+        font-weight: 600;
+        color: var(--navy-light);
+        padding-bottom: 2pt;
+      }
+      .contact-label b {
+        display: block;
+        font-size: 8.5pt;
+        font-weight: 800;
+        color: var(--navy);
+      }
+      .qr {
+        flex: none;
+        width: 96pt;
+        height: 96pt;
+        background: #fff;
+        border-radius: 5pt;
+      }
+      .qr svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Verso */
+      .card.sponsors {
+        background: #fff;
+        padding: 12pt 14pt;
+        justify-content: space-between;
+      }
+      .thanks {
+        font-size: 6.5pt;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--navy);
+      }
+      .tier {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: 16pt;
+        row-gap: 9pt;
+      }
+      .tier[data-tier="argent"] {
+        column-gap: 12pt;
+        flex-wrap: nowrap;
+      }
+      .tier .to-come {
+        display: grid;
+        place-items: center;
+        border: 0.75pt dashed #b3b6cc;
+        border-radius: 3pt;
+        font-size: 5.5pt;
+        font-weight: 600;
+        color: #8a8da6;
+      }
+      .tier img {
+        display: block;
+      }
+      .rule {
+        display: flex;
+        align-items: center;
+        gap: 6pt;
+        font-size: 5.5pt;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #8a8da6;
+      }
+      .rule::before,
+      .rule::after {
+        content: "";
+        flex: 1;
+        height: 0.5pt;
+        background: #d5d7e3;
+      }
+
+      /* Une cocarde par page, sans rien autour : pour page.pdf() au format fond perdu */
+      body.print {
+        background: none;
+      }
+      body.print .sheet {
+        display: block;
+        padding: 0;
+      }
+      body.print figure {
+        display: block;
+        break-after: page;
+      }
+      body.print figcaption {
+        display: none;
+      }
+
+      /* Repères : uniquement sur la maquette, jamais dans le fichier imprimeur */
+      .guides .trim-line {
+        position: absolute;
+        inset: var(--bleed);
+        outline: 0.5pt dashed #ff2bd6;
+      }
+      .guides .safe-line {
+        position: absolute;
+        inset: calc(var(--bleed) + 9pt);
+        outline: 0.5pt dotted #19e3ff;
+      }
+      .hole {
+        position: absolute;
+        top: 18.5pt;
+        width: 12.5pt;
+        height: 12.5pt;
+        border-radius: 50%;
+        background: #d9dbe3;
+        box-shadow: inset 0 0.6pt 1.2pt rgba(0, 0, 0, 0.45);
+      }
+      .hole.left {
+        left: 18.5pt;
+      }
+      .hole.right {
+        left: 255.77pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet" id="sheet"></div>
+
+    <script src="data.js"></script>
+    <script>
+      const TIERS = [
+        { key: "or", label: "Or", area: 4400, maxW: 106, maxH: 72 },
+        { key: "argent", label: "Argent", area: 1500, maxW: 68, maxH: 26 },
+      ];
+
+      const QR_SIZE_PT = 96;
+      const QR_QUIET_MODULES = 2;
+
+      const ROLE_LABELS = {
+        participant: "Participant·e",
+        speaker: "Conférencier·ère",
+        equipe: "Équipe /dev/mtl",
+        commanditaire: "Commanditaire",
+      };
+
+      // Une cocarde de kiosque par commanditaire Or et Argent
+      const BOOTH_TIERS = ["or", "argent"];
+      const BOOTH_LOGO = { area: 13000, maxW: 200, maxH: 140 };
+
+      const params = new URLSearchParams(location.search);
+      const showGuides = params.has("guides");
+      const only = params.get("only")?.split(",").map(Number);
+
+      main();
+
+      async function main() {
+        const logoSvg = DATA.logoSvg;
+        document.documentElement.style.setProperty(
+          "--skyline-mask",
+          `url("${DATA.skylineMask}")`,
+        );
+        const sheet = document.getElementById("sheet");
+
+        const rectoFigure = (attendee) => ({
+          caption: `Recto — ${rectoVariant(attendee)} (${attendee.role})`,
+          html: recto(attendee, logoSvg),
+          role: attendee.role,
+        });
+        const versoFigure = {
+          caption: "Verso — commanditaires",
+          html: verso(logoSvg),
+          role: "participant",
+        };
+        const blank = (role) => ({
+          firstName: "",
+          lastName: "",
+          company: "",
+          role,
+          qr: null,
+        });
+        const boothSponsors = BOOTH_TIERS.flatMap(
+          (tier) => DATA.sponsors[tier],
+        );
+        const boothFigure = (sponsor) => ({
+          caption: `Recto — kiosque ${sponsor.name}`,
+          html: boothRecto(sponsor, logoSvg),
+          role: "commanditaire",
+        });
+
+        const sets = {
+          maquette: [
+            ...DATA.attendees.map(rectoFigure),
+            boothFigure(boothSponsors[0]),
+            versoFigure,
+          ],
+          exemples: DATA.attendees
+            .filter((attendee) => !isBlank(attendee))
+            .map(rectoFigure),
+          // Un fichier recto verso par type de cocarde, pour l'imprimeur
+          participant: [rectoFigure(blank("participant")), versoFigure],
+          speaker: [rectoFigure(blank("speaker")), versoFigure],
+          equipe: [rectoFigure(blank("equipe")), versoFigure],
+          commanditaires: boothSponsors.flatMap((sponsor) => [
+            boothFigure(sponsor),
+            versoFigure,
+          ]),
+          // Listes nominatives connues d'avance, fusionnées de notre côté
+          conferenciers: DATA.people.speakers.flatMap((person) => [
+            rectoFigure(person),
+            versoFigure,
+          ]),
+          organisateurs: DATA.people.organizers.flatMap((person) => [
+            rectoFigure(person),
+            versoFigure,
+          ]),
+          participants: DATA.people.participants.flatMap((person) => [
+            rectoFigure(person),
+            versoFigure,
+          ]),
+        };
+        document.body.classList.toggle("print", params.has("print"));
+
+        sheet.innerHTML = sets[params.get("set") ?? "maquette"]
+          .filter((_, index) => !only || only.includes(index))
+          .map(
+            ({ caption, html, role }) => `
+              <figure>
+                <div class="badge ${showGuides ? "guides" : ""}" data-role="${role}">${html}${overlay()}</div>
+                <figcaption>${caption}</figcaption>
+              </figure>`,
+          )
+          .join("");
+
+        await document.fonts.ready;
+        document
+          .querySelectorAll(".first-name, .last-name")
+          .forEach(shrinkToFit);
+        document.body.dataset.ready = "true";
+      }
+
+      function rectoVariant(attendee) {
+        if (isBlank(attendee)) {
+          return "vierge, derni\xE8re minute";
+        }
+        return attendee.qr ? "avec vCard" : "sans vCard";
+      }
+
+      function isBlank(attendee) {
+        return !attendee.firstName && !attendee.lastName;
+      }
+
+      function recto(attendee, logoSvg) {
+        const contact = attendee.qr
+          ? `<div class="contact">
+               <div class="contact-text">
+                 <div>${company(attendee)}</div>
+                 <div class="contact-label"><b>Restons en contact</b>Scanne pour m'ajouter à tes contacts</div>
+               </div>
+               <div class="qr" style="padding: ${(QR_SIZE_PT * QR_QUIET_MODULES) / (attendee.qrModules + 2 * QR_QUIET_MODULES)}pt">${attendee.qr}</div>
+             </div>`
+          : "";
+
+        return `
+          ${backdrop(ROLE_LABELS[attendee.role])}
+          <div class="trim">
+            <div class="logo">${logoSvg}</div>
+            <div class="card ${attendee.qr ? "with-contact" : ""}">
+              ${isBlank(attendee) ? "" : identity(attendee)}
+              ${contact}
+            </div>
+          </div>`;
+      }
+
+      function identity(attendee) {
+        return `
+          <div class="identity">
+            <div class="first-name">${attendee.firstName}</div>
+            <div class="last-name">${attendee.lastName}</div>
+            ${attendee.qr ? "" : company(attendee)}
+          </div>`;
+      }
+
+      function company(attendee) {
+        if (!attendee.company) {
+          return "";
+        }
+        return `<div class="accent"></div><div class="company">${attendee.company}</div>`;
+      }
+
+      function boothRecto(sponsor, logoSvg) {
+        return `
+          ${backdrop(ROLE_LABELS.commanditaire)}
+          <div class="trim">
+            <div class="logo">${logoSvg}</div>
+            <div class="card"><div class="booth">${sponsorLogo(sponsor, BOOTH_LOGO)}</div></div>
+          </div>`;
+      }
+
+      function verso(logoSvg) {
+        const tiers = TIERS.map(
+          (tier) => `
+            <div class="rule">${tier.label}</div>
+            <div class="tier" data-tier="${tier.key}">
+              ${DATA.sponsors[tier.key].map((sponsor) => sponsorLogo(sponsor, tier)).join("")}
+            </div>`,
+        ).join("");
+
+        return `
+          ${backdrop("dev-mtl.ca · 27 nov. 2026")}
+          <div class="trim">
+            <div class="logo">${logoSvg}</div>
+            <div class="card sponsors">
+              <div class="thanks">Merci à nos commanditaires</div>
+              ${tiers}
+            </div>
+          </div>`;
+      }
+
+      // Même surface visuelle pour chaque logo d'un palier, quel que soit son ratio
+      function sponsorLogo({ src, ratio }, { area, maxW, maxH }) {
+        const idealHeight = Math.min(maxH, Math.sqrt(area / ratio));
+        const width = Math.min(maxW, idealHeight * ratio);
+        const size = `width: ${width}pt; height: ${width / ratio}pt`;
+        if (!src) {
+          return `<div class="to-come" style="${size}">3ᵉ Argent</div>`;
+        }
+        return `<img src="${src}" style="${size}" />`;
+      }
+
+      function backdrop(groundLabel) {
+        return `
+          <div class="sky"></div>
+          <div class="skyline"></div>
+          <div class="ground"></div>
+          <div class="trim"><div class="ground-label">${groundLabel}</div></div>`;
+      }
+
+      function overlay() {
+        if (!showGuides) {
+          return "";
+        }
+        return `
+          <div class="trim"><div class="hole left"></div><div class="hole right"></div></div>
+          <div class="trim-line"></div>
+          <div class="safe-line"></div>`;
+      }
+
+      function shrinkToFit(element) {
+        const available = element.parentElement.clientWidth;
+        const initial = parseFloat(getComputedStyle(element).fontSize);
+        element.style.width = "max-content";
+        const natural = element.getBoundingClientRect().width;
+        element.style.width = "";
+        if (natural > available) {
+          element.style.fontSize = `${(initial * available) / natural}px`;
+        }
+      }
+    </script>
+  </body>
+</html>

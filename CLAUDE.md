@@ -14,6 +14,7 @@ yarn format-check # Prettier --list-different
 yarn test         # Vitest (happy-dom environment)
 yarn video        # Promo reel → video/out/ (~25 min; recipe in .claude/skills/promo-video)
 yarn signage      # Venue TV slides + room posters (signage/index.html, not on the site) → signage/out/{lobby,affiches}/ (.jpg per slide, 1 muted lobby .mp4, 3 11x17 .pdf)
+yarn badges       # Printer files: badges with vCard QR + roll-up → badges/pour-imprimeur-<date>.zip (recipe in badges/README.md; attendee data stays outside the repo)
 ```
 
 **CI runs on every push to main:** typecheck → lint → build → deploy to GitHub Pages.

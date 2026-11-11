@@ -1,0 +1,5 @@
+PyMuPDF==1.25.0
+numpy==2.4.6
+pillow==11.0.0
+potracer==0.0.4
+segno==1.6.6
