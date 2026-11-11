@@ -52,6 +52,9 @@ PAGE = fitz.paper_rect("letter")
 MARGIN = 36
 ROW_HEIGHT = 25
 FONT_SIZE = 11
+BOLD = fitz.Font("hebo")
+# Titre de page et noms des colonnes
+HEADER = 44
 # Nom, billet au nom de, commande : sur toute la largeur utile, après la case à cocher
 COLUMNS = ((MARGIN + 26, "Nom"), (MARGIN + 290, "Billet au nom de"), (PAGE.width - MARGIN - 90, "Commande"))
 
@@ -63,14 +66,12 @@ def write_pdf(path, named, unnamed):
         ("Billets sans nom : cocarde vierge, nom écrit sur place", unnamed, lambda row: ("", "", "")),
     ]
     for title, rows, name in sections:
-        rows_per_page = int((PAGE.height - 2 * MARGIN - 60) // ROW_HEIGHT)
+        rows_per_page = int((PAGE.height - 2 * MARGIN - HEADER) // ROW_HEIGHT)
         for start in range(0, len(rows), rows_per_page):
             page = document.new_page(width=PAGE.width, height=PAGE.height)
             heading = title if start == 0 else f"{title} (suite)"
             page.insert_text((MARGIN, MARGIN + 14), heading, fontname="hebo", fontsize=15)
-            if start == 0 and rows is named:
-                page.insert_text((MARGIN, MARGIN + 30), NOTE, fontname="helv", fontsize=9)
-            y = MARGIN + 60
+            y = MARGIN + HEADER
             for x, label in COLUMNS:
                 page.insert_text((x, y - 8), label, fontname="hebo", fontsize=FONT_SIZE)
             line(page, y)
@@ -80,15 +81,14 @@ def write_pdf(path, named, unnamed):
                 page.draw_rect(fitz.Rect(MARGIN + 2, baseline - 10, MARGIN + 13, baseline + 1), color=(0, 0, 0), width=0.8)
                 last_name, first_name, note = name(row)
                 x = COLUMNS[0][0]
-                x += page.insert_text((x, baseline), last_name, fontname="hebo", fontsize=FONT_SIZE) and fitz.get_text_length(last_name, "hebo", FONT_SIZE)
+                page.insert_text((x, baseline), last_name, fontname="hebo", fontsize=FONT_SIZE)
+                # fitz.get_text_length sous-estime les capitales accentuées (« SÉGUIN ») : la police mesure juste
+                x += BOLD.text_length(last_name, FONT_SIZE)
                 page.insert_text((x, baseline), first_name + note, fontname="helv", fontsize=FONT_SIZE)
                 page.insert_text((COLUMNS[1][0], baseline), row["holder"], fontname="helv", fontsize=FONT_SIZE)
                 page.insert_text((COLUMNS[2][0], baseline), row["order"], fontname="helv", fontsize=FONT_SIZE)
                 line(page, y)
     document.save(path)
-
-
-NOTE = "Même ordre que la pile de cocardes. « Billet au nom de » : le nom que montre l'appli EventBrite au scan, quand ce n'est pas la personne."
 
 
 def line(page, y):
