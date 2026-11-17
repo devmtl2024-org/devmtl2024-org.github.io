@@ -38,11 +38,14 @@ function Venue() {
               {t({ fr: "Adresse", en: "Address" })}
             </h4>
             <p className="text-lg">
-              Suite GM-400
+              {t({
+                fr: "Pavillon John Molson (MB), 9e étage",
+                en: "John Molson Building (MB), 9th floor",
+              })}
               <br />
-              1550 De Maisonneuve Blvd W.
+              {t({ fr: "1450, rue Guy", en: "1450 Guy St." })}
               <br />
-              Montreal, QC H3G 1N1
+              Montréal, QC H3H 0A1
             </p>
           </div>
 
