@@ -7,7 +7,7 @@ YEAR = 2026
 
 # Hors du dépôt : l'export EventBrite et les corrections reçues par courriel
 DATA_DIR = Path(os.environ.get("BADGES_DATA", Path.home() / "Downloads" / "dev-mtl" / "cocardes" / str(YEAR)))
-EVENTBRITE_EXPORT = DATA_DIR / "eventbrite" / "participants-2026-11-10.csv"
+EVENTBRITE_EXPORT = DATA_DIR / "eventbrite" / "participants-2026-11-17.csv"
 EMAIL_CORRECTIONS = DATA_DIR / "reponses-multi-billets.csv"
 # La liste d'accueil part de l'export le plus récent, pris après avoir corrigé les noms dans EventBrite
 CHECKIN_EXPORT = max((DATA_DIR / "eventbrite").glob("participants-*.csv"))
@@ -32,6 +32,7 @@ SPEAKER_COMPANIES = {
     "ayrat-khayretdinov": "Google",
     "carl-lapierre": "Osedea",
     "damien-soichet": "Soich Inc",
+    "david-guida": "Microsoft",
     "dina-kada": "Bell Mobility",
     "dwayne-mcdaniel": "GitGuardian",
     "francois-cailleau": "Select Etoile",
@@ -41,7 +42,6 @@ SPEAKER_COMPANIES = {
     "margaret-gu": "Elastic",
     "mathieu-benoit": "Docker",
     "nurul-islam": "QuickSeries Publishing Inc.",
-    "samantha-st-louis": "Atmosera",
     "sebastien-castiel": "Vasco",
     "stefania-pecore": "Women Techmakers Montreal",
     "thomas-salmon": "Osedea",
