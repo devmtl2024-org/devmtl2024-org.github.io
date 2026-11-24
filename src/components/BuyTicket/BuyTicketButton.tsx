@@ -1,7 +1,14 @@
 import { useTranslation } from "@/hooks/useTranslation";
+import { NEWSLETTER_ANCHOR } from "../Newsletter/NewsletterSignup";
 import { ARE_TICKETS_AVAILABLE } from "./BuyTicket";
 
-export default function BuyTicketButton({ className }: { className?: string }) {
+export default function BuyTicketButton({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
   const { t } = useTranslation();
 
   return ARE_TICKETS_AVAILABLE ? (
@@ -16,8 +23,12 @@ export default function BuyTicketButton({ className }: { className?: string }) {
       </button>
     </a>
   ) : (
-    <button className={`px-8 py-4 bg-secondary text-white font-medium rounded-md shadow-md uppercase opacity-80 cursor-default ${className ?? ""}`}>
-      {t({ fr: "Billets disponibles bientôt", en: "Tickets available soon" })}
-    </button>
+    <a
+      href={`#${NEWSLETTER_ANCHOR}`}
+      onClick={onClick}
+      className={`inline-block whitespace-nowrap px-8 py-4 bg-secondary text-white font-medium rounded-md shadow-md hover:bg-secondary-dark uppercase ${className ?? ""}`}
+    >
+      {t({ fr: "Rester informé", en: "Stay in the loop" })}
+    </a>
   );
 }

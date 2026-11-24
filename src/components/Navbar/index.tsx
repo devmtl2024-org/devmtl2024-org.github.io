@@ -223,7 +223,7 @@ function Navbar() {
               <div className="hover:text-secondary">
                 <LanguageSwitcher />
               </div>
-              <BuyTicketButton />
+              <BuyTicketButton onClick={() => setToggleMenu(false)} />
             </div>
           </div>
         </div>
