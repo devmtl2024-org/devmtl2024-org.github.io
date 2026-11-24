@@ -156,8 +156,8 @@ export default function ConductPage() {
 
           <p className="text-gray-600 leading-relaxed mb-6">
             {t({
-              fr: "Afin de faire de /dev/mtl 2024 une excellente expérience pour tous, ne photographiez, ne filmez ou n'enregistrez personne à /dev/mtl sans leur permission expresse, demandée à l'avance. Si quelqu'un ne veut pas être photographié, filmé ou enregistré, veuillez respecter ses souhaits.",
-              en: "In order to make /dev/mtl 2024 a great experience for everyone, do not photograph, video, or audio record anyone at /dev/mtl without their express permission, sought in advance. If someone does not want to be photographed, video or audio recorded, please respect their wishes.",
+              fr: "Afin de faire de /dev/mtl une excellente expérience pour tous, ne photographiez, ne filmez ou n'enregistrez personne à /dev/mtl sans leur permission expresse, demandée à l'avance. Si quelqu'un ne veut pas être photographié, filmé ou enregistré, veuillez respecter ses souhaits.",
+              en: "In order to make /dev/mtl a great experience for everyone, do not photograph, video, or audio record anyone at /dev/mtl without their express permission, sought in advance. If someone does not want to be photographed, video or audio recorded, please respect their wishes.",
             })}
           </p>
 
