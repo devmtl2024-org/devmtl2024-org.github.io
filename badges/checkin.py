@@ -23,8 +23,9 @@ OUT = HERE / "out"
 
 def main():
     tickets = {ticket["id"]: ticket for ticket in eventbrite_tickets(CHECKIN_EXPORT)}
+    allergies = allergies_by_ticket(CHECKIN_EXPORT)
     printed = {sort_key(f"{row['prenom']} {row['nom']}") for path in PRINTED_LISTS for row in csv.DictReader(path.open(encoding="utf-8"))}
-    rows = [row(badge, tickets[badge["ticket"]], printed) for badge in participants(CHECKIN_EXPORT, EMAIL_CORRECTIONS)]
+    rows = [row(badge, tickets[badge["ticket"]], printed, allergies) for badge in participants(CHECKIN_EXPORT, EMAIL_CORRECTIONS)]
 
     named = sorted((row for row in rows if row["lastName"]), key=lambda row: (sort_key(row["lastName"]), sort_key(row["firstName"])))
     unnamed = sorted((row for row in rows if not row["lastName"]), key=lambda row: sort_key(row["holder"]))
@@ -33,7 +34,14 @@ def main():
     print(f"{len(named)} participants nommés, {len(unnamed)} billets sans nom → {OUT / 'liste-accueil.pdf'}")
 
 
-def row(badge, ticket, printed):
+# Le traiteur sert le dîner : l'accueil prévient les personnes allergiques
+def allergies_by_ticket(export_path):
+    rows = csv.DictReader(export_path.open(encoding="utf-8-sig"))
+    answer = lambda row, prefix: next((value.strip() for column, value in row.items() if column.strip().startswith(prefix)), "")
+    return {answer(row, "Numéro de participant"): answer(row, "Précise (allergie") for row in rows}
+
+
+def row(badge, ticket, printed, allergies):
     holder = f"{ticket['holderFirstName']} {ticket['holderLastName']}"
     name = f"{badge['firstName']} {badge['lastName']}".strip()
     return {
@@ -43,6 +51,7 @@ def row(badge, ticket, printed):
         # Ce qu'affiche l'appli EventBrite au scan, quand ce n'est pas la personne
         "holder": "" if sort_key(holder) == sort_key(name) else holder,
         "order": ticket["order"],
+        "allergy": allergies.get(ticket["id"], ""),
     }
 
 
@@ -63,7 +72,7 @@ def write_pdf(path, named, unnamed):
     document = fitz.open()
     sections = [
         ("/dev/mtl : liste d'accueil des participants", named, name_cell),
-        ("Billets sans nom : cocarde vierge, nom écrit sur place", unnamed, lambda row: ("", "", "")),
+        ("Billets sans nom : cocarde vierge, nom écrit sur place", unnamed, lambda row: ("", "", "", row["allergy"])),
     ]
     for title, rows, name in sections:
         rows_per_page = int((PAGE.height - 2 * MARGIN - HEADER) // ROW_HEIGHT)
@@ -79,12 +88,15 @@ def write_pdf(path, named, unnamed):
                 y += ROW_HEIGHT
                 baseline = y - (ROW_HEIGHT - FONT_SIZE) / 2 - 2
                 page.draw_rect(fitz.Rect(MARGIN + 2, baseline - 10, MARGIN + 13, baseline + 1), color=(0, 0, 0), width=0.8)
-                last_name, first_name, note = name(row)
+                last_name, first_name, note, allergy = name(row)
+                name_baseline = baseline - 4 if allergy else baseline
                 x = COLUMNS[0][0]
-                page.insert_text((x, baseline), last_name, fontname="hebo", fontsize=FONT_SIZE)
+                page.insert_text((x, name_baseline), last_name, fontname="hebo", fontsize=FONT_SIZE)
                 # fitz.get_text_length sous-estime les capitales accentuées (« SÉGUIN ») : la police mesure juste
                 x += BOLD.text_length(last_name, FONT_SIZE)
-                page.insert_text((x, baseline), first_name + note, fontname="helv", fontsize=FONT_SIZE)
+                page.insert_text((x, name_baseline), first_name + note, fontname="helv", fontsize=FONT_SIZE)
+                if allergy:
+                    page.insert_text((COLUMNS[0][0], name_baseline + 9), f"Allergie : {allergy}", fontname="hebo", fontsize=7.5, color=(0.8, 0, 0))
                 page.insert_text((COLUMNS[1][0], baseline), row["holder"], fontname="helv", fontsize=FONT_SIZE)
                 page.insert_text((COLUMNS[2][0], baseline), row["order"], fontname="helv", fontsize=FONT_SIZE)
                 line(page, y)
@@ -97,7 +109,7 @@ def line(page, y):
 
 def name_cell(row):
     note = " (cocarde vierge)" if row["blankBadge"] else ""
-    return row["lastName"].upper(), f", {row['firstName']}", note
+    return row["lastName"].upper(), f", {row['firstName']}", note, row["allergy"]
 
 
 if __name__ == "__main__":
