@@ -7,6 +7,8 @@ printing get a blank badge, completed on site.
 """
 
 import csv
+import difflib
+import re
 import sys
 from pathlib import Path
 
@@ -49,10 +51,24 @@ def row(badge, ticket, printed, allergies):
         "firstName": badge["firstName"],
         "blankBadge": bool(name) and sort_key(name) not in printed,
         # Ce qu'affiche l'appli EventBrite au scan, quand ce n'est pas la personne
-        "holder": "" if sort_key(holder) == sort_key(name) else holder,
+        "holder": "" if same_person(holder, badge["lastName"]) else holder,
         "order": ticket["order"],
         "allergy": allergies.get(ticket["id"], ""),
     }
+
+
+# Même nom de famille, à une faute de frappe, un trait d'union ou un nom composé près
+def same_person(holder, last_name):
+    holder_words = name_words(holder)
+    return any(
+        difflib.SequenceMatcher(None, word, holder_word).ratio() >= 0.8
+        for word in name_words(last_name)
+        for holder_word in holder_words
+    )
+
+
+def name_words(text):
+    return re.findall(r"[a-z]+", sort_key(text))
 
 
 # Polices standard du PDF : pas de tiret cadratin, rendu comme un point médian
